@@ -14,9 +14,11 @@ ApplicationWindow {
     width: 1000
     height: 500
     minimumHeight: 500
-    minimumWidth: 500
+    minimumWidth: 1000
+    maximumHeight: 500
+    maximumWidth: 1000
     title: 'Main'
-
+    flags: Qt.Window | Qt.FramelessWindowHint
 
     StackLayout {
         id: stackLay
@@ -34,6 +36,8 @@ ApplicationWindow {
 
         Item {
             id: homeTab
+            x: 0
+            y: -6
             Layout.preferredHeight: 440
             Layout.preferredWidth: 980
             antialiasing: true
@@ -79,13 +83,16 @@ ApplicationWindow {
                                 focus: true
                                 antialiasing: true
                                 display: AbstractButton.TextBesideIcon
-                                checked: true
-                                checkable: true
-                                autoExclusive: true
+                                checked: false
+                                checkable: false
+                                autoExclusive: false
                                 flat: false
                                 autoRepeat: false
                                 highlighted: true
                                 onClicked: view.setCurrentIndex(1)
+                                background: Rectangle {
+                                    color: "#343434"
+                                }
 
                             }
 
@@ -105,6 +112,9 @@ ApplicationWindow {
                                 flat: true
                                 autoRepeat: true
                                 onClicked: con.ex()
+                                background: Rectangle {
+                                    color: "#343434"
+                                }
                             }
                         }
 
@@ -299,7 +309,7 @@ ApplicationWindow {
                 interactive: true
                 anchors.bottomMargin: 15
                 anchors.horizontalCenter: parent.horizontalCenter
-            }
+               }
         }
 
         Item {
@@ -362,19 +372,33 @@ ApplicationWindow {
     TabBar {
         id: bar
         width: 608
-        height: 40
+        height: 26
         anchors.left: parent.left
         anchors.top: parent.top
-        anchors.topMargin: 10
+        anchors.topMargin: 24
         anchors.leftMargin: 10
         focusPolicy: Qt.StrongFocus
         currentIndex: 0
+        background: Rectangle {
+            color: "#1974c0"
+        }
+
         TabButton {
+            id: tabButton
             x: 0
-            y: 0
+            y: -22
             width: 181
             height: 40
-            text: qsTr("Home")
+            Text {
+                text: "Home"
+                anchors.verticalCenter: parent.verticalCenter
+                color: bar.currentIndex == 0 ? "white" : "black"
+                font.pixelSize: 24
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+            background: Rectangle {
+                color: bar.currentIndex == 0 ? "black" : "#343434"
+            }
             onClicked: {
                 stackLay.currentIndex(0)
                 view.setCurrentIndex(0)
@@ -382,18 +406,36 @@ ApplicationWindow {
         }
         TabButton {
             x: 182
-            y: 0
+            y: -22
             width: 202
             height: 40
-            text: qsTr("FAQ")
+            Text {
+                text: "FAQ"
+                anchors.verticalCenter: parent.verticalCenter
+                color: bar.currentIndex == 1 ? "white" : "black"
+                font.pixelSize: 24
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+            background: Rectangle {
+                color: bar.currentIndex == 1 ? "#1974c0" : "#343434"
+            }
             onClicked: stackLay.currentIndex(1)
         }
         TabButton {
             x: 452
-            y: 0
+            y: -22
             width: 225
             height: 40
-            text: qsTr("Options")
+            Text {
+                text: "Options"
+                anchors.verticalCenter: parent.verticalCenter
+                color: bar.currentIndex == 2 ? "white" : "black"
+                font.pixelSize: 24
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
+            background: Rectangle {
+                color: bar.currentIndex == 2 ? "#1974c0" : "#343434"
+            }
             onClicked: stackLay.currentIndex(2)
         }
     }
@@ -401,6 +443,6 @@ ApplicationWindow {
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.9}D{i:31}
+    D{i:0;formeditorZoom:0.9}
 }
 ##^##*/
