@@ -1,7 +1,8 @@
-from PySide2.QtCore import QObject, Signal, Property, QStringListModel, Slot
+from PySide2.QtCore import QObject, Signal, Slot
+from backend import back
 
 
-class output_data(QObject):
+class output_data(back.application):
     test_signal = Signal()
 
     def __init__(self):
@@ -13,4 +14,6 @@ class output_data(QObject):
 
     @Slot(result=str)
     def test_out(self):
-        return "sum"
+        text = back.logic(self.x, self.y)
+        print("wynik=" + str(text))
+        return text

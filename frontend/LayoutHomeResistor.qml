@@ -77,7 +77,7 @@ Item {
                 hoverEnabled:           false
                 placeholderTextColor:   "#000000"
                 placeholderText:        ".write()"
-                onTextChanged:          test.read2(textArea1.text)
+                onTextChanged:          input.read2(textArea1.text)
             }
         }
 
