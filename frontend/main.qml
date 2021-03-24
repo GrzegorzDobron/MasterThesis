@@ -6,7 +6,7 @@ import QtQuick.Controls.Imagine 2.3
 import QtQuick.Controls.Material 2.0
 import QtQuick.Dialogs.qml 1.0
 
-
+Item {
     ApplicationWindow {
 
         property var color_blue:                            "#1974c0"
@@ -70,6 +70,8 @@ import QtQuick.Dialogs.qml 1.0
         property var pageIndicator_Width:                   70
         property var pageIndicator_Heigh:                   20
 
+        property string value: output.test_out()
+
         id:             application
         visible:        true
         flags:          Qt.Window | Qt.FramelessWindowHint
@@ -83,7 +85,6 @@ import QtQuick.Dialogs.qml 1.0
         maximumWidth:   application.mainWindow_Width
         title:          application.mainWindow_Title
 
-
         StackLayout {
             id:                     layoutPage
             opacity:                1
@@ -92,7 +93,7 @@ import QtQuick.Dialogs.qml 1.0
             anchors.right:          parent.right
             anchors.top:            bar.bottom
             anchors.bottom:         parent.bottom
-            anchors.topMargin:      -1
+            anchors.topMargin:      0
             anchors.bottomMargin:   11
             anchors.leftMargin:     10
             anchors.rightMargin:    10
@@ -114,10 +115,12 @@ import QtQuick.Dialogs.qml 1.0
                 id:         layoutOptions
                 height:     460
             }
-
         }
+
         TabBar {
             id:                     bar
+            x: 10
+            y: 20
             width:                  608
             height:                 26
             anchors.left:           parent.left
@@ -134,6 +137,7 @@ import QtQuick.Dialogs.qml 1.0
                 y:                  application.barButton_y
                 width:              application.barButton_Width
                 height:             application.barButton_Heigh
+
                 Text {
                     id:                         barButton1Tittle
                     text:                       application.barButton1_Tittle
@@ -148,12 +152,14 @@ import QtQuick.Dialogs.qml 1.0
                     swipePage.setCurrentIndex(0)
                 }
             }
+
             TabButton {
                 id:                 barButton2
                 x:                  182
                 y:                  application.barButton_y
                 width:              application.barButton_Width
                 height:             application.barButton_Heigh
+
                 Text {
                     id:                         barButton2Tittle
                     text:                       application.barButton2_Tittle
@@ -165,24 +171,25 @@ import QtQuick.Dialogs.qml 1.0
                 background:                     Rectangle { color: application.barButton2_Background }
                 onClicked:                      layoutPage.currentIndex(1)
             }
+
             TabButton {
                 id:                 barButton3
                 x:                  452
                 y:                  application.barButton_y
                 width:              application.barButton_Width
                 height:             application.barButton_Heigh
+
                 Text {
                     id:                         barButton3Tittle
                     text:                       application.barButton3_Tittle
                     anchors.verticalCenter:     parent.verticalCenter
                     color:                      application.barButton3_Color
-                    font.pixelSize:             application.barButton_Font
+                    font.pixelSize:             0
                     anchors.horizontalCenter:   parent.horizontalCenter
                 }
                 background:                     Rectangle { color: application.barButton3_Background }
                 onClicked:                      layoutPage.currentIndex(2)
             }
         }
-
     }
-
+}

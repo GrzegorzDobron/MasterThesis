@@ -9,7 +9,15 @@ class input_data(QObject):
         QObject.__init__(self)
 
     @Slot("QString")
-    def read(self, text):
+    def read1(self, text):
         value = back.to_int(text)
         if type(value) == float:
             print(value)
+            return value
+
+    @Slot("QString")
+    def read2(self, text):
+        value = back.to_int(text)
+        if type(value) == float:
+            print(value)
+            return value

@@ -1,4 +1,4 @@
-from PySide2.QtCore import QObject, Signal, Property, QStringListModel
+from PySide2.QtCore import QObject, Signal, Property, QStringListModel, Slot
 
 
 class output_data(QObject):
@@ -10,3 +10,7 @@ class output_data(QObject):
     def text(self):
         self.answer = "texgtfdt"
         return self.answer
+
+    @Slot(result=str)
+    def test_out(self):
+        return "sum"

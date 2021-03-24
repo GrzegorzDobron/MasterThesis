@@ -17,7 +17,7 @@ Item {
         orientation:        Qt.Vertical
         anchors.top:        parent.top
         anchors.right:      parent.right
-        anchors.bottom:     hslider.top
+        anchors.bottom:     vslider.top
         value:              1.0 - (flickable.contentY / (flickable.contentHeight - flickable.height))
 
         Binding {

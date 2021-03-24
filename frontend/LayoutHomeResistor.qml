@@ -49,7 +49,7 @@ Item {
                 id:                      text1
                 x:                       295
                 color:                   "#ffffff"
-                text:                    "output.text.answer"
+                text:                    application.value
                 font.pixelSize:          12
             }
 
@@ -60,7 +60,7 @@ Item {
                 hoverEnabled:           false
                 placeholderTextColor:   "#000000"
                 placeholderText:        ".write()"
-                onTextChanged:          input.read(textArea.text)
+                onTextChanged:          input.read1(textArea.text)
             }
 
             Text {
@@ -77,7 +77,7 @@ Item {
                 hoverEnabled:           false
                 placeholderTextColor:   "#000000"
                 placeholderText:        ".write()"
-                onTextChanged:          input.read(textArea1.text)
+                onTextChanged:          test.read2(textArea1.text)
             }
         }
 

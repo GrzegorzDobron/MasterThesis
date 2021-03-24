@@ -1,15 +1,27 @@
-import os
 import sys
+import time
 
-from PySide2.QtGui import QGuiApplication, QIcon
-from PySide2.QtQml import QQmlApplicationEngine
+from PySide2.QtCore import QUrl, Slot
+from PySide2.QtQuick import QQuickView
+from PySide2.QtWidgets import QApplication
 
-from backend import input, output, static
+from backend import input, output, static, back
+
+x1 = 0
+x2 = 0
+sum = 0
+
+
+@Slot("QString")
+def read2(text):
+    value = back.to_int(text)
+    if type(value) == float:
+        print(value)
+
 
 if __name__ == "__main__":
-    app = QGuiApplication(sys.argv)
-    app.setWindowIcon(QIcon("frontend/files/icon.png"))
-    engine = QQmlApplicationEngine()
+    app = QApplication(sys.argv)
+    engine = QQuickView()
 
     static = static.static_function()
     input_data = input.input_data()
@@ -19,9 +31,8 @@ if __name__ == "__main__":
     context.setContextProperty("static", static)
     context.setContextProperty("input", input_data)
     context.setContextProperty("output", output_data)
+    context.setContextProperty("test", read2)
 
-    engine.load(os.path.join(os.path.dirname(__file__), "frontend/main.qml"))
-
-    if not engine.rootObjects():
-        sys.exit(-1)
-    sys.exit(app.exec_())
+    engine.setSource(QUrl("frontend/main.qml"))
+    engine.show()
+    app.exec_()
