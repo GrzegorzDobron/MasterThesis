@@ -1,5 +1,6 @@
 from PySide2.QtCore import QObject, Signal, Slot
 from backend import back
+import var
 
 
 class output_data(back.application):
@@ -17,3 +18,7 @@ class output_data(back.application):
         text = back.logic(self.x, self.y)
         print("wynik=" + str(text))
         return text
+
+    @Slot(result=str)
+    def faq_text(self):
+        return back.faq()

@@ -36,9 +36,10 @@ Item {
         height:             293
         flickableDirection: Flickable.VerticalFlick
         contentHeight:      dummyContent.height
+
         Text {
             id:             dummyContent
-            text:           "ABC \n\n\n\n\n\n\n\n\n\n\n\n\n\n fd\n\n\n\n\n\n\n\n\n\n\n\n\n\n fd\n\n\n\n\n\n\n\n\n\n\n\n\n\n fd"
+            text:           output.faq_text()
             color:          "red"
             font.pixelSize: 12
         }
