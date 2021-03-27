@@ -1,7 +1,7 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.1
+import QtQuick 2.11
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.12
-import QtQuick.Window 2.15
+import QtQuick.Window 2.2
 import QtQuick.Controls.Imagine 2.3
 import QtQuick.Controls.Material 2.0
 import QtQuick.Dialogs.qml 1.0
@@ -48,6 +48,12 @@ import QtQuick.Dialogs.qml 1.0
         property var chooseWindowButton_Heigh:              50
         property var chooseWindoweButton_Font:              14
         property var chooseWindowButton_BackgroundColor:    application.color_grey
+
+        property var resistorWindowInputLabel1_Text:        "1. wartość:"
+        property var resistorWindowInputLabel2_Text:        "2. wartość:"
+        property var resistorWindowInput1_placeholderText:  "liczba 1"
+        property var resistorWindowInput2_placeholderText:  "liczba 2"
+        property var resistorWindowInput_placeholderColor:  application.color_black
 
         property var buttonPreview_Tittle:                  "<-"
         property var buttonPreview_Width:                   40

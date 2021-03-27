@@ -1,7 +1,7 @@
-import QtQuick 2.6
-import QtQuick.Controls 2.1
+import QtQuick 2.11
+import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.12
-import QtQuick.Window 2.15
+import QtQuick.Window 2.2
 import QtQuick.Controls.Imagine 2.3
 import QtQuick.Controls.Material 2.0
 import QtQuick.Dialogs.qml 1.0
@@ -34,7 +34,7 @@ Item {
         }
 
         Grid {
-            id:                                 grid
+            id:                                 resistorWindowInputGrid
             x:                                  115
             y:                                  43
             width:                              241
@@ -46,47 +46,39 @@ Item {
             columns:                            2
 
             Text {
-                id:                      text1
+                id:                      resistorWindowInputGridLabel1
                 x:                       295
                 color:                   "#ffffff"
-                text:                    "application.value"
+                text:                    application.resistorWindowInputLabel1_Text
                 font.pixelSize:          12
             }
 
             TextField {
-                id:                     textArea
+                id:                     resistorWindowInputGridInput1
                 width:                  171
                 height:                 27
                 hoverEnabled:           false
-                placeholderTextColor:   "#000000"
-                placeholderText:        ".write()"
-                //onTextChanged:          input.read1(textArea.text)
+                placeholderTextColor:   application.resistorWindowInput_placeholderColor
+                placeholderText:        application.resistorWindowInputLabel1_Text
+                onTextChanged:          input.read1(textArea.text)
             }
 
             Text {
-                id:                     text2
+                id:                     resistorWindowInputGridLabel2
                 color:                  "#ffffff"
-                text:                   "application.mainWindowButtonExit_Tittle"
+                text:                   application.resistorWindowInputLabel2_Text
                 font.pixelSize:         12
             }
 
             TextField {
-                id:                     textArea1
+                id:                     resistorWindowInputGridInput2
                 width:                  171
                 height:                 27
                 hoverEnabled:           false
-                placeholderTextColor:   "#000000"
-                placeholderText:        ".write()"
-                //onTextChanged:          input.read2(textArea1.text)
+                placeholderTextColor:   application.resistorWindowInput_placeholderColor
+                placeholderText:        application.resistorWindowInputLabel2_Text
+                onTextChanged:          input.read2(textArea1.text)
             }
-        }
-
-        Button {
-            id:                         button
-            x:                          598
-            y:                          161
-            text:                       qsTr("Button")
-            //onClicked:                  { text2.text = output.text }
         }
     }
 }

@@ -4,6 +4,11 @@ from PyQt5.QtCore import QObject
 import var
 
 
+def main_logic(output, input):
+
+    output.text = input.x
+
+
 class application(QObject):
     x = 0
     y = 0
@@ -21,18 +26,3 @@ def input_to_float(inside):
         pass
 
 
-def logic(x, y):
-    answer = x + y
-    return answer
-
-
-def faq():
-    data = ""
-    try:
-        file = open(var.path)
-        data = file.read()
-        file.close()
-    except Exception:
-        data = "brak FAQ"
-    finally:
-        return data

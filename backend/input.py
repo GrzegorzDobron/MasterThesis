@@ -14,6 +14,8 @@ class input_data(back.application):
             print(value)
             self.x = value
             print("x=" + str(self.x))
+            return self.x
+        return 0
 
     @pyqtSlot("QString")
     def read2(self, text):
