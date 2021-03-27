@@ -39,7 +39,7 @@ Item {
 
         Text {
             id:             dummyContent
-            text:           output.faq_text()
+            text:           "output.faq_text()"
             color:          "red"
             font.pixelSize: 12
         }

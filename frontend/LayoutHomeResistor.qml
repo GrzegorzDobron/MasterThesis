@@ -49,7 +49,7 @@ Item {
                 id:                      text1
                 x:                       295
                 color:                   "#ffffff"
-                text:                    application.value
+                text:                    "application.value"
                 font.pixelSize:          12
             }
 
@@ -60,13 +60,13 @@ Item {
                 hoverEnabled:           false
                 placeholderTextColor:   "#000000"
                 placeholderText:        ".write()"
-                onTextChanged:          input.read1(textArea.text)
+                //onTextChanged:          input.read1(textArea.text)
             }
 
             Text {
                 id:                     text2
                 color:                  "#ffffff"
-                text:                   application.mainWindowButtonExit_Tittle
+                text:                   "application.mainWindowButtonExit_Tittle"
                 font.pixelSize:         12
             }
 
@@ -77,7 +77,7 @@ Item {
                 hoverEnabled:           false
                 placeholderTextColor:   "#000000"
                 placeholderText:        ".write()"
-                onTextChanged:          input.read2(textArea1.text)
+                //onTextChanged:          input.read2(textArea1.text)
             }
         }
 
@@ -86,7 +86,7 @@ Item {
             x:                          598
             y:                          161
             text:                       qsTr("Button")
-            onClicked:                  { text2.text = output.text }
+            //onClicked:                  { text2.text = output.text }
         }
     }
 }
