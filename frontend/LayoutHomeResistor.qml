@@ -46,17 +46,14 @@ Item {
             columns:                            2
 
             Text {
-                id:                      resistorWindowInputGridLabel1
-                x:                       295
-                color:                   "#ffffff"
+                id:                             resistorWindowInputGridLabel1
+                color:                           "#ffffff"
                 text:                    application.resistorWindowInputLabel1_Text
-                font.pixelSize:          12
+                font.pixelSize:          application.resistorWindowInputLabel_Size
             }
 
             TextField {
                 id:                     resistorWindowInputGridInput1
-                width:                  171
-                height:                 27
                 hoverEnabled:           false
                 placeholderTextColor:   application.resistorWindowInput_placeholderColor
                 placeholderText:        application.resistorWindowInputLabel1_Text
@@ -67,13 +64,11 @@ Item {
                 id:                     resistorWindowInputGridLabel2
                 color:                  "#ffffff"
                 text:                   application.resistorWindowInputLabel2_Text
-                font.pixelSize:         12
+                font.pixelSize:         application.resistorWindowInputLabel_Size
             }
 
             TextField {
                 id:                     resistorWindowInputGridInput2
-                width:                  171
-                height:                 27
                 hoverEnabled:           false
                 placeholderTextColor:   application.resistorWindowInput_placeholderColor
                 placeholderText:        application.resistorWindowInputLabel2_Text

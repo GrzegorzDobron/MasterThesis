@@ -49,6 +49,7 @@ import QtQuick.Dialogs.qml 1.0
         property var chooseWindoweButton_Font:              14
         property var chooseWindowButton_BackgroundColor:    application.color_grey
 
+        property var resistorWindowInputLabel_Size:         12
         property var resistorWindowInputLabel1_Text:        "1. wartość:"
         property var resistorWindowInputLabel2_Text:        "2. wartość:"
         property var resistorWindowInput1_placeholderText:  "liczba 1"
