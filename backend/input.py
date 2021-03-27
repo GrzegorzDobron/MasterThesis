@@ -1,12 +1,13 @@
-from PySide2.QtCore import QObject, Slot
+from PyQt5.QtCore import QObject, pyqtSlot
 from backend import back
+
 
 class input_data(back.application):
 
     def __init__(self):
         QObject.__init__(self)
 
-    @Slot("QString")
+    @pyqtSlot("QString")
     def read1(self, text):
         value = back.input_to_float(text)
         if type(value) == float:
@@ -14,7 +15,7 @@ class input_data(back.application):
             self.x = value
             print("x=" + str(self.x))
 
-    @Slot("QString")
+    @pyqtSlot("QString")
     def read2(self, text):
         value = back.input_to_float(text)
         if type(value) == float:

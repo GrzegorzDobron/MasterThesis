@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-from PySide2.QtCore import QUrl
-from PySide2.QtGui import QGuiApplication
-from PySide2.QtQml import QQmlApplicationEngine
-from PySide2.QtQuick import QQuickView
-from PySide2.QtWidgets import QApplication
+
+from PyQt5.QtGui import QGuiApplication
+from PyQt5.QtQml import QQmlApplicationEngine
+
 from backend import static, input, output, back
 
 if __name__ == "__main__":

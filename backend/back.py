@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from PySide2.QtCore import QObject
+from PyQt5.QtCore import QObject
 import var
 
 
