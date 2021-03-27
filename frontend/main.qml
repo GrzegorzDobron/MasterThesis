@@ -6,7 +6,7 @@ import QtQuick.Controls.Imagine 2.3
 import QtQuick.Controls.Material 2.0
 import QtQuick.Dialogs.qml 1.0
 
-Item {
+
     ApplicationWindow {
 
         property var color_blue:                            "#1974c0"
@@ -192,4 +192,3 @@ Item {
             }
         }
     }
-}
