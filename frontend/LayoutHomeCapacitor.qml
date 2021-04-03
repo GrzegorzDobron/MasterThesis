@@ -1,34 +1,31 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.2
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.12
-import QtQuick.Window 2.2
-import QtQuick.Controls.Imagine 2.3
-import QtQuick.Controls.Material 2.0
+import QtQuick.Window 2.15
+import QtQuick.Controls.Imagine 2.15
+import QtQuick.Controls.Material 2.15
 import QtQuick.Dialogs.qml 1.0
 
 Item {
-    id:                                         capacitorWindow
+    id:                         capacitorWindow
 
     Rectangle {
-        id:                                     capacitorWindowBackground
-        color:                                  application.swapWindow_BackgroundColor
-        anchors.fill:                           parent
-        anchors.leftMargin:                     -15
-        anchors.rightMargin:                    -15
+        id:                     capacitorWindowBackground
+        anchors.fill:           parent
+        anchors.leftMargin:     application.itemMargin
+        anchors.rightMargin:    application.itemMargin
+        color:                  application.swapWindow_BackgroundColor
+
 
         Button {
             id:                                 capacitorWindowButtonPreview
-            x:                                  application.buttonPreview_x
-            y:                                  application.buttonPreview_y
+            highlighted:                        true
+            anchors.verticalCenter:             parent.verticalCenter
+            anchors.left:                       parent.left
+            anchors.leftMargin:                 application.buttonPreview_Margin
             width:                              application.buttonPreview_Width
             height:                             application.buttonPreview_Heigh
             text:                               application.buttonPreview_Tittle
-            checked:                            true
-            checkable:                          true
-            autoExclusive:                      true
-            highlighted:                        true
-            flat:                               true
-            autoRepeat:                         true
             onClicked:                          swipePage.setCurrentIndex(1)
         }
     }

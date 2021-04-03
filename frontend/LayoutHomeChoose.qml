@@ -1,9 +1,9 @@
-import QtQuick 2.11
-import QtQuick.Controls 2.2
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.12
-import QtQuick.Window 2.2
-import QtQuick.Controls.Imagine 2.3
-import QtQuick.Controls.Material 2.0
+import QtQuick.Window 2.15
+import QtQuick.Controls.Imagine 2.15
+import QtQuick.Controls.Material 2.15
 import QtQuick.Dialogs.qml 1.0
 
 Item {
@@ -11,92 +11,80 @@ Item {
 
     Rectangle {
         id:                                     chooseWindowBackground
-        color:                                  application.swapWindow_BackgroundColor
         anchors.fill:                           parent
-        anchors.leftMargin:                     -15
-        anchors.rightMargin:                    -15
+        anchors.leftMargin:                     application.itemMargin
+        anchors.rightMargin:                    application.itemMargin
+        color:                                  application.swapWindow_BackgroundColor
 
         Row {
             id:                                 chooseWindowRow
-            x:                                  210
-            width:                              543
-            anchors.top:                        parent.top
-            anchors.bottom:                     parent.bottom
-            anchors.bottomMargin:               50
-            anchors.topMargin:                  50
-            anchors.horizontalCenterOffset:     0
             anchors.horizontalCenter:           parent.horizontalCenter
+            anchors.bottom:                     parent.bottom
+            anchors.bottomMargin:               application.chooseWindowButton_Margin
+            width:                              application.chooseWindowColumn_Width
+            height:                             application.chooseWindowColumn_Heigh
+
 
             Column {
                 id:                             chooseWindowColumnResistor
-                width:                          200
-                anchors.top:                    parent.top
-                anchors.bottom:                 parent.bottom
+                anchors.leftMargin:             0
                 anchors.bottomMargin:           0
                 anchors.topMargin:              0
+                anchors.left:                   parent.left
+                anchors.top:                    parent.top
+                anchors.bottom:                 parent.bottom
+                width:                          application.chooseWindowImage_Width
 
                 Image {
                     id:                         chooseWindowImageResistor
-                    width:                      application.chooseWindowImage_Width
-                    anchors.top:                parent.top
-                    source:                     application.chooseWindowImageResistor_Path
-                    anchors.horizontalCenter:   parent.horizontalCenter
                     anchors.topMargin:          0
+                    anchors.top:                parent.top
+                    anchors.horizontalCenter:   parent.horizontalCenter
+                    width:                      application.chooseWindowImage_Width
+                    source:                     application.chooseWindowImageResistor_Path
                     fillMode:                   Image.PreserveAspectFit
                 }
 
                 Button {
                     id:                         chooseWindowButtonResistor
-                    text:                       application.chooseWindowButtonResistor_Tittle
-                    anchors.bottom:             parent.bottom
-                    font.pointSize:             application.chooseWindoweButton_Font
-                    autoExclusive:              true
-                    checked:                    true
-                    checkable:                  true
                     highlighted:                true
-                    flat:                       true
-                    autoRepeat:                 true
-                    anchors.bottomMargin:       50
+                    anchors.bottomMargin:       0
+                    anchors.bottom:             parent.bottom
                     anchors.horizontalCenter:   parent.horizontalCenter
+                    font.pointSize:             application.chooseWindowButton_Font
+                    text:                       application.chooseWindowButtonResistor_Tittle
                     onClicked:                  swipePage.setCurrentIndex(2)
                 }
             }
 
             Column {
                 id:                             chooseWindowColumnCapacitor
-                width:                          application.chooseWindowColumn_Width
-                anchors.right:                  parent.right
-                anchors.top:                    parent.top
-                anchors.bottom:                 parent.bottom
                 anchors.bottomMargin:           0
                 anchors.topMargin:              0
                 anchors.rightMargin:            0
+                anchors.right:                  parent.right
+                anchors.top:                    parent.top
+                anchors.bottom:                 parent.bottom
+                width:                          application.chooseWindowImage_Width
 
                 Image {
                     id:                         chooseWindowImageCapacitor
-                    x:                          0
-                    width:                      application.chooseWindowImage_Width
-                    anchors.top:                parent.top
-                    source:                     application.chooseWindowImageCapacitor_Path
-                    mipmap:                     true
-                    anchors.horizontalCenter:   parent.horizontalCenter
                     anchors.topMargin:          0
+                    anchors.top:                parent.top
+                    anchors.horizontalCenter:   parent.horizontalCenter
+                    width:                      application.chooseWindowImage_Width
+                    source:                     application.chooseWindowImageCapacitor_Path
                     fillMode:                   Image.PreserveAspectFit
                 }
 
                 Button {
                     id:                         chooseWindowButtonCapacitor
-                    text:                       application.chooseWindowButtonCapacitor_Tittle
-                    anchors.bottom:             parent.bottom
-                    autoExclusive:              true
-                    checked:                    true
-                    anchors.bottomMargin:       50
                     highlighted:                true
+                    anchors.bottomMargin:       0
+                    anchors.bottom:             parent.bottom
                     anchors.horizontalCenter:   parent.horizontalCenter
-                    flat:                       true
-                    font.pointSize:             application.chooseWindoweButton_Font
-                    autoRepeat:                 true
-                    checkable:                  true
+                    text:                       application.chooseWindowButtonCapacitor_Tittle
+                    font.pointSize:             application.chooseWindowButton_Font
                     onClicked:                  swipePage.setCurrentIndex(3)
                 }
             }
@@ -104,17 +92,13 @@ Item {
 
         Button {
             id:                                 chooseWindowButtonPreview
-            x:                                  application.buttonPreview_x
-            y:                                  application.buttonPreview_y
+            highlighted:                        true
+            anchors.verticalCenter:             parent.verticalCenter
+            anchors.left:                       parent.left
+            anchors.leftMargin:                 application.buttonPreview_Margin
             width:                              application.buttonPreview_Width
             height:                             application.buttonPreview_Heigh
             text:                               application.buttonPreview_Tittle
-            checked:                            true
-            checkable:                          true
-            autoExclusive:                      true
-            highlighted:                        true
-            flat:                               true
-            autoRepeat:                         true
             onClicked:                          swipePage.setCurrentIndex(0)
         }
     }

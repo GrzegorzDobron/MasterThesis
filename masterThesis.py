@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
+from functools import partial
 
-from PyQt5 import QtCore
-from PyQt5.QtCore import QTimer, pyqtProperty
+from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QGuiApplication
 from PyQt5.QtQml import QQmlApplicationEngine
-
-from functools import partial
 
 from backend import static, input, output, back
 

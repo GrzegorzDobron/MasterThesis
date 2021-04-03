@@ -5,13 +5,16 @@ import var
 
 
 def main_logic(output, input):
-
-    output.text = input.x
+    wynik = input.x + input.y
+    output.text = wynik
 
 
 class application(QObject):
     x = 0
     y = 0
+
+    pastes_list = []
+
 
     def __init__(self):
         QObject.__init__(self)

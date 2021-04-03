@@ -32,11 +32,28 @@ class output_data(back.application):
             self._text = h
             self.signal.emit(h)
 
+class past_list(back.application):
+    signal = pyqtSignal(float)
+
+    def __init__(self):
+        super(past_list, self).__init__()
+        self._text = 10
+
+    @pyqtProperty(float, notify=signal)
+    def text(self):
+        return self._text
+
+    @text.setter
+    def text(self, h):
+        if self._text != h:
+            self._text = h
+            self.signal.emit(h)
+
 
 def faq():
     data = ""
     try:
-        file = open(var.path)
+        file = open(var.path, encoding="utf-8")
         data = file.read()
         file.close()
     except Exception:
