@@ -10,116 +10,143 @@ import QtQuick.Dialogs.qml 1.0
 ApplicationWindow {
 
     // kolory
-    property var color_blue:                            "#1974c0"       // kolor wydzialowy
-    property var color_black:                           "#000000"       //
-    property var color_grey:                            "#343434"       //
+    property var color_blue:                                "#1974c0"       // kolor wydzialowy
+    property var color_black:                               "black"         //
+    property var color_grey:                                "#343434"       //
+    property var color_white:                               "white"
 
     // zmienne ogólne
-    property var leftMargin:                            100             // odsuniecie przed previewButtow
-    property var smallTextSize:                         12              // mala czcionka
-    property var bigTextSize:                           12              // duza czcionka
+    property var leftMargin:                                100             // odsuniecie przed previewButtow
+    property var smallTextSize:                             12              // mala czcionka
+    property var bigTextSize:                               12              // duza czcionka
 
     // okno główne aplikacji
-    property var mainWindow_Title:                      "Main"
-    property var mainWindow_Width:                      1000
-    property var mainWindow_Heigh:                      500
-    property var mainWindow_BackgroundColor:            application.color_blue
-    
+    property var mainWindow_Title:                          "Main"
+    property var mainWindow_Width:                          1000
+    property var mainWindow_Heigh:                          500
+    property var mainWindow_BackgroundColor:                application.color_blue
+
     // okno faq
-    property var faqWindowSlider_x:                     940
-    property var faqWindowSlider_Width:                 40
-    property var faqWindowSlider_Height:                430
-    property var faqWindowFlickable_Width:              320
-    property var faqWindowFlickable_Height:             400
-    property var faqWindowLeftMargin:                   application.leftMargin
-    property var faqWindowText_size:                    application.smallTextSize
-    property var faqWindowText_color:                   application.color_black
+    property var faqWindowSlider_x:                         940
+    property var faqWindowSlider_Width:                     40
+    property var faqWindowSlider_Height:                    430
+    property var faqWindowFlickable_Width:                  320
+    property var faqWindowFlickable_Height:                 400
+    property var faqWindowLeftMargin:                       application.leftMargin
+    property var faqWindowText_size:                        application.smallTextSize
+    property var faqWindowText_color:                       application.color_black
 
     // pasek bar
-    property var barButton1_Tittle:                     "Home"
-    property var barButton2_Tittle:                     "FAQ"
-    property var barButton3_Tittle:                     "Options"
-    property var barButton1_Color:                      bar.currentIndex == 0 ? "white" : "black"
-    property var barButton2_Color:                      bar.currentIndex == 1 ? "white" : "black"
-    property var barButton3_Color:                      bar.currentIndex == 2 ? "white" : "black"
-    property var barButton1_Background:                 bar.currentIndex == 0 ? application.color_black : application.color_grey
-    property var barButton2_Background:                 bar.currentIndex == 1 ? application.color_blue : application.color_grey
-    property var barButton3_Background:                 bar.currentIndex == 2 ? application.color_blue : application.color_grey
-    property var barButton_Width:                       200
-    property var barButton_Heigh:                       40
-    property var barButton_Font:                        application.bigTextSize
-    property var barButton_x:                           14
-    property var barButton_y:                           -22
+    property var barButton1_Tittle:                         "Home"
+    property var barButton2_Tittle:                         "FAQ"
+    property var barButton3_Tittle:                         "Options"
+    property var barButton1_Color:                          bar.currentIndex == 0 ? "white" : "black"
+    property var barButton2_Color:                          bar.currentIndex == 1 ? "white" : "black"
+    property var barButton3_Color:                          bar.currentIndex == 2 ? "white" : "black"
+    property var barButton1_Background:                     bar.currentIndex == 0 ? application.color_black : application.color_grey
+    property var barButton2_Background:                     bar.currentIndex == 1 ? application.color_blue : application.color_grey
+    property var barButton3_Background:                     bar.currentIndex == 2 ? application.color_blue : application.color_grey
+    property var barButton_Width:                           200
+    property var barButton_Heigh:                           40
+    property var barButton_Font:                            application.bigTextSize
+    property var barButton_x:                               14
+    property var barButton_y:                               -22
 
     // SwipeView
-    property var swapWindow_BackgroundColor:            application.color_black
-    property var pageIndicator_Width:                   70
-    property var pageIndicator_Heigh:                   20
-    property var pageIndicator_Margin:                  15
-    property var itemMargin:                            -15             // rozszerzenie tła SwipeView
+    property var swapWindow_BackgroundColor:                application.color_black
+    property var pageIndicator_Width:                       70
+    property var pageIndicator_Heigh:                       20
+    property var pageIndicator_Margin:                      15
+    property var itemMargin:                                -15             // rozszerzenie tła SwipeView
 
     // previewButton
-    property var buttonPreview_Tittle:                  "<-"
-    property var buttonPreview_Width:                   40
-    property var buttonPreview_Heigh:                   240
-    property var buttonPreview_Font:                    24
-    property var buttonPreview_Margin:                  30
-    property var buttonPreview_BackgroundColor:         application.color_black
+    property var buttonPreview_Tittle:                      "<-"
+    property var buttonPreview_Width:                       40
+    property var buttonPreview_Heigh:                       240
+    property var buttonPreview_Font:                        24
+    property var buttonPreview_Margin:                      30
+    property var buttonPreview_BackgroundColor:             application.color_black
 
     // okno powitalne
-    property var mainWindowButtonProject_Tittle:        "Projektowanie"
-    property var mainWindowButtonExit_Tittle:           "Exit"
-    property var mainWindowButton_LeftMargin:           80
-    property var mainWindowButton_Spacing:              10
-    property var mainWindowButton_Width:                200
-    property var mainWindowButton_Heigh:                50
-    property var mainWindowButton_Font:                 application.bigTextSize
-    property var mainWindowButton_BackgroundColor:      application.color_grey
-    property var mainWindowColumn_Width:                170
-    property var mainWindowColumn_Heigh:                100
-    property var mainWindowLogo_Width:                  500
-    property var mainWindowLogo_RightMargin:            20
+    property var mainWindowButtonProject_Tittle:            "Projektowanie"
+    property var mainWindowButtonExit_Tittle:               "Exit"
+    property var mainWindowButton_LeftMargin:               80
+    property var mainWindowButton_Spacing:                  10
+    property var mainWindowButton_Width:                    200
+    property var mainWindowButton_Heigh:                    50
+    property var mainWindowButton_Font:                     application.bigTextSize
+    property var mainWindowButton_BackgroundColor:          application.color_grey
+    property var mainWindowColumn_Width:                    170
+    property var mainWindowColumn_Heigh:                    100
+    property var mainWindowLogo_Width:                      500
+    property var mainWindowLogo_RightMargin:                20
 
     // okno wyboru
-    property var chooseWindowButtonResistor_Tittle:     "Rezystor"
-    property var chooseWindowButtonCapacitor_Tittle:    "Kondensator"
-    property var chooseWindowButton_Width:              200
-    property var chooseWindowButton_Heigh:              50
-    property var chooseWindowButton_Font:               application.bigTextSize
-    property var chooseWindowButton_BackgroundColor:    application.color_grey
-    property var chooseWindowButton_Margin:             50                          // odsunieie button od dolu
-    property var chooseWindowColumn_Heigh:              300                         // odleglosc zdjecia od button
-    property var chooseWindowColumn_Width:              600                         // szerokosc miedzy kolumnami
-    property var chooseWindowImage_Width:               300                         // szerokosc zdjecia
+    property var chooseWindowButtonResistor_Tittle:         "Rezystor"
+    property var chooseWindowButtonCapacitor_Tittle:        "Kondensator"
+    property var chooseWindowButton_Width:                  200
+    property var chooseWindowButton_Heigh:                  50
+    property var chooseWindowButton_Font:                   application.bigTextSize
+    property var chooseWindowButton_BackgroundColor:        application.color_grey
+    property var chooseWindowButton_Margin:                 50                          // odsunieie button od dolu
+    property var chooseWindowColumn_Heigh:                  300                         // odleglosc zdjecia od button
+    property var chooseWindowColumn_Width:                  600                         // szerokosc miedzy kolumnami
+    property var chooseWindowImage_Width:                   300                         // szerokosc zdjecia
 
     // okno wprowadzania
-    property var resistorWindowInput_placeholderColor:  application.color_grey
-    property var resistorWindowInputLabel_Size:         application.smallTextSize
-    property var resistorWindowInputLabel_Color:        application.color_grey
-    property var resistorWindowInputGrid_Spacing:       10
-    property var resistorWindowInputGrid_Margin:        application.leftMargin
-    property var resistorWindowInputGrid_Width:         200
-    property var resistorWindowInputGrid_Heigh:         200
+    property var resistorWindowInput_placeholderColor:      application.color_grey
+    property var resistorWindowInputLabel_Size:             application.smallTextSize
+    property var resistorWindowInputLabel_Color:            application.color_white
+    property var resistorWindowInputMainLabel_Size:         application.bigTextSize
+    property var resistorWindowInputmainLabel_Color:        application.color_white
+
+    property var resistorWindowInputGrid_Spacing:           10
+    property var resistorWindowInputGrid_TopMargin:         50          // odsuniecie tekstu od ramki z gory
+    property var resistorWindowInputGrid_LeftMargin:        10          // odsuniecie tekstu od ramki z lewej
+
+    property var resistorWindowInputRectangle_Heigh:        150         // gabaryt ramki
+    property var resistorWindowInputRectangle_Width:        200         // gabaryt ramki
+    property var resistorWindowInputRectangleList_Heigh:    150         // gabaryt ramki - lista
+    property var resistorWindowInputRectangleList_Width:    300         // gabaryt ramki - lista
+    property var resistorWindowInputRectangle_Top:          50          // odsuniecie ramki z gory
+    property var resistorWindowInputRectangle_Spacing:      10          // odsuniecie ramek
+
+    property var resistorWindowInput_Width:                 50          // szerokosc pola do wprowadzania
+    property var resistorWindowInputList_Width:             150         // szerokość listy wyboru
+
+    property var resistorWindowInputRectangleBorder_Width:   5          // grubosc ramki
+    property var resistorWindowInputRectangleBorder_Color:   application.color_grey
 
     // okno rezystora
-    property var resistorWindowInputLabel1_Text:        "1. wartość:"
-    property var resistorWindowInputLabel2_Text:        "2. wartość:"
-    property var resistorWindowInput1_placeholderText:  "0"
-    property var resistorWindowInput2_placeholderText:  "0"
+    property var resistorWindowInputMainLabel1_Text:        "DANE WEJŚCIOWE:"
+    property var resistorWindowInputMainLabel2_Text:        "PARAMETRY OBLICZEŃ:"
+    property var resistorWindowInputMainLabel3_Text:        "DANE USTANDARYZOWANE:"
+
+    property var resistorWindowInputLabel1_Text:            "rezystancja końcowa [R]"
+    property var resistorWindowInputLabel2_Text:            "prąd pracy [I]"
+    property var resistorWindowInputLabel3_Text:            "współ. bezp. mocy"
+    property var resistorWindowInputLabel4_Text:            "obciążalność"
+    property var resistorWindowInputLabel5_Text:            "pasta"
+    property var resistorWindowInputLabel6_Text:            "metoda korekcji"
+
+    property var resistorWindowInput1_placeholderText:      "0"
+    property var resistorWindowInput2_placeholderText:      "0"
+    property var resistorWindowInput3_placeholderText:      "0.8"
+    property var resistorWindowInput4_placeholderText:      "0.8"
 
 
     // obrazy
-    property var mainWindowImageLogo_Path:              "files/welcome-logo.png"
-    property var chooseWindowImageResistor_Path:        "files/resistor.png"
-    property var chooseWindowImageCapacitor_Path:       "files/capacitor.png"
+    property var mainWindowImageLogo_Path:                  "files/welcome-logo.png"
+    property var chooseWindowImageResistor_Path:            "files/resistor.png"
+    property var chooseWindowImageCapacitor_Path:           "files/capacitor.png"
 
-    id:             application
-    visible:        true
-    flags:          Qt.Window | Qt.FramelessWindowHint
-    color:          application.mainWindow_BackgroundColor
-    width:          application.mainWindow_Width
-    height:         application.mainWindow_Heigh
-    title:          application.mainWindow_Title
+    id:                         application
+    visible:                    true
+    flags:                      Qt.Window | Qt.FramelessWindowHint
+    color:                      application.mainWindow_BackgroundColor
+    width:                      application.mainWindow_Width
+    height:                     application.mainWindow_Heigh
+    title:                      application.mainWindow_Title
 
     StackLayout {
         id:                     layoutPage
@@ -148,8 +175,8 @@ ApplicationWindow {
         }
 
         LayoutOptions {
-            id:         layoutOptions
-            height:     460
+            id:                 layoutOptions
+            height:             460
         }
     }
 

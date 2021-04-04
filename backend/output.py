@@ -15,14 +15,14 @@ class output_faq(back.application):
         return faq()
 
 
-class output_data(back.application):
-    signal = pyqtSignal(float)
+class output_numeric(back.application):
+    signal_float = pyqtSignal(float)
 
     def __init__(self):
-        super(output_data, self).__init__()
-        self._text = 10
+        super(output_numeric, self).__init__()
+        self._text = 0
 
-    @pyqtProperty(float, notify=signal)
+    @pyqtProperty(float, notify=signal_float)
     def text(self):
         return self._text
 
@@ -30,24 +30,25 @@ class output_data(back.application):
     def text(self, h):
         if self._text != h:
             self._text = h
-            self.signal.emit(h)
+            self.signal_float.emit(h)
 
-class past_list(back.application):
-    signal = pyqtSignal(float)
+
+class output_list(back.application):
+    signal_list = pyqtSignal(list)
 
     def __init__(self):
-        super(past_list, self).__init__()
-        self._text = 10
+        super(output_list, self).__init__()
+        self._list = []
 
-    @pyqtProperty(float, notify=signal)
+    @pyqtProperty(list, notify=signal_list)
     def text(self):
-        return self._text
+        return self._list
 
     @text.setter
-    def text(self, h):
-        if self._text != h:
-            self._text = h
-            self.signal.emit(h)
+    def list(self, h):
+        if self._list != h:
+            self._list = h
+            self.signal_list.emit(h)
 
 
 def faq():

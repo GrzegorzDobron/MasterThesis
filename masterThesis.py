@@ -16,14 +16,20 @@ if __name__ == "__main__":
     global_logic = back.application()
     static = static.static_function()
     input_data = input.input_data()
-    output_data = output.output_data()
+    output_past_list = output.output_list()
+    output_corection_method_list = output.output_list()
     output_faq = output.output_faq()
+
+    output_test = output.output_numeric()
 
     context = engine.rootContext()
     context.setContextProperty("static", static)
     context.setContextProperty("input", input_data)
-    context.setContextProperty("output", output_data)
+    context.setContextProperty("output_past_list", output_past_list)
+    context.setContextProperty("output_corection_method_list", output_corection_method_list)
     context.setContextProperty("output_faq", output_faq)
+
+    context.setContextProperty("output_test", output_test)
 
     engine.load(os.path.join(os.path.dirname(__file__), "frontend/main.qml"))
 
@@ -31,6 +37,10 @@ if __name__ == "__main__":
         sys.exit(-1)
 
     timer = QTimer(interval=10)
-    timer.timeout.connect(partial(back.main_logic, output_data, input_data))
+    timer.timeout.connect(partial(back.main_logic,
+                                  input_data,
+                                  output_past_list,
+                                  output_corection_method_list,
+                                  output_test))
     timer.start()
     sys.exit(app.exec_())

@@ -1,5 +1,6 @@
 from PyQt5.QtCore import QObject, pyqtSlot
 from backend import back
+import var
 
 
 class input_data(back.application):
@@ -8,21 +9,50 @@ class input_data(back.application):
         QObject.__init__(self)
 
     @pyqtSlot("QString")
-    def read1(self, text):
+    def input_final_resistance(self, text):
         value = back.input_to_float(text)
         if type(value) == float:
-            print(value)
-            self.x = value
-            print("x=" + str(self.x))
+            self.r = value
+            print("R=" + str(self.r))
         else:
-            self.x = 0
+            self.r = var.r
 
     @pyqtSlot("QString")
-    def read2(self, text):
+    def input_current_max(self, text):
         value = back.input_to_float(text)
         if type(value) == float:
-            print(value)
-            self.y = value
-            print("y=" + str(self.y))
+            self.i_max = value
+            print("Imax=" + str(self.i_max))
         else:
-            self.y = 0
+            self.i_max = var.i_max
+
+    @pyqtSlot("QString")
+    def safety_factor_power(self, text):
+        value = back.input_to_float(text)
+        if type(value) == float:
+            self.k_p = value
+            print("k_p=" + str(self.k_p))
+        else:
+            self.k_p = var.k_p
+
+    @pyqtSlot("QString")
+    def current_carrying_capacity(self, text):
+        value = back.input_to_float(text)
+        if type(value) == float:
+            self.j = value
+            print("j=" + str(self.j))
+        else:
+            self.j = var.j
+
+    @pyqtSlot("QString")
+    def input_paste(self, text):
+        if text != "":
+            self.selected_paste = text
+            print("pasta=" + str(self.selected_paste))
+        else:
+            self.selected_paste = var.selected_paste
+
+    @pyqtSlot("QString")
+    def input_resistance_correction_methods(self, text):
+        self.selected_resistance_correction_methods = text
+        print("korekcja=" + str(self.selected_resistance_correction_methods))
