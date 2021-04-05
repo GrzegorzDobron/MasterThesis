@@ -1,19 +1,19 @@
 path = "./frontend/text/faq.txt"
 
 # default input value
-r = 0
-i_max = 0
-p_max = 0
-k_p = 0.8
-k_j = 0.8
-j = 8
+r = 0               # rezystancja docelowa
+i_max = 0           # prad max
+p_max = 0           # moc max
+k_p = 0.8           # wspolczynnik mocy
+k_j = 0.8           # wspolczynnik obciazalnosci
+j = 8               # obciazalnosc
 
 selected_resistance_correction_methods = ""
 selected_paste = ""
 
 # default output value
-x = 0
-y = 0
+x = 0               # szerokosc
+y = 0               # n * x
 
 paste_database = {
     "": {
@@ -21,8 +21,8 @@ paste_database = {
         "R": 0
     },
     "pasta1": {
-        "TWR": 12,
-        "R": 10,
+        "TWR": 1,
+        "R": 2,
     },
     "pasta2": {
         "TWR": 12,

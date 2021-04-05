@@ -104,35 +104,51 @@ ApplicationWindow {
     property var resistorWindowInputGrid_TopMargin:         50          // odsuniecie tekstu od ramki z gory
     property var resistorWindowInputGrid_LeftMargin:        10          // odsuniecie tekstu od ramki z lewej
 
-    property var resistorWindowInputRectangle_Heigh:        150         // gabaryt ramki
-    property var resistorWindowInputRectangle_Width:        200         // gabaryt ramki
+    property var resistorWindowInputRectangle_Heigh:        200         // gabaryt ramki
+    property var resistorWindowInputRectangle1_Width:        200         // gabaryt ramki
+    property var resistorWindowInputRectangle2_Width:        250         // gabaryt ramki
     property var resistorWindowInputRectangleList_Heigh:    150         // gabaryt ramki - lista
-    property var resistorWindowInputRectangleList_Width:    300         // gabaryt ramki - lista
+    // property var resistorWindowInputRectangleList_Width:    450         // gabaryt ramki - lista
+    property var resistorWindowInputRectangleList_Width:    application.resistorWindowInputRectangle1_Width + application.resistorWindowInputRectangle2_Width + application.resistorWindowInputRectangle_Spacing
     property var resistorWindowInputRectangle_Top:          50          // odsuniecie ramki z gory
     property var resistorWindowInputRectangle_Spacing:      10          // odsuniecie ramek
 
+    property var resistorWindowOutputRectangle_Heigh:       200         // gabaryt ramki
+    property var resistorWindowOutputRectangle_Width:       220         // gabaryt ramki
+
     property var resistorWindowInput_Width:                 50          // szerokosc pola do wprowadzania
-    property var resistorWindowInputList_Width:             150         // szerokość listy wyboru
+    property var resistorWindowInputList_Width:             300         // szerokość listy wyboru
 
     property var resistorWindowInputRectangleBorder_Width:   5          // grubosc ramki
     property var resistorWindowInputRectangleBorder_Color:   application.color_grey
+    property var resistorWindowOutputRectangleBorder_Color:   application.color_blue
 
     // okno rezystora
     property var resistorWindowInputMainLabel1_Text:        "DANE WEJŚCIOWE:"
     property var resistorWindowInputMainLabel2_Text:        "PARAMETRY OBLICZEŃ:"
     property var resistorWindowInputMainLabel3_Text:        "DANE USTANDARYZOWANE:"
 
-    property var resistorWindowInputLabel1_Text:            "rezystancja końcowa [R]"
-    property var resistorWindowInputLabel2_Text:            "prąd pracy [I]"
-    property var resistorWindowInputLabel3_Text:            "współ. bezp. mocy"
-    property var resistorWindowInputLabel4_Text:            "obciążalność"
-    property var resistorWindowInputLabel5_Text:            "pasta"
-    property var resistorWindowInputLabel6_Text:            "metoda korekcji"
+    property var resistorWindowOutputMainLabel1_Text:       "DANE WYJŚCIOWE:"
 
-    property var resistorWindowInput1_placeholderText:      "0"
-    property var resistorWindowInput2_placeholderText:      "0"
-    property var resistorWindowInput3_placeholderText:      "0.8"
-    property var resistorWindowInput4_placeholderText:      "0.8"
+    property var resistorWindowInputLabel1_Text:            "rezystancja [R]:"
+    property var resistorWindowInputLabel2_Text:            "prąd pracy max [I]:"
+    property var resistorWindowInputLabel3_Text:            "współ. bezp. mocy:"
+    property var resistorWindowInputLabel4_Text:            "obciążalność:"
+    property var resistorWindowInputLabel5_Text:            "pasta:"
+    property var resistorWindowInputLabel6_Text:            "metoda korekcji:"
+    property var resistorWindowInputLabel7_Text:            "współ. bezp. obciazalnosci:"
+    property var resistorWindowInputLabel8_Text:            "moc max [W]:"
+
+    property var resistorWindowOutputLabel1_Text:            "wynik 1:"
+    property var resistorWindowOutputLabel2_Text:            "wynik 2:"
+
+    property var resistorWindowInput1_placeholderText:      output_default_r.text
+    property var resistorWindowInput2_placeholderText:      output_default_i.text
+    property var resistorWindowInput3_placeholderText:      output_default_k_p.text
+    property var resistorWindowInput4_placeholderText:      output_default_j.text
+    property var resistorWindowInput7_placeholderText:      output_default_k_j.text
+    property var resistorWindowInput8_placeholderText:      output_default_p.text
+
 
 
     // obrazy
