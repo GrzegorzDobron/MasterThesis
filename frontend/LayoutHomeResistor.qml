@@ -325,7 +325,7 @@ Item {
 
                 Text {
                     id:                             resistorWindowOutputLabel2
-                    text:                           application.resistorWindowOutputLabel1_Text
+                    text:                           application.resistorWindowOutputLabel2_Text
                     color:                          application.resistorWindowInputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
@@ -333,6 +333,34 @@ Item {
                 Text {
                     id:                             resistorWindowOutput2
                     text:                           output_resistor_2.text
+                    color:                          "green"
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             resistorWindowOutputLabel3
+                    text:                           application.resistorWindowOutputLabel3_Text
+                    color:                          application.resistorWindowInputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             resistorWindowOutput3
+                    text:                           output_resistor_3.text
+                    color:                          "green"
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             resistorWindowOutputLabel4
+                    text:                           application.resistorWindowOutputLabel4_Text
+                    color:                          application.resistorWindowInputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             resistorWindowOutput4
+                    text:                           output_resistor_4.text
                     color:                          "green"
                     font.pixelSize:                 application.bigTextSize
                 }

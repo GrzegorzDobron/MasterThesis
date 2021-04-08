@@ -4,8 +4,8 @@ path = "./frontend/text/faq.txt"
 r = 0               # rezystancja docelowa
 i_max = 0           # prad max
 p_max = 0           # moc max
-k_p = 0.8           # wspolczynnik mocy
-k_j = 0.8           # wspolczynnik obciazalnosci
+k_p = 0.2           # wspolczynnik mocy
+k_j = 0.2           # wspolczynnik obciazalnosci
 j = 8               # obciazalnosc
 
 selected_resistance_correction_methods = ""

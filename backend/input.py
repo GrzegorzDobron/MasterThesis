@@ -1,5 +1,5 @@
 from PyQt5.QtCore import QObject, pyqtSlot
-from backend import back
+from backend import static, back
 import var
 
 
@@ -10,7 +10,7 @@ class input_data(back.application):
 
     @pyqtSlot("QString")
     def input_final_resistance(self, text):
-        value = back.input_to_float(text)
+        value = static.input_to_float(text)
         if type(value) == float:
             self.r = value
             # print("R=" + str(self.r))
@@ -19,7 +19,7 @@ class input_data(back.application):
 
     @pyqtSlot("QString")
     def input_current_max(self, text):
-        value = back.input_to_float(text)
+        value = static.input_to_float(text)
         if type(value) == float:
             self.i_max = value
             # print("Imax=" + str(self.i_max))
@@ -28,7 +28,7 @@ class input_data(back.application):
 
     @pyqtSlot("QString")
     def input_power_max(self, text):
-        value = back.input_to_float(text)
+        value = static.input_to_float(text)
         if type(value) == float:
             self.p_max = value
             # print("Imax=" + str(self.p_max))
@@ -37,7 +37,7 @@ class input_data(back.application):
 
     @pyqtSlot("QString")
     def safety_factor_power(self, text):
-        value = back.input_to_float(text)
+        value = static.input_to_float(text)
         if type(value) == float:
             self.k_p = value
             # print("k_p=" + str(self.k_p))
@@ -46,7 +46,7 @@ class input_data(back.application):
 
     @pyqtSlot("QString")
     def safety_factor_load(self, text):
-        value = back.input_to_float(text)
+        value = static.input_to_float(text)
         if type(value) == float:
             self.k_j = value
             # print("k_j=" + str(self.k_j))
@@ -55,7 +55,7 @@ class input_data(back.application):
 
     @pyqtSlot("QString")
     def current_carrying_capacity(self, text):
-        value = back.input_to_float(text)
+        value = static.input_to_float(text)
         if type(value) == float:
             self.j = value
             # print("j=" + str(self.j))

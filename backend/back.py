@@ -18,8 +18,10 @@ def main_logic(main_logic_input):
     output_corection_method_list = main_logic_input.get("output_corection_method_list")
     output_resistor_1 = main_logic_input.get("output_resistor").get("1")
     output_resistor_2 = main_logic_input.get("output_resistor").get("2")
+    output_resistor_3 = main_logic_input.get("output_resistor").get("3")
+    output_resistor_4 = main_logic_input.get("output_resistor").get("4")
 
-    output_resistor = [output_resistor_1, output_resistor_2]
+    output_resistor = [output_resistor_1, output_resistor_2, output_resistor_3, output_resistor_4]
 
     pastes_list = []
     for paste in var.paste_database:
@@ -78,17 +80,30 @@ class application(QObject):
 
 
 def main_logic_resistor(r, i, p, k_p, k_j, j, r_kw, twr, korekcja, output):
-
     r_korekcja = r * korekcja
 
-    output[0].text = twr
-    output[1].text = r_korekcja
+    if i * r > p:
+        p_projektowe = i * r * (1 + k_p)
+    if p >= i * r:
+        p_projektowe = p * (1 + k_p)
 
-
-def input_to_float(inside):
     try:
-        inside = inside.replace(",", ".")
-        value = float(inside)
-        return value
-    except ValueError:
-        pass
+        s_min = (p_projektowe / j) * (1 + k_j)
+    except ZeroDivisionError:
+        s_min = 0
+
+    try:
+        n = round(r_korekcja / r_kw, 0)
+    except ZeroDivisionError:
+        n = 0
+
+    r_rzeczywiste = n * r_kw
+
+    for x in range(1, 10):
+        y = n * x
+        s = x * y
+
+    output[0].text = r_korekcja
+    output[1].text = n
+    output[2].text = r_rzeczywiste
+    output[3].text = s_min

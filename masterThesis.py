@@ -29,6 +29,8 @@ if __name__ == "__main__":
 
     output_resistor_1 = output.output_numeric()
     output_resistor_2 = output.output_numeric()
+    output_resistor_3 = output.output_numeric()
+    output_resistor_4 = output.output_numeric()
 
     context = engine.rootContext()
     context.setContextProperty("static", static)
@@ -44,6 +46,8 @@ if __name__ == "__main__":
     context.setContextProperty("output_faq", output_faq)
     context.setContextProperty("output_resistor_1", output_resistor_1)
     context.setContextProperty("output_resistor_2", output_resistor_2)
+    context.setContextProperty("output_resistor_3", output_resistor_3)
+    context.setContextProperty("output_resistor_4", output_resistor_4)
 
     engine.load(os.path.join(os.path.dirname(__file__), "frontend/main.qml"))
 
@@ -56,7 +60,9 @@ if __name__ == "__main__":
         "output_corection_method_list": output_corection_method_list,
         "output_resistor": {
             "1": output_resistor_1,
-            "2": output_resistor_2
+            "2": output_resistor_2,
+            "3": output_resistor_3,
+            "4": output_resistor_4
         },
         "default_value": {
             "r": output_default_r,
