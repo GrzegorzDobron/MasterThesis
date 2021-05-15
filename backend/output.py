@@ -54,7 +54,7 @@ class output_list(back.application):
 def faq():
     data = ""
     try:
-        file = open(var.path, encoding="utf-8")
+        file = open(var.path_faq, encoding="utf-8")
         data = file.read()
         file.close()
     except Exception:

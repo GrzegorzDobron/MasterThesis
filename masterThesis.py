@@ -7,6 +7,7 @@ from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QGuiApplication
 from PyQt5.QtQml import QQmlApplicationEngine
 
+import backend.static
 from backend import static, input, output, back
 
 if __name__ == "__main__":
@@ -50,6 +51,8 @@ if __name__ == "__main__":
     context.setContextProperty("output_resistor_4", output_resistor_4)
 
     engine.load(os.path.join(os.path.dirname(__file__), "frontend/main.qml"))
+
+    backend.static.init()
 
     if not engine.rootObjects():
         sys.exit(-1)

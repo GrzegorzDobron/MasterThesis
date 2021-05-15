@@ -1,4 +1,8 @@
-path = "./frontend/text/faq.txt"
+path_faq = "./frontend/text/faq.txt"
+path_pasty = "./database/pasty.csv"
+
+pasty_title = ["nazwa", "TWR", "R"]
+
 
 # default input value
 r = 0               # rezystancja docelowa
@@ -42,8 +46,9 @@ resistance_correction_methods = {
 manufacturing_methods = {
     100: "sitodruk standardowy",
     50: "sitodruk precyzyjny",
-    15: "trawienie przed wypaleniem",
-    25: "trawienie po wypaleniu",
-    30: "nanoszenie przez dysze",
-    10: "formowanie laserem"
 }
+
+# 15: "trawienie przed wypaleniem",
+# 25: "trawienie po wypaleniu",
+# 30: "nanoszenie przez dysze",
+# 10: "formowanie laserem"
