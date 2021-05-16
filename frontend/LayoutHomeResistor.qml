@@ -35,7 +35,7 @@ Item {
             anchors.leftMargin:         application.leftMargin
             anchors.topMargin:          application.resistorWindowInputRectangle_Top
             color:                      application.color_black
-            border.color:               application.resistorWindowInputRectangleBorder_Color
+            border.color:               application.windowRectangleBorder_Color
             border.width:               application.resistorWindowInputRectangle_Border
             width:                      application.resistorWindowInputRectangle1_Width
             height:                     application.resistorWindowInputRectangle_Heigh
@@ -75,9 +75,9 @@ Item {
                 TextField {
                     id:                     resistorWindowInputGridInput1
                     hoverEnabled:           false
-                    placeholderTextColor:   application.resistorWindowInput_placeholderColor
+                    placeholderTextColor:   application.windowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput1_placeholderText
-                    width:                  application.resistorWindowInput_Width
+                    width:                  application.windowInput_Width
                     onTextChanged:          input.input_final_resistance(resistorWindowInputGridInput1.text)
                 }
 
@@ -92,9 +92,9 @@ Item {
                 TextField {
                     id:                     resistorWindowInputGridInput2
                     hoverEnabled:           false
-                    placeholderTextColor:   application.resistorWindowInput_placeholderColor
+                    placeholderTextColor:   application.windowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput2_placeholderText
-                    width:                  application.resistorWindowInput_Width
+                    width:                  application.windowInput_Width
                     onTextChanged:          input.input_current_max(resistorWindowInputGridInput2.text)
                 }
 
@@ -109,9 +109,9 @@ Item {
                 TextField {
                     id:                     resistorWindowInputGridInput8
                     hoverEnabled:           false
-                    placeholderTextColor:   application.resistorWindowInput_placeholderColor
+                    placeholderTextColor:   application.windowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput8_placeholderText
-                    width:                  application.resistorWindowInput_Width
+                    width:                  application.windowInput_Width
                     onTextChanged:          input.input_power_max(resistorWindowInputGridInput8.text)
                 }
             }
@@ -126,7 +126,7 @@ Item {
             anchors.topMargin:              application.resistorWindowInputRectangle_Top
             anchors.leftMargin:             application.resistorWindowInputRectangle_Spacing
             color:                          application.color_black
-            border.color:                   application.resistorWindowInputRectangleBorder_Color
+            border.color:                   application.windowRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
 
 
@@ -164,9 +164,9 @@ Item {
                 TextField {
                     id:                     resistorWindowInputGridInput4
                     hoverEnabled:           false
-                    placeholderTextColor:   application.resistorWindowInput_placeholderColor
+                    placeholderTextColor:   application.windowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput4_placeholderText
-                    width:                  application.resistorWindowInput_Width
+                    width:                  application.windowInput_Width
                     onTextChanged:          input.current_carrying_capacity(resistorWindowInputGridInput4.text)
                 }
 
@@ -181,9 +181,9 @@ Item {
                 TextField {
                     id:                     resistorWindowInputGridInput7
                     hoverEnabled:           false
-                    placeholderTextColor:   application.resistorWindowInput_placeholderColor
+                    placeholderTextColor:   application.windowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput7_placeholderText
-                    width:                  application.resistorWindowInput_Width
+                    width:                  application.windowInput_Width
                     onTextChanged:          input.safety_factor_power(resistorWindowInputGridInput7.text)
                 }
 
@@ -198,9 +198,9 @@ Item {
                 TextField {
                     id:                     resistorWindowInputGridInput3
                     hoverEnabled:           false
-                    placeholderTextColor:   application.resistorWindowInput_placeholderColor
+                    placeholderTextColor:   application.windowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput3_placeholderText
-                    width:                  application.resistorWindowInput_Width
+                    width:                  application.windowInput_Width
                     onTextChanged:          input.safety_factor_power(resistorWindowInputGridInput3.text)
                 }
             }
@@ -215,7 +215,7 @@ Item {
             anchors.leftMargin:             application.leftMargin
             anchors.topMargin:              application.resistorWindowInputRectangle_Spacing
             color:                          application.color_black
-            border.color:                   application.resistorWindowInputRectangleBorder_Color
+            border.color:                   application.windowRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
 
             Text {
@@ -282,7 +282,7 @@ Item {
             anchors.topMargin:              application.resistorWindowInputRectangle_Top
             anchors.leftMargin:             application.resistorWindowInputRectangle_Spacing
             color:                          application.color_black
-            border.color:                   application.resistorWindowOutputRectangleBorder_Color
+            border.color:                   application.windowOutputRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
 
 

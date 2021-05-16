@@ -8,7 +8,8 @@ from PyQt5.QtGui import QGuiApplication
 from PyQt5.QtQml import QQmlApplicationEngine
 
 import backend.static
-from backend import static, input, output, back
+from backend import input, output, back, static
+import var
 
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
@@ -57,6 +58,8 @@ if __name__ == "__main__":
     if not engine.rootObjects():
         sys.exit(-1)
 
+    global main_logic_input
+
     main_logic_input = {
         "input_data": input_data,
         "output_past_list": output_past_list,
@@ -76,6 +79,8 @@ if __name__ == "__main__":
             "j": output_default_j
         }
     }
+
+    var.main_logic_input = main_logic_input
 
     timer = QTimer(interval=10)
     timer.timeout.connect(partial(back.main_logic, main_logic_input))

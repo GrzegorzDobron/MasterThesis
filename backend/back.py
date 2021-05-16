@@ -5,6 +5,7 @@ import var
 
 
 def main_logic(main_logic_input):
+
     # default value
     main_logic_input.get("default_value").get("r").text = var.r
     main_logic_input.get("default_value").get("i").text = var.i_max
@@ -67,6 +68,10 @@ class application(QObject):
     k_p = var.k_p
     k_j = var.k_j
     j = var.j
+
+    new_paste_name = var.new_paste_name
+    new_paste_twr = var.new_paste_twr
+    new_paste_r = var.new_paste_r
 
     selected_resistance_correction_methods = var.selected_resistance_correction_methods
     selected_paste = var.selected_paste

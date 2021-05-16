@@ -40,12 +40,15 @@ ApplicationWindow {
     property var barButton1_Tittle:                         "Home"
     property var barButton2_Tittle:                         "FAQ"
     property var barButton3_Tittle:                         "Options"
+    property var barButton4_Tittle:                         "Pasty"
     property var barButton1_Color:                          bar.currentIndex == 0 ? "white" : "black"
     property var barButton2_Color:                          bar.currentIndex == 1 ? "white" : "black"
     property var barButton3_Color:                          bar.currentIndex == 2 ? "white" : "black"
+    property var barButton4_Color:                          bar.currentIndex == 3 ? "white" : "black"
     property var barButton1_Background:                     bar.currentIndex == 0 ? application.color_black : application.color_grey
     property var barButton2_Background:                     bar.currentIndex == 1 ? application.color_blue : application.color_grey
     property var barButton3_Background:                     bar.currentIndex == 2 ? application.color_blue : application.color_grey
+    property var barButton4_Background:                     bar.currentIndex == 3 ? application.color_black : application.color_grey
     property var barButton_Width:                           200
     property var barButton_Heigh:                           40
     property var barButton_Font:                            application.bigTextSize
@@ -94,7 +97,7 @@ ApplicationWindow {
     property var chooseWindowImage_Width:                   300                         // szerokosc zdjecia
 
     // okno wprowadzania
-    property var resistorWindowInput_placeholderColor:      application.color_grey
+    property var windowInput_placeholderColor:      application.color_grey
     property var resistorWindowInputLabel_Size:             application.smallTextSize
     property var resistorWindowInputLabel_Color:            application.color_white
     property var resistorWindowInputMainLabel_Size:         application.bigTextSize
@@ -116,12 +119,12 @@ ApplicationWindow {
     property var resistorWindowOutputRectangle_Heigh:       200         // gabaryt ramki
     property var resistorWindowOutputRectangle_Width:       220         // gabaryt ramki
 
-    property var resistorWindowInput_Width:                 80          // szerokosc pola do wprowadzania
+    property var windowInput_Width:                         80          // szerokosc pola do wprowadzania
     property var resistorWindowInputList_Width:             300         // szerokość listy wyboru
 
-    property var resistorWindowInputRectangleBorder_Width:   5          // grubosc ramki
-    property var resistorWindowInputRectangleBorder_Color:   application.color_grey
-    property var resistorWindowOutputRectangleBorder_Color:   application.color_blue
+    property var windowInputRectangleBorder_Width:          5          // grubosc ramki
+    property var windowRectangleBorder_Color:               application.color_grey
+    property var windowOutputRectangleBorder_Color:         application.color_blue
 
     // okno rezystora
     property var resistorWindowInputMainLabel1_Text:        "DANE WEJŚCIOWE:"
@@ -150,6 +153,23 @@ ApplicationWindow {
     property var resistorWindowInput4_placeholderText:      output_default_j.text
     property var resistorWindowInput7_placeholderText:      output_default_k_j.text
     property var resistorWindowInput8_placeholderText:      output_default_p.text
+
+    // kondensator
+
+
+    // pasta
+    property var pasteWindowInputLabel_Color:               application.color_white
+    property var pasteWindowInputLabel_Size:                application.smallTextSize
+
+    property var pasteWindowButton_Width:                   100
+    property var pasteWindowButton_Heigh:                   50
+    property var pasteWindowButtonNewPaste_Tittle:          "Dodaj"
+    property var pasteWindowButton_Font:                    application.smallTextSize
+
+    property var pasteWindowInputMainLabel1_Text:           "NOWA PASTA:"
+    property var pasteWindowInputLabel1_Text:               "nazwa:"
+    property var pasteWindowInputLabel2_Text:               "TWR:"
+    property var pasteWindowInputLabel3_Text:               "R:"
 
     // obrazy
     property var mainWindowImageLogo_Path:                  "files/welcome-logo.png"
@@ -194,13 +214,17 @@ ApplicationWindow {
             id:                 layoutOptions
             height:             460
         }
+
+        LayoutPaste {
+            id:                  layoutPaste
+            height:              460
+        }
     }
 
     TabBar {
         id:                                 bar
         x: 10
         y: 20
-        width:                              608
         height:                             26
         anchors.left:                       parent.left
         anchors.top:                        parent.top
@@ -265,6 +289,25 @@ ApplicationWindow {
                 text:                       application.barButton3_Tittle
                 anchors.verticalCenter:     parent.verticalCenter
                 color:                      application.barButton3_Color
+                font.pixelSize:             0
+                anchors.horizontalCenter:   parent.horizontalCenter
+            }
+        }
+
+        TabButton {
+            id:                             barButton4
+            x:                              0
+            y:                              application.barButton_y
+            width:                          application.barButton_Width
+            height:                         application.barButton_Heigh
+            background:                     Rectangle { color: application.barButton4_Background }
+            onClicked:                      layoutPage.currentIndex(3)
+
+            Text {
+                id:                         barButton4Tittle
+                text:                       application.barButton4_Tittle
+                anchors.verticalCenter:     parent.verticalCenter
+                color:                      application.barButton4_Color
                 font.pixelSize:             0
                 anchors.horizontalCenter:   parent.horizontalCenter
             }

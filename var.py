@@ -12,6 +12,12 @@ k_p = 0.2           # wspolczynnik mocy
 k_j = 0.2           # wspolczynnik obciazalnosci
 j = 8               # obciazalnosc
 
+paste_index = 0
+
+new_paste_name = ""
+new_paste_twr = 0
+new_paste_r = 0
+
 selected_resistance_correction_methods = ""
 selected_paste = ""
 

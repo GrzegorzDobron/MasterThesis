@@ -77,3 +77,34 @@ class input_data(back.application):
             # print("korekcja=" + str(self.selected_resistance_correction_methods))
         else:
             self.selected_resistance_correction_methods = var.selected_resistance_correction_methods
+
+    @pyqtSlot("QString")
+    def input_new_paste_name(self, text):
+        if text != "":
+            self.new_paste_name = text
+            var.new_paste_name = text
+            print("new_paste_name=" + str(self.new_paste_name))
+        else:
+            self.new_paste_name = var.new_paste_name
+
+    @pyqtSlot("QString")
+    def input_new_paste_twr(self, text):
+        value = static.input_to_float(text)
+        if type(value) == float:
+            self.new_paste_twr = value
+            var.new_paste_twr = value
+            print("new_paste_twr=" + str(self.new_paste_twr))
+        else:
+            self.new_paste_twr = var.new_paste_twr
+
+    @pyqtSlot("QString")
+    def input_new_paste_r(self, text):
+        value = static.input_to_float(text)
+        if type(value) == float:
+            self.new_paste_r = value
+            var.new_paste_r = value
+            print("new_paste_twr=" + str(self.new_paste_r))
+        else:
+            self.new_paste_r = var.new_paste_r
+
+
