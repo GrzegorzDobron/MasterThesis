@@ -1,7 +1,12 @@
 path_faq = "./frontend/text/faq.txt"
-path_pasty = "./database/pasty.csv"
+path_pasty = "./database/pasty.xlsx"
 
-pasty_title = ["nazwa", "TWR", "R"]
+
+dataframe_r = ["nazwa", "TWR", "R"]
+pasty_worksheet_r_name = "rezystywne"
+pasty_worksheet_izo_name = "izolacyjne"
+
+pasty_r_default = ["pasta1", 12, 13]
 
 
 # default input value
@@ -29,14 +34,6 @@ paste_database = {
     "": {
         "TWR": 0,
         "R": 0
-    },
-    "pasta1": {
-        "TWR": 1,
-        "R": 2,
-    },
-    "pasta2": {
-        "TWR": 12,
-        "R": 10,
     }
 }
 
