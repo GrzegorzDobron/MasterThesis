@@ -1,33 +1,35 @@
 # -*- coding: utf-8 -*-
 import os
 import sys
-from functools import partial
 
+from functools import partial
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QGuiApplication
 from PyQt5.QtQml import QQmlApplicationEngine
 
-import backend.static
+import backend
 from backend import input, output, back, static
 import var
 
+
 if __name__ == "__main__":
+
     app = QGuiApplication(sys.argv)
     engine = QQmlApplicationEngine()
 
-    global_logic = back.application()
     static = static.static_function()
     input_data = input.input_data()
     output_past_list = output.output_list()
+    output_new_past_types = output.output_list()
     output_corection_method_list = output.output_list()
     output_faq = output.output_faq()
 
-    output_default_r = output.output_numeric()
-    output_default_i = output.output_numeric()
-    output_default_p = output.output_numeric()
-    output_default_k_p = output.output_numeric()
-    output_default_k_j = output.output_numeric()
-    output_default_j = output.output_numeric()
+    output_resistor_default_r = output.output_numeric()
+    output_resistor_default_i = output.output_numeric()
+    output_resistor_default_p = output.output_numeric()
+    output_resistor_default_k_p = output.output_numeric()
+    output_resistor_default_k_j = output.output_numeric()
+    output_resistor_default_j = output.output_numeric()
 
     output_resistor_1 = output.output_numeric()
     output_resistor_2 = output.output_numeric()
@@ -39,12 +41,12 @@ if __name__ == "__main__":
     context.setContextProperty("input", input_data)
     context.setContextProperty("output_past_list", output_past_list)
     context.setContextProperty("output_corection_method_list", output_corection_method_list)
-    context.setContextProperty("output_default_r", output_default_r)
-    context.setContextProperty("output_default_i", output_default_i)
-    context.setContextProperty("output_default_p", output_default_p)
-    context.setContextProperty("output_default_k_p", output_default_k_p)
-    context.setContextProperty("output_default_k_j", output_default_k_j)
-    context.setContextProperty("output_default_j", output_default_j)
+    context.setContextProperty("output_default_r",          output_resistor_default_r)
+    context.setContextProperty("output_default_i",          output_resistor_default_i)
+    context.setContextProperty("output_default_p",          output_resistor_default_p)
+    context.setContextProperty("output_default_k_p",        output_resistor_default_k_p)
+    context.setContextProperty("output_default_k_j",        output_resistor_default_k_j)
+    context.setContextProperty("output_default_j",          output_resistor_default_j)
     context.setContextProperty("output_faq", output_faq)
     context.setContextProperty("output_resistor_1", output_resistor_1)
     context.setContextProperty("output_resistor_2", output_resistor_2)
@@ -58,11 +60,10 @@ if __name__ == "__main__":
     if not engine.rootObjects():
         sys.exit(-1)
 
-    global main_logic_input
-
     main_logic_input = {
         "input_data": input_data,
         "output_past_list": output_past_list,
+        "output_new_past_types": output_new_past_types,
         "output_corection_method_list": output_corection_method_list,
         "output_resistor": {
             "1": output_resistor_1,
@@ -71,12 +72,12 @@ if __name__ == "__main__":
             "4": output_resistor_4
         },
         "default_value": {
-            "r": output_default_r,
-            "i": output_default_i,
-            "p": output_default_p,
-            "k_p": output_default_k_p,
-            "k_j": output_default_k_j,
-            "j": output_default_j
+            "r":        output_resistor_default_r,
+            "i":        output_resistor_default_i,
+            "p":        output_resistor_default_p,
+            "k_p":      output_resistor_default_k_p,
+            "k_j":      output_resistor_default_k_j,
+            "j":        output_resistor_default_j
         }
     }
 

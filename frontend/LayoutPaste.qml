@@ -23,18 +23,18 @@ Item {
             width:                      177
             height:                     269
             color:                      application.color_black
-            border.color:               application.windowRectangleBorder_Color
+            border.color:               application.elementWindowRectangleBorder_Color
             border.width:               application.resistorWindowInputRectangle_Border
 
             Grid {
                 id:                         pasteWindowInputGrid
                 anchors.top:                parent.top
-                anchors.topMargin:          application.resistorWindowInputGrid_TopMargin
+                anchors.topMargin:          application.elementWindowInputGrid_TopMargin
                 anchors.left:               parent.left
-                anchors.leftMargin:         application.resistorWindowInputGrid_LeftMargin
+                anchors.leftMargin:         application.elementWindowInputGrid_LeftMargin
                 rows:                       3
                 columns:                    2
-                spacing:                    application.resistorWindowInputGrid_Spacing
+                spacing:                    application.elementWindowInputGrid_Spacing
                 verticalItemAlignment:      Grid.AlignVCenter
                 horizontalItemAlignment:    Grid.AlignLeft
 
@@ -49,7 +49,7 @@ Item {
                 TextField {
                     id:                     pasteWindowInputGridInput1
                     hoverEnabled:           false
-                    width:                  application.windowInput_Width
+                    width:                  application.elementWindowInput_Width
                     onTextChanged:          input.input_new_paste_name(pasteWindowInputGridInput1.text)
                 }
 
@@ -64,7 +64,7 @@ Item {
                 TextField {
                     id:                     pasteWindowInputGridInput2
                     hoverEnabled:           false
-                    width:                  application.windowInput_Width
+                    width:                  application.elementWindowInput_Width
                     onTextChanged:          input.input_new_paste_twr(pasteWindowInputGridInput2.text)
                 }
 
@@ -79,7 +79,7 @@ Item {
                 TextField {
                     id:                     pasteWindowInputGridInput3
                     hoverEnabled:           false
-                    width:                  application.windowInput_Width
+                    width:                  application.elementWindowInput_Width
                     onTextChanged:          input.input_new_paste_r(pasteWindowInputGridInput3.text)
                 }
             }
@@ -93,7 +93,6 @@ Item {
                 font.pointSize:             application.pasteWindowButton_Font
                 onClicked:                  static.add_new_paste()
             }
-
         }
     }
 }

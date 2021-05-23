@@ -97,40 +97,46 @@ ApplicationWindow {
     property var chooseWindowImage_Width:                   300                         // szerokosc zdjecia
 
     // okno wprowadzania
-    property var windowInput_placeholderColor:      application.color_grey
-    property var resistorWindowInputLabel_Size:             application.smallTextSize
-    property var resistorWindowInputLabel_Color:            application.color_white
-    property var resistorWindowInputMainLabel_Size:         application.bigTextSize
-    property var resistorWindowInputmainLabel_Color:        application.color_white
+    property var elementWindowInput_placeholderColor:      application.color_grey
+    property var elementWindowInputLabel_Size:             application.smallTextSize
+    property var elementWindowInputLabel_Color:            application.color_white
+    property var elementWindowInputMainLabel_Size:         application.bigTextSize
+    property var elementWindowInputmainLabel_Color:        application.color_white
 
-    property var resistorWindowInputGrid_Spacing:           10
-    property var resistorWindowInputGrid_TopMargin:         50          // odsuniecie tekstu od ramki z gory
-    property var resistorWindowInputGrid_LeftMargin:        10          // odsuniecie tekstu od ramki z lewej
+    property var elementWindowInputGrid_Spacing:           10
+    property var elementWindowInputGrid_TopMargin:         50          // odsuniecie tekstu od ramki z gory
+    property var elementWindowInputGrid_LeftMargin:        10          // odsuniecie tekstu od ramki z lewej
 
-    property var resistorWindowInputRectangle_Heigh:        200         // gabaryt ramki
-    property var resistorWindowInputRectangle1_Width:       220         // gabaryt ramki
-    property var resistorWindowInputRectangle2_Width:       260         // gabaryt ramki
-    property var resistorWindowInputRectangleList_Heigh:    150         // gabaryt ramki - lista
+    property var elementWindowInputRectangle_Heigh:        200         // gabaryt ramki
+    property var elementWindowInputRectangle1_Width:       220         // gabaryt ramki
+    property var elementWindowInputRectangle2_Width:       260         // gabaryt ramki
+    property var elementWindowInputRectangleList_Heigh:    150         // gabaryt ramki - lista
     // property var resistorWindowInputRectangleList_Width:    450         // gabaryt ramki - lista
-    property var resistorWindowInputRectangleList_Width:    application.resistorWindowInputRectangle1_Width + application.resistorWindowInputRectangle2_Width + application.resistorWindowInputRectangle_Spacing
-    property var resistorWindowInputRectangle_Top:          50          // odsuniecie ramki z gory
-    property var resistorWindowInputRectangle_Spacing:      10          // odsuniecie ramek
+    property var elementWindowInputRectangleList_Width:    application.elementWindowInputRectangle1_Width + application.elementWindowInputRectangle2_Width + application.elementWindowInputRectangle_Spacing
+    property var elementWindowInputRectangle_Top:          50          // odsuniecie ramki z gory
+    property var elementWindowInputRectangle_Spacing:      10          // odsuniecie ramek
 
-    property var resistorWindowOutputRectangle_Heigh:       200         // gabaryt ramki
-    property var resistorWindowOutputRectangle_Width:       220         // gabaryt ramki
+    property var elementWindowOutputRectangle_Heigh:       200         // gabaryt ramki
+    property var elementWindowOutputRectangle_Width:       220         // gabaryt ramki
 
-    property var windowInput_Width:                         80          // szerokosc pola do wprowadzania
-    property var resistorWindowInputList_Width:             300         // szerokość listy wyboru
+    property var elementWindowInput_Width:                 80          // szerokosc pola do wprowadzania
+    property var elementWindowInputList_Width:             300         // szerokość listy wyboru
 
     property var windowInputRectangleBorder_Width:          5          // grubosc ramki
-    property var windowRectangleBorder_Color:               application.color_grey
+    property var elementWindowRectangleBorder_Color:        application.color_grey
     property var windowOutputRectangleBorder_Color:         application.color_blue
+
+    // okna elementów
+    property var elementWindowButton_Width:                100
+    property var elementWindowButton_Heigh:                30
+    property var elementWindowButtonGraph_Tittle:          "wykresy"
+    property var elementWindowButtonGraph_Font:            application.smallTextSize
+
 
     // okno rezystora
     property var resistorWindowInputMainLabel1_Text:        "DANE WEJŚCIOWE:"
     property var resistorWindowInputMainLabel2_Text:        "PARAMETRY OBLICZEŃ:"
     property var resistorWindowInputMainLabel3_Text:        "DANE USTANDARYZOWANE:"
-
     property var resistorWindowOutputMainLabel1_Text:       "DANE WYJŚCIOWE:"
 
     property var resistorWindowInputLabel1_Text:            "rezystancja [R]:"
@@ -147,14 +153,39 @@ ApplicationWindow {
     property var resistorWindowOutputLabel3_Text:            "rezystancja rzeczywista:"
     property var resistorWindowOutputLabel4_Text:            "cos:"
 
-    property var resistorWindowInput1_placeholderText:      output_default_r.text
-    property var resistorWindowInput2_placeholderText:      output_default_i.text
-    property var resistorWindowInput3_placeholderText:      output_default_k_p.text
-    property var resistorWindowInput4_placeholderText:      output_default_j.text
-    property var resistorWindowInput7_placeholderText:      output_default_k_j.text
-    property var resistorWindowInput8_placeholderText:      output_default_p.text
+    property var resistorWindowInput1_placeholderText:      output_resistor_default_r.text
+    property var resistorWindowInput2_placeholderText:      output_resistor_default_i.text
+    property var resistorWindowInput3_placeholderText:      output_resistor_default_k_p.text
+    property var resistorWindowInput4_placeholderText:      output_resistor_default_j.text
+    property var resistorWindowInput7_placeholderText:      output_resistor_default_k_j.text
+    property var resistorWindowInput8_placeholderText:      output_resistor_default_p.text
 
     // kondensator
+    property var capacitorWindowInputMainLabel1_Text:       "DANE WYJŚCIOWE:"
+    property var capacitorWindowInputMainLabel2_Text:       "input label 8"
+    property var capacitorWindowInputMainLabel3_Text:       "input label 8"
+    property var capacitorWindowOutputMainLabel1_Text:      "input label 8"
+
+    property var capacitorWindowInputLabel1_Text:           "input label 1"
+    property var capacitorWindowInputLabel2_Text:           "input label 2"
+    property var capacitorWindowInputLabel3_Text:           "input label 8"
+    property var capacitorWindowInputLabel4_Text:           "input label 8"
+    property var capacitorWindowInputLabel5_Text:           "input label 8"
+    property var capacitorWindowInputLabel6_Text:           "input label 8"
+    property var capacitorWindowInputLabel7_Text:           "input label 8"
+    property var capacitorWindowInputLabel8_Text:           "input label 8"
+
+    property var capacitorWindowInput1_placeholderText:      "input label 1"
+    property var capacitorWindowInput2_placeholderText:     "input label 2"
+    property var capacitorWindowInput3_placeholderText:     "input label 8"
+    property var capacitorWindowInput4_placeholderText:     "input label 8"
+    property var capacitorWindowInput7_placeholderText:     "input label 8"
+    property var capacitorWindowInput8_placeholderText:     "input label 8"
+
+    property var capacitorWindowOutputLabel1_Text:          "input label 8"
+    property var capacitorWindowOutputLabel2_Text:          "input label 8"
+    property var capacitorWindowOutputLabel3_Text:          "input label 8"
+    property var capacitorWindowOutputLabel4_Text:          "input label 8"
 
 
     // pasta
@@ -170,6 +201,7 @@ ApplicationWindow {
     property var pasteWindowInputLabel1_Text:               "nazwa:"
     property var pasteWindowInputLabel2_Text:               "TWR:"
     property var pasteWindowInputLabel3_Text:               "R:"
+    property var pasteWindowInputLabel4_Text:               "type:"
 
     // obrazy
     property var mainWindowImageLogo_Path:                  "files/welcome-logo.png"

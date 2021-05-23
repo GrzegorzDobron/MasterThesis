@@ -15,7 +15,7 @@ class input_data(back.application):
             self.r = value
             # print("R=" + str(self.r))
         else:
-            self.r = var.r
+            self.r = var.resistor_r
 
     @pyqtSlot("QString")
     def input_current_max(self, text):
@@ -24,7 +24,7 @@ class input_data(back.application):
             self.i_max = value
             # print("Imax=" + str(self.i_max))
         else:
-            self.i_max = var.i_max
+            self.i_max = var.resistor_i_max
 
     @pyqtSlot("QString")
     def input_power_max(self, text):
@@ -33,7 +33,7 @@ class input_data(back.application):
             self.p_max = value
             # print("Imax=" + str(self.p_max))
         else:
-            self.p_max = var.p_max
+            self.p_max = var.resistor_p_max
 
     @pyqtSlot("QString")
     def safety_factor_power(self, text):
@@ -42,7 +42,7 @@ class input_data(back.application):
             self.k_p = value
             # print("k_p=" + str(self.k_p))
         else:
-            self.k_p = var.k_p
+            self.k_p = var.resistor_k_p
 
     @pyqtSlot("QString")
     def safety_factor_load(self, text):
@@ -51,7 +51,7 @@ class input_data(back.application):
             self.k_j = value
             # print("k_j=" + str(self.k_j))
         else:
-            self.k_j = var.k_j
+            self.k_j = var.resistor_k_j
 
     @pyqtSlot("QString")
     def current_carrying_capacity(self, text):
@@ -60,7 +60,7 @@ class input_data(back.application):
             self.j = value
             # print("j=" + str(self.j))
         else:
-            self.j = var.j
+            self.j = var.resistor_j
 
     @pyqtSlot("QString")
     def input_paste(self, text):
@@ -68,7 +68,7 @@ class input_data(back.application):
             self.selected_paste = text
             # print("pasta=" + str(self.selected_paste))
         else:
-            self.selected_paste = var.selected_paste
+            self.selected_paste = var.selected_paste_rezystywna
 
     @pyqtSlot("QString")
     def input_resistance_correction_methods(self, text):

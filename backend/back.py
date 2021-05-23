@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
-
 from PyQt5.QtCore import QObject
+
 import var
 
 
 def main_logic(main_logic_input):
 
     # default value
-    main_logic_input.get("default_value").get("r").text = var.r
-    main_logic_input.get("default_value").get("i").text = var.i_max
-    main_logic_input.get("default_value").get("p").text = var.p_max
-    main_logic_input.get("default_value").get("k_p").text = var.k_p
-    main_logic_input.get("default_value").get("k_j").text = var.k_j
-    main_logic_input.get("default_value").get("j").text = var.j
+    main_logic_input.get("default_value").get("r").text = var.resistor_r
+    main_logic_input.get("default_value").get("i").text = var.resistor_i_max
+    main_logic_input.get("default_value").get("p").text = var.resistor_p_max
+    main_logic_input.get("default_value").get("k_p").text = var.resistor_k_p
+    main_logic_input.get("default_value").get("k_j").text = var.resistor_k_j
+    main_logic_input.get("default_value").get("j").text = var.resistor_j
 
     input = main_logic_input.get("input_data")
     output_past_list = main_logic_input.get("output_past_list")
+    output_new_past_types = main_logic_input.get("output_new_past_types")
     output_corection_method_list = main_logic_input.get("output_corection_method_list")
     output_resistor_1 = main_logic_input.get("output_resistor").get("1")
     output_resistor_2 = main_logic_input.get("output_resistor").get("2")
@@ -25,60 +26,72 @@ def main_logic(main_logic_input):
     output_resistor = [output_resistor_1, output_resistor_2, output_resistor_3, output_resistor_4]
 
     pastes_list = []
-    for paste in var.paste_database:
+    resistance_correction_methods_list = []
+
+    for paste in var.db_paste_rezystywne:
         pastes_list.append(paste)
     output_past_list.list = pastes_list
 
-    resistance_correction_methods_list = []
     for method in var.resistance_correction_methods:
         resistance_correction_methods_list.append(method)
     output_corection_method_list.list = resistance_correction_methods_list
 
-    r = input.r
-    i = input.i_max
-    p = input.p_max
-    k_p = input.k_p
-    k_j = input.k_j
-    j = input.j
-    r_kw = var.paste_database.get(input.selected_paste).get("R")
-    twr = var.paste_database.get(input.selected_paste).get("TWR")
+    new_paste_types = [var.db_pasty_rezystywne_new, var.db_pasty_przewodzace_new, var.db_pasty_izolacyjne_new]
+    output_new_past_types.list = new_paste_types
+
+    resistor_r = input.resistor_r
+    resistor_i = input.resistor_i_max
+    resistor_p = input.resistor_p_max
+    resistor_k_p = input.resistor_k_p
+    resistor_k_j = input.resistor_k_j
+    resistor_j = input.resistor_j
+    resistor_r_kw = var.db_paste_rezystywne.get(input.selected_paste_rezystywna).get("R")
+    resistor_twr = var.db_paste_rezystywne.get(input.selected_paste_rezystywna).get("TWR")
     korekcja = var.resistance_correction_methods.get(input.selected_resistance_correction_methods).get("korekcja")
 
-    if i != 0 and r != 0:
-        p = i * r
-        main_logic_input.get("default_value").get("p").text = p
+    if resistor_i != 0 and resistor_r != 0:
+        resistor_p = resistor_i * resistor_r
+        main_logic_input.get("default_value").get("p").text = resistor_p
 
-    main_logic_resistor(r=r,
-                        i=i,
-                        p=p,
-                        k_p=k_p,
-                        k_j=k_j,
-                        j=j,
-                        r_kw=r_kw,
-                        twr=twr,
+    main_logic_resistor(r=resistor_r,
+                        i=resistor_i,
+                        p=resistor_p,
+                        k_p=resistor_k_p,
+                        k_j=resistor_k_j,
+                        j=resistor_j,
+                        r_kw=resistor_r_kw,
+                        twr=resistor_twr,
                         korekcja=korekcja,
                         output=output_resistor)
 
 
 class application(QObject):
-    # default input value
-    r = var.r
-    i_max = var.i_max
-    p_max = var.p_max
-    k_p = var.k_p
-    k_j = var.k_j
-    j = var.j
 
+    # new paste
     new_paste_name = var.new_paste_name
     new_paste_twr = var.new_paste_twr
     new_paste_r = var.new_paste_r
+    new_paste_type = var.new_paste_type
+
+    # default input value resistor
+    resistor_r = var.resistor_r
+    resistor_i_max = var.resistor_i_max
+    resistor_p_max = var.resistor_p_max
+    resistor_k_p = var.resistor_k_p
+    resistor_k_j = var.resistor_k_j
+    resistor_j = var.resistor_j
+
+    # default input value capacitor
+    capacitor_c = var.capacitor_c
 
     selected_resistance_correction_methods = var.selected_resistance_correction_methods
-    selected_paste = var.selected_paste
+    selected_paste_rezystywna = var.selected_paste_rezystywna
+    selected_paste_przewodzaca = var.selected_paste_przewodzaca
+    selected_paste_izolacyjne = var.selected_paste_izolacyjna
 
     # default output value
-    x = var.x
-    y = var.y
+    resistor_x = var.resistor_x
+    resistor_y = var.resistor_y
 
     def __init__(self):
         QObject.__init__(self)
@@ -98,7 +111,7 @@ def main_logic_resistor(r, i, p, k_p, k_j, j, r_kw, twr, korekcja, output):
         s_min = 0
 
     try:
-        n = round(r_korekcja / r_kw, 0)
+        n = round(r_korekcja / r_kw, 1)
     except ZeroDivisionError:
         n = 0
 
@@ -108,7 +121,10 @@ def main_logic_resistor(r, i, p, k_p, k_j, j, r_kw, twr, korekcja, output):
         y = n * x
         s = x * y
 
-    output[0].text = r_korekcja
-    output[1].text = n
-    output[2].text = r_rzeczywiste
-    output[3].text = s_min
+    output[0].text = round(r_korekcja, 2)
+    output[1].text = round(n, 2)
+    output[2].text = round(r_rzeczywiste, 2)
+    output[3].text = round(s_min, 2)
+
+def main_logic_capacitor():
+    print("capacitor")
