@@ -175,7 +175,7 @@ ApplicationWindow {
     property var capacitorWindowInputLabel7_Text:           "input label 8"
     property var capacitorWindowInputLabel8_Text:           "input label 8"
 
-    property var capacitorWindowInput1_placeholderText:      "input label 1"
+    property var capacitorWindowInput1_placeholderText:     output_capacitor_default_c.text
     property var capacitorWindowInput2_placeholderText:     "input label 2"
     property var capacitorWindowInput3_placeholderText:     "input label 8"
     property var capacitorWindowInput4_placeholderText:     "input label 8"
@@ -196,6 +196,7 @@ ApplicationWindow {
     property var pasteWindowButton_Heigh:                   50
     property var pasteWindowButtonNewPaste_Tittle:          "Dodaj"
     property var pasteWindowButton_Font:                    application.smallTextSize
+    property var pasteWindowInputList_Width
 
     property var pasteWindowInputMainLabel1_Text:           "NOWA PASTA:"
     property var pasteWindowInputLabel1_Text:               "nazwa:"

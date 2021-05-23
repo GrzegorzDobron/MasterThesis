@@ -86,7 +86,7 @@ Item {
                     id:                     capacitorWindowInputGridLabel2
                     horizontalAlignment:    Text.AlignRight
                     color:                  application.elementWindowInputLabel_Color
-                    text:                   application.capacitorrWindowInputLabel2_Text
+                    text:                   application.capacitorWindowInputLabel2_Text
                     font.pixelSize:         application.elementWindowInputLabel_Size
                 }
 
@@ -327,10 +327,9 @@ Item {
 
                 Text {
                     id:                             capacitorWindowOutput1
-                    text:                           output_resistor_1.text
+                    text:                           output_capacitor_1.text
                     color:                          "green"
                     font.pixelSize:                 application.bigTextSize
-                    // zmiana
                 }
 
                 Text {
@@ -342,10 +341,9 @@ Item {
 
                 Text {
                     id:                             capacitorWindowOutput2
-                    text:                           output_resistor_2.text
+                    text:                           output_capacitor_2.text
                     color:                          "green"
                     font.pixelSize:                 application.bigTextSize
-                    // zmiana
                 }
 
                 Text {
@@ -357,10 +355,9 @@ Item {
 
                 Text {
                     id:                             capacitorWindowOutput3
-                    text:                           output_resistor_3.text
+                    text:                           output_capacitor_3.text
                     color:                          "green"
                     font.pixelSize:                 application.bigTextSize
-                    // zmiana
                 }
 
                 Text {
@@ -372,10 +369,9 @@ Item {
 
                 Text {
                     id:                             capacitorWindowOutput4
-                    text:                           output_resistor_4.text
+                    text:                           output_capacitor_4.text
                     color:                          "green"
                     font.pixelSize:                 application.bigTextSize
-                    // zmiana
                 }
             }
 

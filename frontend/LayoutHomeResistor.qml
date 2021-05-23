@@ -78,7 +78,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput1_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.input_final_resistance(resistorWindowInputGridInput1.text)
+                    onTextChanged:          input_resistor.input_final_resistance(resistorWindowInputGridInput1.text)
                 }
 
                 Text {
@@ -95,7 +95,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput2_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.input_current_max(resistorWindowInputGridInput2.text)
+                    onTextChanged:          input_resistor.input_current_max(resistorWindowInputGridInput2.text)
                 }
 
                 Text {
@@ -112,7 +112,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput8_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.input_power_max(resistorWindowInputGridInput8.text)
+                    onTextChanged:          input_resistor.input_power_max(resistorWindowInputGridInput8.text)
                 }
             }
         }
@@ -167,7 +167,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput4_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.current_carrying_capacity(resistorWindowInputGridInput4.text)
+                    onTextChanged:          input_resistor.current_carrying_capacity(resistorWindowInputGridInput4.text)
                 }
 
                 Text {
@@ -184,7 +184,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput7_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.safety_factor_power(resistorWindowInputGridInput7.text)
+                    onTextChanged:          input_resistor.safety_factor_power(resistorWindowInputGridInput7.text)
                 }
 
                 Text {
@@ -201,7 +201,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput3_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.safety_factor_power(resistorWindowInputGridInput3.text)
+                    onTextChanged:          input_resistor.safety_factor_power(resistorWindowInputGridInput3.text)
                 }
             }
         }
@@ -253,7 +253,7 @@ Item {
                     id:                     resistorWindowInputPaste
                     model:                  output_past_list.list
                     width:                  application.elementWindowInputList_Width
-                    onCurrentTextChanged:   input.input_paste(resistorWindowInputPaste.currentText)
+                    onCurrentTextChanged:   input_resistor.input_paste(resistorWindowInputPaste.currentText)
                 }
 
                 Text {
@@ -268,7 +268,7 @@ Item {
                     id:                     resistorWindowInputCorectionMethod
                     model:                  output_corection_method_list.list
                     width:                  application.elementWindowInputList_Width
-                    onCurrentTextChanged:   input.input_resistance_correction_methods(resistorWindowInputCorectionMethod.currentText)
+                    onCurrentTextChanged:   input_resistor.input_resistance_correction_methods(resistorWindowInputCorectionMethod.currentText)
                 }
             }
         }

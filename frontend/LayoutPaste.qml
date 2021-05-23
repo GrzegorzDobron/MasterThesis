@@ -32,7 +32,7 @@ Item {
                 anchors.topMargin:          application.elementWindowInputGrid_TopMargin
                 anchors.left:               parent.left
                 anchors.leftMargin:         application.elementWindowInputGrid_LeftMargin
-                rows:                       3
+                rows:                       4
                 columns:                    2
                 spacing:                    application.elementWindowInputGrid_Spacing
                 verticalItemAlignment:      Grid.AlignVCenter
@@ -50,7 +50,7 @@ Item {
                     id:                     pasteWindowInputGridInput1
                     hoverEnabled:           false
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.input_new_paste_name(pasteWindowInputGridInput1.text)
+                    onTextChanged:          input_new_paste.input_new_paste_name(pasteWindowInputGridInput1.text)
                 }
 
                 Text {
@@ -65,7 +65,7 @@ Item {
                     id:                     pasteWindowInputGridInput2
                     hoverEnabled:           false
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.input_new_paste_twr(pasteWindowInputGridInput2.text)
+                    onTextChanged:          input_new_paste.input_new_paste_twr(pasteWindowInputGridInput2.text)
                 }
 
                 Text {
@@ -80,8 +80,23 @@ Item {
                     id:                     pasteWindowInputGridInput3
                     hoverEnabled:           false
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.input_new_paste_r(pasteWindowInputGridInput3.text)
+                    onTextChanged:          input_new_paste.input_new_paste_r(pasteWindowInputGridInput3.text)
                 }
+
+                Text {
+                    id:                     pasteWindowInputGridLabel4
+                    horizontalAlignment:    Text.AlignRight
+                    color:                  application.pasteWindowInputLabel_Color
+                    text:                   application.pasteWindowInputLabel4_Text
+                    font.pixelSize:         application.elementWindowInputLabel_Size
+                }
+
+               ComboBox {
+                   id:                     pasteWindowInputGridInput4
+                   model:                  output_new_past_types.list
+                   width:                  application.pasteWindowInputList_Width
+                   onCurrentTextChanged:   input_new_paste.input_new_paste_type(pasteWindowInputGridInput4.currentText)
+               }
             }
 
             Button {

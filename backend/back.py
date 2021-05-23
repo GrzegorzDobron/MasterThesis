@@ -5,19 +5,23 @@ import var
 
 
 def main_logic(main_logic_input):
-
     # default value
-    main_logic_input.get("default_value").get("r").text = var.resistor_r
-    main_logic_input.get("default_value").get("i").text = var.resistor_i_max
-    main_logic_input.get("default_value").get("p").text = var.resistor_p_max
-    main_logic_input.get("default_value").get("k_p").text = var.resistor_k_p
-    main_logic_input.get("default_value").get("k_j").text = var.resistor_k_j
-    main_logic_input.get("default_value").get("j").text = var.resistor_j
+    main_logic_input.get("resistor_default_value").get("r").text = var.resistor_r
+    main_logic_input.get("resistor_default_value").get("i").text = var.resistor_i_max
+    main_logic_input.get("resistor_default_value").get("p").text = var.resistor_p_max
+    main_logic_input.get("resistor_default_value").get("k_p").text = var.resistor_k_p
+    main_logic_input.get("resistor_default_value").get("k_j").text = var.resistor_k_j
+    main_logic_input.get("resistor_default_value").get("j").text = var.resistor_j
 
-    input = main_logic_input.get("input_data")
+    main_logic_input.get("capacitor_default_value").get("c").text = var.capacitor_c
+
+    input_resistor = main_logic_input.get("input_resistor_data")
+    input_capacitor = main_logic_input.get("input_capacitor_data")
+
     output_past_list = main_logic_input.get("output_past_list")
     output_new_past_types = main_logic_input.get("output_new_past_types")
     output_corection_method_list = main_logic_input.get("output_corection_method_list")
+
     output_resistor_1 = main_logic_input.get("output_resistor").get("1")
     output_resistor_2 = main_logic_input.get("output_resistor").get("2")
     output_resistor_3 = main_logic_input.get("output_resistor").get("3")
@@ -39,19 +43,19 @@ def main_logic(main_logic_input):
     new_paste_types = [var.db_pasty_rezystywne_new, var.db_pasty_przewodzace_new, var.db_pasty_izolacyjne_new]
     output_new_past_types.list = new_paste_types
 
-    resistor_r = input.resistor_r
-    resistor_i = input.resistor_i_max
-    resistor_p = input.resistor_p_max
-    resistor_k_p = input.resistor_k_p
-    resistor_k_j = input.resistor_k_j
-    resistor_j = input.resistor_j
-    resistor_r_kw = var.db_paste_rezystywne.get(input.selected_paste_rezystywna).get("R")
-    resistor_twr = var.db_paste_rezystywne.get(input.selected_paste_rezystywna).get("TWR")
-    korekcja = var.resistance_correction_methods.get(input.selected_resistance_correction_methods).get("korekcja")
+    resistor_r = input_resistor.resistor_r
+    resistor_i = input_resistor.resistor_i_max
+    resistor_p = input_resistor.resistor_p_max
+    resistor_k_p = input_resistor.resistor_k_p
+    resistor_k_j = input_resistor.resistor_k_j
+    resistor_j = input_resistor.resistor_j
+    resistor_r_kw = var.db_paste_rezystywne.get(input_resistor.selected_paste_rezystywna).get("R")
+    resistor_twr = var.db_paste_rezystywne.get(input_resistor.selected_paste_rezystywna).get("TWR")
+    korekcja = var.resistance_correction_methods.get(input_resistor.selected_resistance_correction_methods).get("korekcja")
 
     if resistor_i != 0 and resistor_r != 0:
         resistor_p = resistor_i * resistor_r
-        main_logic_input.get("default_value").get("p").text = resistor_p
+        main_logic_input.get("resistor_default_value").get("p").text = resistor_p
 
     main_logic_resistor(r=resistor_r,
                         i=resistor_i,
@@ -66,7 +70,6 @@ def main_logic(main_logic_input):
 
 
 class application(QObject):
-
     # new paste
     new_paste_name = var.new_paste_name
     new_paste_twr = var.new_paste_twr
@@ -125,6 +128,7 @@ def main_logic_resistor(r, i, p, k_p, k_j, j, r_kw, twr, korekcja, output):
     output[1].text = round(n, 2)
     output[2].text = round(r_rzeczywiste, 2)
     output[3].text = round(s_min, 2)
+
 
 def main_logic_capacitor():
     print("capacitor")
