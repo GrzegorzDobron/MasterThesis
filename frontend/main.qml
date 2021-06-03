@@ -152,8 +152,8 @@ ApplicationWindow {
     property var resistorWindowOutputLabel2_Text:            "liczba kwadratów:"
     property var resistorWindowOutputLabel3_Text:            "rezystancja rzeczywista [Ω]:"
     property var resistorWindowOutputLabel4_Text:            "powierzchnia minimalna [mm2]:"
-    property var resistorWindowOutputLabel5_Text:            "szerokość [μ]:"
-    property var resistorWindowOutputLabel6_Text:            "dlugość [μ]:"
+    property var resistorWindowOutputLabel5_Text:            "szerokość [μm]:"
+    property var resistorWindowOutputLabel6_Text:            "dlugość [μm]:"
 
     property var resistorWindowInput1_placeholderText:      output_resistor_default_r.text
     property var resistorWindowInput2_placeholderText:      output_resistor_default_i.text

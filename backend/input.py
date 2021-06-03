@@ -13,19 +13,19 @@ class input_new_paste(back.application):
         if text != "":
             self.new_paste_name = text
             var.new_paste_name = text
-            # print("new_paste_name=" + str(self.new_paste_name))
+            print("new_paste_name=" + str(self.new_paste_name))
         else:
             self.new_paste_name = var.new_paste_name
 
     @pyqtSlot("QString")
-    def input_new_paste_twr(self, text):
+    def input_new_paste_przenikalnosc(self, text):
         value = static.input_to_float(text)
         if type(value) == float:
-            self.new_paste_twr = value
-            var.new_paste_twr = value
-            # print("new_paste_twr=" + str(self.new_paste_twr))
+            self.new_paste_przenikalnosc = value
+            var.new_paste_przenikalnosc = value
+            print("new_paste_przenikalnosc=" + str(self.new_paste_przenikalnosc))
         else:
-            self.new_paste_twr = var.new_paste_twr
+            self.new_paste_przenikalnosc = var.new_paste_przenikalnosc
 
     @pyqtSlot("QString")
     def input_new_paste_r(self, text):
@@ -33,7 +33,7 @@ class input_new_paste(back.application):
         if type(value) == float:
             self.new_paste_r = value
             var.new_paste_r = value
-            # print("new_paste_twr=" + str(self.new_paste_r))
+            print("new_paste_r=" + str(self.new_paste_r))
         else:
             self.new_paste_r = var.new_paste_r
 
@@ -41,7 +41,8 @@ class input_new_paste(back.application):
     def input_new_paste_type(self, text):
         if text != "":
             self.new_paste_type = text
-            # print("new_paste_type=" + str(self.new_paste_type))
+            var.new_paste_type = text
+            print("new_paste_type=" + str(self.new_paste_type))
         else:
             self.new_paste_type = var.new_paste_type
 
@@ -129,9 +130,9 @@ class input_resistor_data(back.application):
             self.selected_paste = var.selected_paste_rezystywna
 
     @pyqtSlot("QString")
-    def input_resistance_correction_methods(self, text):
+    def input_manufactoring_method(self, text):
         if text != "":
-            self.selected_resistance_correction_methods = text
+            self.selected_manufactoring_method = text
             # print("korekcja=" + str(self.selected_resistance_correction_methods))
         else:
-            self.selected_resistance_correction_methods = var.selected_resistance_correction_methods
+            self.selected_manufactoring_method = var.selected_manufactoring_method

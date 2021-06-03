@@ -21,7 +21,7 @@ def main_logic(main_logic_input):
 
     output_past_list = main_logic_input.get("output_past_list")
     output_new_past_types = main_logic_input.get("output_new_past_types")
-    output_corection_method_list = main_logic_input.get("output_corection_method_list")
+    output_manufactoring_method_list = main_logic_input.get("output_manufactoring_method_list")
 
     output_resistor_1 = main_logic_input.get("output_resistor").get("1")
     output_resistor_2 = main_logic_input.get("output_resistor").get("2")
@@ -34,17 +34,17 @@ def main_logic(main_logic_input):
                        output_resistor_4, output_resistor_5, output_resistor_6]
 
     pastes_list = []
-    resistance_correction_methods_list = []
+    manufactoring_method_list = []
 
     for paste in var.db_paste_rezystywne:
         pastes_list.append(paste)
     output_past_list.list = pastes_list
 
-    for method in var.resistance_correction_methods:
-        resistance_correction_methods_list.append(method)
-    output_corection_method_list.list = resistance_correction_methods_list
+    for method in var.manufacturing_methods:
+        manufactoring_method_list.append(method)
+    output_manufactoring_method_list.list = manufactoring_method_list
 
-    new_paste_types = [var.db_pasty_rezystywne_new, var.db_pasty_przewodzace_new, var.db_pasty_izolacyjne_new]
+    new_paste_types = ["", var.db_pasty_rezystywne_new, var.db_pasty_izolacyjne_new]
     output_new_past_types.list = new_paste_types
 
     resistor_r = input_resistor.resistor_r
@@ -55,7 +55,7 @@ def main_logic(main_logic_input):
     resistor_j = input_resistor.resistor_j
     resistor_r_kw = var.db_paste_rezystywne.get(input_resistor.selected_paste_rezystywna).get("R")
     resistor_twr = var.db_paste_rezystywne.get(input_resistor.selected_paste_rezystywna).get("TWR")
-    korekcja = var.resistance_correction_methods.get(input_resistor.selected_resistance_correction_methods).get("korekcja")
+    metoda = var.manufacturing_methods.get(input_resistor.selected_manufactoring_method)
 
     if resistor_i != 0 and resistor_r != 0:
         resistor_p = resistor_i * resistor_r
@@ -67,8 +67,7 @@ def main_logic(main_logic_input):
                         k_p=resistor_k_p,
                         j=resistor_j,
                         r_kw=resistor_r_kw,
-                        twr=resistor_twr,
-                        metoda=resistor_korekta,
+                        metoda=metoda,
                         korekcja=resistor_korekta,
                         output=output_resistor)
 
@@ -76,7 +75,7 @@ def main_logic(main_logic_input):
 class application(QObject):
     # new paste
     new_paste_name = var.new_paste_name
-    new_paste_twr = var.new_paste_twr
+    new_paste_przenikalnosc = var.new_paste_przenikalnosc
     new_paste_r = var.new_paste_r
     new_paste_type = var.new_paste_type
 
@@ -91,9 +90,8 @@ class application(QObject):
     # default input value capacitor
     capacitor_c = var.capacitor_c
 
-    selected_resistance_correction_methods = var.selected_resistance_correction_methods
+    selected_manufactoring_method = var.selected_manufactoring_method
     selected_paste_rezystywna = var.selected_paste_rezystywna
-    selected_paste_przewodzaca = var.selected_paste_przewodzaca
     selected_paste_izolacyjne = var.selected_paste_izolacyjna
 
     # default output value
@@ -104,9 +102,7 @@ class application(QObject):
         QObject.__init__(self)
 
 
-def main_logic_resistor(r, i, p, k_p, j, r_kw, twr, metoda, korekcja, output):
-
-    korekcja = 0.8
+def main_logic_resistor(r, i, p, k_p, j, r_kw, metoda, korekcja, output):
 
     r_korekcja = r * korekcja
 

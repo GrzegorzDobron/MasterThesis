@@ -28,7 +28,7 @@ if __name__ == "__main__":
     input_new_paste = input.input_new_paste()
     output_past_list = output.output_list()
     output_new_past_types = output.output_list()
-    output_corection_method_list = output.output_list()
+    output_manufactoring_method_list = output.output_list()
     output_faq = output.output_faq()
 
     output_resistor_default_r = output.output_numeric()
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     context.setContextProperty("input_new_paste", input_new_paste)
 
     context.setContextProperty("output_past_list", output_past_list)
-    context.setContextProperty("output_corection_method_list", output_corection_method_list)
+    context.setContextProperty("output_manufactoring_method_list", output_manufactoring_method_list)
     context.setContextProperty("output_new_past_types", output_new_past_types)
 
     context.setContextProperty("output_resistor_default_r",          output_resistor_default_r)
@@ -94,7 +94,7 @@ if __name__ == "__main__":
         "input_capacitor_data": input_capacitor_data,
         "output_past_list": output_past_list,
         "output_new_past_types": output_new_past_types,
-        "output_corection_method_list": output_corection_method_list,
+        "output_manufactoring_method_list": output_manufactoring_method_list,
         "output_resistor": {
             "1": output_resistor_1,
             "2": output_resistor_2,

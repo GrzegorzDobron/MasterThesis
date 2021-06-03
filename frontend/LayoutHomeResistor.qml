@@ -266,9 +266,9 @@ Item {
 
                 ComboBox {
                     id:                     resistorWindowInputCorectionMethod
-                    model:                  output_corection_method_list.list
+                    model:                  output_manufactoring_method_list.list
                     width:                  application.elementWindowInputList_Width
-                    onCurrentTextChanged:   input_resistor.input_resistance_correction_methods(resistorWindowInputCorectionMethod.currentText)
+                    onCurrentTextChanged:   input_resistor.input_manufactoring_method(resistorWindowInputCorectionMethod.currentText)
                 }
             }
         }

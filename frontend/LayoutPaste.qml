@@ -73,7 +73,7 @@ Item {
                     id:                     pasteWindowInputGridInput2
                     hoverEnabled:           false
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input_new_paste.input_new_paste_twr(pasteWindowInputGridInput2.text)
+                    onTextChanged:          input_new_paste.input_new_paste_przenikalnosc(pasteWindowInputGridInput2.text)
                 }
 
                 Text {
