@@ -392,6 +392,20 @@ Item {
                     color:                          "green"
                     font.pixelSize:                 application.bigTextSize
                 }
+
+                Text {
+                    id:                             resistorWindowOutputLabel7
+                    text:                           application.resistorWindowOutputLabel7_Text
+                    color:                          application.elementWindowInputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             resistorWindowOutput7
+                    text:                           output_resistor_7.text
+                    color:                          "green"
+                    font.pixelSize:                 application.bigTextSize
+                }
             }
         }
     }

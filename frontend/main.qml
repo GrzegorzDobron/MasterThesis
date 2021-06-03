@@ -116,8 +116,8 @@ ApplicationWindow {
     property var elementWindowInputRectangle_Top:          50          // odsuniecie ramki z gory
     property var elementWindowInputRectangle_Spacing:      10          // odsuniecie ramek
 
-    property var elementWindowOutputRectangle_Heigh:       200         // gabaryt ramki
-    property var elementWindowOutputRectangle_Width:       220         // gabaryt ramki
+    property var elementWindowOutputRectangle_Heigh:       220         // gabaryt ramki
+    property var elementWindowOutputRectangle_Width:       250         // gabaryt ramki
 
     property var elementWindowInput_Width:                 80          // szerokosc pola do wprowadzania
     property var elementWindowInputList_Width:             300         // szerokość listy wyboru
@@ -140,20 +140,21 @@ ApplicationWindow {
     property var resistorWindowOutputMainLabel1_Text:       "DANE WYJŚCIOWE:"
 
     property var resistorWindowInputLabel1_Text:            "rezystancja [R]:"
-    property var resistorWindowInputLabel2_Text:            "prąd pracy max [I]:"
+    property var resistorWindowInputLabel2_Text:            "prąd pracy max [mA]:"
     property var resistorWindowInputLabel3_Text:            "korekcja:"
     property var resistorWindowInputLabel4_Text:            "obciążalność [W/cm2]:"
     property var resistorWindowInputLabel5_Text:            "pasta:"
     property var resistorWindowInputLabel6_Text:            "metoda wytworzenia \n(minimalna szerokość):"
     property var resistorWindowInputLabel7_Text:            "współ. bezp. obciazalnosci:"
-    property var resistorWindowInputLabel8_Text:            "moc max [W]:"
+    property var resistorWindowInputLabel8_Text:            "moc max [mW]:"
 
     property var resistorWindowOutputLabel1_Text:            "rezystancja z korekcją [Ω]:"
     property var resistorWindowOutputLabel2_Text:            "liczba kwadratów:"
-    property var resistorWindowOutputLabel3_Text:            "rezystancja rzeczywista [Ω]:"
+    property var resistorWindowOutputLabel3_Text:            "moc projektowa [mW]:"
     property var resistorWindowOutputLabel4_Text:            "powierzchnia minimalna [mm2]:"
-    property var resistorWindowOutputLabel5_Text:            "szerokość [μm]:"
-    property var resistorWindowOutputLabel6_Text:            "dlugość [μm]:"
+    property var resistorWindowOutputLabel5_Text:            "szerokość [mm]:"
+    property var resistorWindowOutputLabel6_Text:            "dlugość [mm]:"
+    property var resistorWindowOutputLabel7_Text:            "rezystancja na kwadrat [Ω]:"
 
     property var resistorWindowInput1_placeholderText:      output_resistor_default_r.text
     property var resistorWindowInput2_placeholderText:      output_resistor_default_i.text

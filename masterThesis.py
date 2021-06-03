@@ -46,6 +46,7 @@ if __name__ == "__main__":
     output_resistor_4 = output.output_numeric()
     output_resistor_5 = output.output_numeric()
     output_resistor_6 = output.output_numeric()
+    output_resistor_7 = output.output_numeric()
 
     output_capacitor_1 = output.output_numeric()
     output_capacitor_2 = output.output_numeric()
@@ -79,6 +80,7 @@ if __name__ == "__main__":
     context.setContextProperty("output_resistor_4", output_resistor_4)
     context.setContextProperty("output_resistor_5", output_resistor_5)
     context.setContextProperty("output_resistor_6", output_resistor_6)
+    context.setContextProperty("output_resistor_7", output_resistor_7)
 
     context.setContextProperty("output_capacitor_1", output_capacitor_1)
     context.setContextProperty("output_capacitor_2", output_capacitor_2)
@@ -101,7 +103,8 @@ if __name__ == "__main__":
             "3": output_resistor_3,
             "4": output_resistor_4,
             "5": output_resistor_5,
-            "6": output_resistor_6
+            "6": output_resistor_6,
+            "7": output_resistor_7
         },
         "output_capacitor": {
             "1": output_resistor_1,

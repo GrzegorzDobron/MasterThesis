@@ -19,7 +19,7 @@ resistor_r = 0               # rezystancja docelowa
 resistor_i_max = 0           # prad max
 resistor_p_max = 0           # moc max
 resistor_k_p = 0.2           # wspolczynnik mocy
-resistor_korekta = 0.8           # wspolczynnik obciazalnosci
+resistor_korekta = 0.8       # wspolczynnik obciazalnosci
 resistor_j = 8               # obciazalnosc
 
 # default input value resistor
@@ -42,13 +42,11 @@ resistor_x = 0               # szerokosc
 resistor_y = 0               # n * x
 
 db_paste_rezystywne = {
-    "": {
-        db_pasty_rezystywne_dataframe[1]: 0
-    }
+    "": { db_pasty_rezystywne_dataframe[1]: 0 }
 }
 
 db_paste_dielektryczne = {
-    "": {
+    " ": {
         db_pasty_dielektryczne_dataframe[1]: 0
     }
 }

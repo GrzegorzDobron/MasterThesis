@@ -57,7 +57,7 @@ class input_capacitor_data(back.application):
         value = static.input_to_float(text)
         if type(value) == float:
             self.capacitor_c = value
-            # print("C=" + str(self.capacitor_c))
+            print("C=" + str(self.capacitor_c))
         else:
             self.capacitor_c = var.capacitor_c
 
@@ -72,7 +72,7 @@ class input_resistor_data(back.application):
         value = static.input_to_float(text)
         if type(value) == float:
             self.resistor_r = value
-            # print("R=" + str(self.resistor_r))
+            print("R=" + str(self.resistor_r))
         else:
             self.resistor_r = var.resistor_r
 
@@ -81,7 +81,7 @@ class input_resistor_data(back.application):
         value = static.input_to_float(text)
         if type(value) == float:
             self.resistor_i_max = value
-            # print("Imax=" + str(self.resistor_i_max))
+            print("Imax=" + str(self.resistor_i_max))
         else:
             self.resistor_i_max = var.resistor_i_max
 
@@ -90,7 +90,7 @@ class input_resistor_data(back.application):
         value = static.input_to_float(text)
         if type(value) == float:
             self.resistor_p_max = value
-            # print("Pmax=" + str(self.resistor_p_max))
+            print("Pmax=" + str(self.resistor_p_max))
         else:
             self.resistor_p_max = var.resistor_p_max
 
@@ -99,7 +99,7 @@ class input_resistor_data(back.application):
         value = static.input_to_float(text)
         if type(value) == float:
             self.resistor_k_p = value
-            # print("k_p=" + str(self.resistor_k_p))
+            print("k_p=" + str(self.resistor_k_p))
         else:
             self.resistor_k_p = var.resistor_k_p
 
@@ -117,22 +117,24 @@ class input_resistor_data(back.application):
         value = static.input_to_float(text)
         if type(value) == float:
             self.resistor_j = value
-            # print("j=" + str(self.resistor_j))
+            print("j=" + str(self.resistor_j))
         else:
             self.resistor_j = var.resistor_j
 
     @pyqtSlot("QString")
     def input_paste(self, text):
+        print(text)
         if text != "":
-            self.selected_paste = text
-            # print("pasta=" + str(self.selected_paste))
+            print(text)
+            self.selected_paste_rezystywna = text
+            print("pasta=" + str(self.selected_paste_rezystywna))
         else:
-            self.selected_paste = var.selected_paste_rezystywna
+            self.selected_paste_rezystywna = var.selected_paste_rezystywna
 
     @pyqtSlot("QString")
     def input_manufactoring_method(self, text):
         if text != "":
             self.selected_manufactoring_method = text
-            # print("korekcja=" + str(self.selected_resistance_correction_methods))
+            print("korekcja=" + str(self.selected_manufactoring_method))
         else:
             self.selected_manufactoring_method = var.selected_manufactoring_method
