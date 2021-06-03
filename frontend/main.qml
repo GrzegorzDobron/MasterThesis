@@ -141,23 +141,25 @@ ApplicationWindow {
 
     property var resistorWindowInputLabel1_Text:            "rezystancja [R]:"
     property var resistorWindowInputLabel2_Text:            "prąd pracy max [I]:"
-    property var resistorWindowInputLabel3_Text:            "współ. bezp. mocy:"
-    property var resistorWindowInputLabel4_Text:            "obciążalność:"
+    property var resistorWindowInputLabel3_Text:            "korekcja:"
+    property var resistorWindowInputLabel4_Text:            "obciążalność [W/cm2]:"
     property var resistorWindowInputLabel5_Text:            "pasta:"
-    property var resistorWindowInputLabel6_Text:            "metoda korekcji:"
+    property var resistorWindowInputLabel6_Text:            "metoda wytworzenia \n(minimalna szerokość):"
     property var resistorWindowInputLabel7_Text:            "współ. bezp. obciazalnosci:"
     property var resistorWindowInputLabel8_Text:            "moc max [W]:"
 
-    property var resistorWindowOutputLabel1_Text:            "rezystancja z korekcją:"
+    property var resistorWindowOutputLabel1_Text:            "rezystancja z korekcją [Ω]:"
     property var resistorWindowOutputLabel2_Text:            "liczba kwadratów:"
-    property var resistorWindowOutputLabel3_Text:            "rezystancja rzeczywista:"
-    property var resistorWindowOutputLabel4_Text:            "cos:"
+    property var resistorWindowOutputLabel3_Text:            "rezystancja rzeczywista [Ω]:"
+    property var resistorWindowOutputLabel4_Text:            "powierzchnia minimalna [mm2]:"
+    property var resistorWindowOutputLabel5_Text:            "szerokość [μ]:"
+    property var resistorWindowOutputLabel6_Text:            "dlugość [μ]:"
 
     property var resistorWindowInput1_placeholderText:      output_resistor_default_r.text
     property var resistorWindowInput2_placeholderText:      output_resistor_default_i.text
-    property var resistorWindowInput3_placeholderText:      output_resistor_default_k_p.text
+    property var resistorWindowInput3_placeholderText:      output_resistor_default_korekta.text
     property var resistorWindowInput4_placeholderText:      output_resistor_default_j.text
-    property var resistorWindowInput7_placeholderText:      output_resistor_default_k_j.text
+    property var resistorWindowInput7_placeholderText:      output_resistor_default_k_p.text
     property var resistorWindowInput8_placeholderText:      output_resistor_default_p.text
 
     // kondensator
@@ -211,7 +213,7 @@ ApplicationWindow {
 
     id:                         application
     visible:                    true
-    flags:                      Qt.Window | Qt.FramelessWindowHint
+    //flags:                      Qt.Window | Qt.FramelessWindowHint
     color:                      application.mainWindow_BackgroundColor
     width:                      application.mainWindow_Width
     height:                     application.mainWindow_Heigh

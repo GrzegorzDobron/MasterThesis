@@ -23,7 +23,7 @@ resistor_r = 0               # rezystancja docelowa
 resistor_i_max = 0           # prad max
 resistor_p_max = 0           # moc max
 resistor_k_p = 0.2           # wspolczynnik mocy
-resistor_k_j = 0.2           # wspolczynnik obciazalnosci
+resistor_korekta = 0.8           # wspolczynnik obciazalnosci
 resistor_j = 8               # obciazalnosc
 
 # default input value resistor
@@ -79,9 +79,10 @@ resistance_correction_methods = {
 manufacturing_methods = {
     100: "sitodruk standardowy",
     50: "sitodruk precyzyjny",
+    15: "trawienie przed wypaleniem",
+    25: "trawienie po wypaleniu",
+    30: "nanoszenie przez dysze",
+    10: "formowanie laserem"
 }
 
-# 15: "trawienie przed wypaleniem",
-# 25: "trawienie po wypaleniu",
-# 30: "nanoszenie przez dysze",
-# 10: "formowanie laserem"
+

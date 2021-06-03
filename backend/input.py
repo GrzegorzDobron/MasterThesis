@@ -103,13 +103,13 @@ class input_resistor_data(back.application):
             self.resistor_k_p = var.resistor_k_p
 
     @pyqtSlot("QString")
-    def safety_factor_load(self, text):
+    def resistance_corection(self, text):
         value = static.input_to_float(text)
         if type(value) == float:
-            self.resistor_k_j = value
-            # print("k_j=" + str(self.resistor_k_j))
+            self.resistor_korekta = value
+            print("korekta=" + str(self.resistor_korekta))
         else:
-            self.resistor_k_j = var.resistor_k_j
+            self.resistor_korekta = var.resistor_korekta
 
     @pyqtSlot("QString")
     def current_carrying_capacity(self, text):

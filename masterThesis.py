@@ -3,13 +3,18 @@ import os
 import sys
 
 from functools import partial
-from PyQt5.QtCore import QTimer
+
+from PyQt5.QtCore import QTimer, QUrl
 from PyQt5.QtGui import QGuiApplication
 from PyQt5.QtQml import QQmlApplicationEngine
 
 import backend
 from backend import input, output, back, static
-import var
+
+
+import sys
+
+
 
 
 if __name__ == "__main__":
@@ -30,7 +35,7 @@ if __name__ == "__main__":
     output_resistor_default_i = output.output_numeric()
     output_resistor_default_p = output.output_numeric()
     output_resistor_default_k_p = output.output_numeric()
-    output_resistor_default_k_j = output.output_numeric()
+    output_resistor_default_korekta = output.output_numeric()
     output_resistor_default_j = output.output_numeric()
 
     output_capacitor_default_c = output.output_numeric()
@@ -39,6 +44,8 @@ if __name__ == "__main__":
     output_resistor_2 = output.output_numeric()
     output_resistor_3 = output.output_numeric()
     output_resistor_4 = output.output_numeric()
+    output_resistor_5 = output.output_numeric()
+    output_resistor_6 = output.output_numeric()
 
     output_capacitor_1 = output.output_numeric()
     output_capacitor_2 = output.output_numeric()
@@ -59,7 +66,7 @@ if __name__ == "__main__":
     context.setContextProperty("output_resistor_default_i",          output_resistor_default_i)
     context.setContextProperty("output_resistor_default_p",          output_resistor_default_p)
     context.setContextProperty("output_resistor_default_k_p",        output_resistor_default_k_p)
-    context.setContextProperty("output_resistor_default_k_j",        output_resistor_default_k_j)
+    context.setContextProperty("output_resistor_default_korekta",    output_resistor_default_korekta)
     context.setContextProperty("output_resistor_default_j",          output_resistor_default_j)
 
     context.setContextProperty("output_capacitor_default_c", output_capacitor_default_c)
@@ -70,6 +77,8 @@ if __name__ == "__main__":
     context.setContextProperty("output_resistor_2", output_resistor_2)
     context.setContextProperty("output_resistor_3", output_resistor_3)
     context.setContextProperty("output_resistor_4", output_resistor_4)
+    context.setContextProperty("output_resistor_5", output_resistor_5)
+    context.setContextProperty("output_resistor_6", output_resistor_6)
 
     context.setContextProperty("output_capacitor_1", output_capacitor_1)
     context.setContextProperty("output_capacitor_2", output_capacitor_2)
@@ -79,9 +88,6 @@ if __name__ == "__main__":
     engine.load(os.path.join(os.path.dirname(__file__), "frontend/main.qml"))
 
     backend.static.init()
-
-    if not engine.rootObjects():
-        sys.exit(-1)
 
     main_logic_input = {
         "input_resistor_data": input_resistor_data,
@@ -93,7 +99,9 @@ if __name__ == "__main__":
             "1": output_resistor_1,
             "2": output_resistor_2,
             "3": output_resistor_3,
-            "4": output_resistor_4
+            "4": output_resistor_4,
+            "5": output_resistor_5,
+            "6": output_resistor_6
         },
         "output_capacitor": {
             "1": output_resistor_1,
@@ -106,13 +114,16 @@ if __name__ == "__main__":
             "i":        output_resistor_default_i,
             "p":        output_resistor_default_p,
             "k_p":      output_resistor_default_k_p,
-            "k_j":      output_resistor_default_k_j,
+            "korekta":      output_resistor_default_korekta,
             "j":        output_resistor_default_j
         },
         "capacitor_default_value": {
             "c":        output_capacitor_default_c
         }
     }
+
+    if not engine.rootObjects():
+        sys.exit(-1)
 
     timer = QTimer(interval=10)
     timer.timeout.connect(partial(back.main_logic, main_logic_input))

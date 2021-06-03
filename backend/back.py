@@ -2,6 +2,7 @@
 from PyQt5.QtCore import QObject
 
 import var
+import math
 
 
 def main_logic(main_logic_input):
@@ -10,7 +11,7 @@ def main_logic(main_logic_input):
     main_logic_input.get("resistor_default_value").get("i").text = var.resistor_i_max
     main_logic_input.get("resistor_default_value").get("p").text = var.resistor_p_max
     main_logic_input.get("resistor_default_value").get("k_p").text = var.resistor_k_p
-    main_logic_input.get("resistor_default_value").get("k_j").text = var.resistor_k_j
+    main_logic_input.get("resistor_default_value").get("korekta").text = var.resistor_korekta
     main_logic_input.get("resistor_default_value").get("j").text = var.resistor_j
 
     main_logic_input.get("capacitor_default_value").get("c").text = var.capacitor_c
@@ -26,8 +27,11 @@ def main_logic(main_logic_input):
     output_resistor_2 = main_logic_input.get("output_resistor").get("2")
     output_resistor_3 = main_logic_input.get("output_resistor").get("3")
     output_resistor_4 = main_logic_input.get("output_resistor").get("4")
+    output_resistor_5 = main_logic_input.get("output_resistor").get("5")
+    output_resistor_6 = main_logic_input.get("output_resistor").get("6")
 
-    output_resistor = [output_resistor_1, output_resistor_2, output_resistor_3, output_resistor_4]
+    output_resistor = [output_resistor_1, output_resistor_2, output_resistor_3,
+                       output_resistor_4, output_resistor_5, output_resistor_6]
 
     pastes_list = []
     resistance_correction_methods_list = []
@@ -47,7 +51,7 @@ def main_logic(main_logic_input):
     resistor_i = input_resistor.resistor_i_max
     resistor_p = input_resistor.resistor_p_max
     resistor_k_p = input_resistor.resistor_k_p
-    resistor_k_j = input_resistor.resistor_k_j
+    resistor_korekta = input_resistor.resistor_korekta
     resistor_j = input_resistor.resistor_j
     resistor_r_kw = var.db_paste_rezystywne.get(input_resistor.selected_paste_rezystywna).get("R")
     resistor_twr = var.db_paste_rezystywne.get(input_resistor.selected_paste_rezystywna).get("TWR")
@@ -61,11 +65,11 @@ def main_logic(main_logic_input):
                         i=resistor_i,
                         p=resistor_p,
                         k_p=resistor_k_p,
-                        k_j=resistor_k_j,
                         j=resistor_j,
                         r_kw=resistor_r_kw,
                         twr=resistor_twr,
-                        korekcja=korekcja,
+                        metoda=resistor_korekta,
+                        korekcja=resistor_korekta,
                         output=output_resistor)
 
 
@@ -81,7 +85,7 @@ class application(QObject):
     resistor_i_max = var.resistor_i_max
     resistor_p_max = var.resistor_p_max
     resistor_k_p = var.resistor_k_p
-    resistor_k_j = var.resistor_k_j
+    resistor_korekta = var.resistor_korekta
     resistor_j = var.resistor_j
 
     # default input value capacitor
@@ -100,7 +104,10 @@ class application(QObject):
         QObject.__init__(self)
 
 
-def main_logic_resistor(r, i, p, k_p, k_j, j, r_kw, twr, korekcja, output):
+def main_logic_resistor(r, i, p, k_p, j, r_kw, twr, metoda, korekcja, output):
+
+    korekcja = 0.8
+
     r_korekcja = r * korekcja
 
     if i * r > p:
@@ -109,7 +116,7 @@ def main_logic_resistor(r, i, p, k_p, k_j, j, r_kw, twr, korekcja, output):
         p_projektowe = p * (1 + k_p)
 
     try:
-        s_min = (p_projektowe / j) * (1 + k_j)
+        s_min = (p_projektowe / j)
     except ZeroDivisionError:
         s_min = 0
 
@@ -120,14 +127,19 @@ def main_logic_resistor(r, i, p, k_p, k_j, j, r_kw, twr, korekcja, output):
 
     r_rzeczywiste = n * r_kw
 
-    for x in range(1, 10):
+    try:
+        x = math.sqrt(s_min/n)
         y = n * x
-        s = x * y
+    except ZeroDivisionError:
+        x = 0
+        y = 0
 
     output[0].text = round(r_korekcja, 2)
     output[1].text = round(n, 2)
     output[2].text = round(r_rzeczywiste, 2)
     output[3].text = round(s_min, 2)
+    output[4].text = round(x, 2)
+    output[5].text = round(y, 2)
 
 
 def main_logic_capacitor():

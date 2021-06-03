@@ -1,8 +1,11 @@
 import os
+import sys
+
 import openpyxl
 
 from PyQt5.QtCore import pyqtSlot
-
+from past.builtins import execfile
+import threading
 from backend import back
 import var
 
@@ -18,21 +21,30 @@ def add_new_paste():
 
     print(nazwa, twr, r)
 
+    if typ == var.db_pasty_rezystywne_new:
+        db = var.db_paste_rezystywne
+        dataframe = var.db_pasty_rezystywne_dataframe
+        sheet_name = var.db_pasty_rezystywne_sheet
+    if typ == var.db_pasty_przewodzace_new:
+        db = var.db_paste_przewodzace
+        dataframe = var.db_pasty_przewodzace_dataframe
+        sheet_name = var.db_pasty_przewodzace_sheet
+    if typ == var.db_pasty_izolacyjne_new:
+        db = var.db_paste_izolacyjne
+        dataframe = var.db_pasty_izolacyjne_dataframe
+        sheet_name = var.db_pasty_izolacyjne_sheet
+
     if type(nazwa) == str and type(twr) == float and type(r) == float:
-        print("dodanie do słownika")
-        var.db_paste_rezystywne.update({nazwa: {var.db_pasty_rezystywne_dataframe[1]: float(twr),
-                                                var.db_pasty_rezystywne_dataframe[2]: float(r)}})
-        print("dodane do slownika:", var.db_paste_rezystywne)
+        db.update({nazwa: {dataframe[1]: float(twr),
+                           dataframe[2]: float(r)}})
 
     try:
         workbook = openpyxl.load_workbook(var.path_pasty)
-        sheet = workbook.active
-        sheet = workbook.get_sheet_by_name(var.db_pasty_rezystywne_sheet)
+        sheet = workbook.get_sheet_by_name(sheet_name)
         sheet.append((str(nazwa), twr, r))
         workbook.save(var.path_pasty)
 
     except FileNotFoundError or FileExistsError:
-        print("blad dodania")
         init_csv()
         pasty_to_dict()
 
@@ -122,6 +134,12 @@ class static_function(back.application):
 
 def wykres():
     print("wykres")
+
+    from masterThesis import engine, app
+    engine.load(os.path.join(os.path.dirname(__file__), "C:/Users/dobro/Documents/masterThesis_soft/plot.qml"))
+    sys.exit(app.exec_())
+
+
 
 
 def input_to_float(inside):

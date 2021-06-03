@@ -201,7 +201,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.resistorWindowInput3_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input_resistor.safety_factor_power(resistorWindowInputGridInput3.text)
+                    onTextChanged:          input_resistor.resistance_corection(resistorWindowInputGridInput3.text)
                 }
             }
         }
@@ -303,7 +303,7 @@ Item {
                 anchors.topMargin:          application.elementWindowInputGrid_TopMargin
                 anchors.left:               parent.left
                 anchors.leftMargin:         application.elementWindowInputGrid_LeftMargin
-                rows:                       6
+                rows:                       9
                 columns:                    2
                 spacing:                    application.elementWindowInputGrid_Spacing
                 verticalItemAlignment:      Grid.AlignVCenter
@@ -364,19 +364,34 @@ Item {
                     color:                          "green"
                     font.pixelSize:                 application.bigTextSize
                 }
-            }
 
-            Button {
-                id:                         resistorWindowButtonGraph
-                highlighted:                true
-                width:                      application.elementWindowButton_Width
-                height:                     application.elementWindowButton_Heigh
-                text:                       application.elementWindowButtonGraph_Tittle
-                anchors.bottom:             parent.bottom
-                anchors.bottomMargin:       5
-                anchors.horizontalCenter:   parent.horizontalCenter
-                font.pointSize:             application.elementWindowButtonGraph_Font
-                onClicked:                  static.resistor_wykres()
+                Text {
+                    id:                             resistorWindowOutputLabel5
+                    text:                           application.resistorWindowOutputLabel5_Text
+                    color:                          application.elementWindowInputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             resistorWindowOutput5
+                    text:                           output_resistor_5.text
+                    color:                          "green"
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             resistorWindowOutputLabel6
+                    text:                           application.resistorWindowOutputLabel6_Text
+                    color:                          application.elementWindowInputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             resistorWindowOutput6
+                    text:                           output_resistor_6.text
+                    color:                          "green"
+                    font.pixelSize:                 application.bigTextSize
+                }
             }
         }
     }

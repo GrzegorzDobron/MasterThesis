@@ -18,13 +18,21 @@ Item {
 
         Rectangle {
             id:                         pasteWindowRectangleInput1
-            x:                          95
-            y:                          90
-            width:                      177
-            height:                     269
+            x:                          50
+            y:                          50
+            width:                      250
+            height:                     350
             color:                      application.color_black
             border.color:               application.elementWindowRectangleBorder_Color
             border.width:               application.resistorWindowInputRectangle_Border
+
+            Text {
+                id:                     pasteWindowInputGridMainLabel1
+                horizontalAlignment:    Text.AlignRight
+                color:                  application.pasteWindowInputLabel_Color
+                text:                   application.pasteWindowInputMainLabel1_Text
+                font.pixelSize:         application.bigTextSize
+            }
 
             Grid {
                 id:                         pasteWindowInputGrid
@@ -49,7 +57,7 @@ Item {
                 TextField {
                     id:                     pasteWindowInputGridInput1
                     hoverEnabled:           false
-                    width:                  application.elementWindowInput_Width
+                    width:                  application.elementWindowInput_Width + 50
                     onTextChanged:          input_new_paste.input_new_paste_name(pasteWindowInputGridInput1.text)
                 }
 
@@ -105,6 +113,9 @@ Item {
                 width:                      application.pasteWindowButton_Width
                 height:                     application.pasteWindowButton_Heigh
                 text:                       application.pasteWindowButtonNewPaste_Tittle
+                anchors.bottom:             parent.bottom
+                anchors.horizontalCenter:   parent.horizontalCenter
+                anchors.bottomMargin:       10
                 font.pointSize:             application.pasteWindowButton_Font
                 onClicked:                  static.add_new_paste()
             }
