@@ -133,8 +133,6 @@ def main_logic_resistor(r, i, p, k_p, j, r_kw, metoda, korekcja, output):
     except ZeroDivisionError:
         n = 0
 
-    r_rzeczywiste = n * r_kw
-
     try:
         x = math.sqrt(s_min / n)
         y = n * x
