@@ -22,16 +22,19 @@ Item {
             y:                          50
             width:                      250
             height:                     350
-            color:                      application.color_black
+            color:                      application.swapWindow_BackgroundColor
             border.color:               application.elementWindowRectangleBorder_Color
             border.width:               application.resistorWindowInputRectangle_Border
 
             Text {
                 id:                     pasteWindowInputGridMainLabel1
-                horizontalAlignment:    Text.AlignRight
+                horizontalAlignment:    Text.AlignHCenter
+                anchors.topMargin: 14
+                anchors.horizontalCenter: parent.horizontalCenter
                 color:                  application.pasteWindowInputLabel_Color
                 text:                   application.pasteWindowInputMainLabel1_Text
-                font.pixelSize:         application.bigTextSize
+                anchors.top: parent.top
+                font.pixelSize:         0
             }
 
             Grid {
@@ -63,7 +66,7 @@ Item {
 
                 Text {
                     id:                     pasteWindowInputGridLabel2
-                    horizontalAlignment:    Text.AlignRight
+                    horizontalAlignment:    Text.AlignLeft
                     color:                  application.pasteWindowInputLabel_Color
                     text:                   application.pasteWindowInputLabel2_Text
                     font.pixelSize:         application.pasteWindowInputLabel_Size
@@ -78,10 +81,10 @@ Item {
 
                 Text {
                     id:                     pasteWindowInputGridLabel3
-                    horizontalAlignment:    Text.AlignRight
+                    horizontalAlignment:    Text.AlignLeft
                     color:                  application.pasteWindowInputLabel_Color
                     text:                   application.pasteWindowInputLabel3_Text
-                    font.pixelSize:         application.pasteWindowInputLabel_Size
+                    font.pixelSize:         0
                 }
 
                 TextField {
@@ -122,3 +125,9 @@ Item {
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

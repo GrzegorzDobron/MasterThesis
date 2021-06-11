@@ -14,6 +14,10 @@ ApplicationWindow {
     property var color_black:                               "black"         //
     property var color_grey:                                "#343434"       //
     property var color_white:                               "white"
+    property var color_dark:                                application.color_black
+    property var color_light:                               application.color_white
+    property var color_thema:                               application.color_dark
+    property var color_thema_text:                          application.color_white
 
     // zmienne ogólne
     property var leftMargin:                                100             // odsuniecie przed previewButtow
@@ -21,7 +25,7 @@ ApplicationWindow {
     property var bigTextSize:                               12              // duza czcionka
 
     // okno główne aplikacji
-    property var mainWindow_Title:                          "Main"
+    property var mainWindow_Title:                          "Kreator elementów biernych"
     property var mainWindow_Width:                          1000
     property var mainWindow_Heigh:                          500
     property var mainWindow_BackgroundColor:                application.color_blue
@@ -41,14 +45,14 @@ ApplicationWindow {
     property var barButton2_Tittle:                         "FAQ"
     property var barButton3_Tittle:                         "Options"
     property var barButton4_Tittle:                         "Pasty"
-    property var barButton1_Color:                          bar.currentIndex == 0 ? "white" : "black"
-    property var barButton2_Color:                          bar.currentIndex == 1 ? "white" : "black"
-    property var barButton3_Color:                          bar.currentIndex == 2 ? "white" : "black"
-    property var barButton4_Color:                          bar.currentIndex == 3 ? "white" : "black"
-    property var barButton1_Background:                     bar.currentIndex == 0 ? application.color_black : application.color_grey
-    property var barButton2_Background:                     bar.currentIndex == 1 ? application.color_blue : application.color_grey
-    property var barButton3_Background:                     bar.currentIndex == 2 ? application.color_blue : application.color_grey
-    property var barButton4_Background:                     bar.currentIndex == 3 ? application.color_black : application.color_grey
+    property var barButton1_Color:                          bar.currentIndex == 0 ? application.color_thema_text : application.color_white
+    property var barButton2_Color:                          bar.currentIndex == 1 ? application.color_thema_text : application.color_white
+    property var barButton3_Color:                          bar.currentIndex == 2 ? application.color_thema_text : application.color_white
+    property var barButton4_Color:                          bar.currentIndex == 3 ? application.color_thema_text : application.color_white
+    property var barButton1_Background:                     bar.currentIndex == 0 ? application.color_thema : application.color_grey
+    property var barButton2_Background:                     bar.currentIndex == 1 ? application.color_thema : application.color_grey
+    property var barButton3_Background:                     bar.currentIndex == 2 ? application.color_thema : application.color_grey
+    property var barButton4_Background:                     bar.currentIndex == 3 ? application.color_thema : application.color_grey
     property var barButton_Width:                           200
     property var barButton_Heigh:                           40
     property var barButton_Font:                            application.bigTextSize
@@ -56,7 +60,7 @@ ApplicationWindow {
     property var barButton_y:                               -22
 
     // SwipeView
-    property var swapWindow_BackgroundColor:                application.color_black
+    property var swapWindow_BackgroundColor:                application.color_thema
     property var pageIndicator_Width:                       70
     property var pageIndicator_Heigh:                       20
     property var pageIndicator_Margin:                      15
@@ -99,16 +103,17 @@ ApplicationWindow {
     // okno wprowadzania
     property var elementWindowInput_placeholderColor:      application.color_grey
     property var elementWindowInputLabel_Size:             application.smallTextSize
-    property var elementWindowInputLabel_Color:            application.color_white
+    property var elementWindowInputLabel_Color:            application.color_thema_text
     property var elementWindowInputMainLabel_Size:         application.bigTextSize
-    property var elementWindowInputmainLabel_Color:        application.color_white
+    property var elementWindowInputmainLabel_Color:        application.color_thema_text
+    property var elementWindowOutputLabel_Color:           application.color_blue
 
     property var elementWindowInputGrid_Spacing:           10
     property var elementWindowInputGrid_TopMargin:         50          // odsuniecie tekstu od ramki z gory
     property var elementWindowInputGrid_LeftMargin:        10          // odsuniecie tekstu od ramki z lewej
 
     property var elementWindowInputRectangle_Heigh:        200         // gabaryt ramki
-    property var elementWindowInputRectangle1_Width:       220         // gabaryt ramki
+    property var elementWindowInputRectangle1_Width:       235         // gabaryt ramki
     property var elementWindowInputRectangle2_Width:       260         // gabaryt ramki
     property var elementWindowInputRectangleList_Heigh:    150         // gabaryt ramki - lista
     // property var resistorWindowInputRectangleList_Width:    450         // gabaryt ramki - lista
@@ -192,7 +197,7 @@ ApplicationWindow {
 
 
     // pasta
-    property var pasteWindowInputLabel_Color:               application.color_white
+    property var pasteWindowInputLabel_Color:               application.color_thema_text
     property var pasteWindowInputLabel_Size:                application.smallTextSize
 
     property var pasteWindowButton_Width:                   100
@@ -203,8 +208,8 @@ ApplicationWindow {
 
     property var pasteWindowInputMainLabel1_Text:           "NOWA PASTA:"
     property var pasteWindowInputLabel1_Text:               "nazwa:"
-    property var pasteWindowInputLabel2_Text:               "TWR:"
-    property var pasteWindowInputLabel3_Text:               "R:"
+    property var pasteWindowInputLabel2_Text:               "przenikalność \nelektryczna:"
+    property var pasteWindowInputLabel3_Text:               "rezystancja na \nkwadrat:"
     property var pasteWindowInputLabel4_Text:               "type:"
 
     // obrazy
@@ -214,11 +219,18 @@ ApplicationWindow {
 
     id:                         application
     visible:                    true
-    //flags:                      Qt.Window | Qt.FramelessWindowHint
+    //flags:                      Qt.Window
+    //flags: Qt.FramelessWindowHint
     color:                      application.mainWindow_BackgroundColor
     width:                      application.mainWindow_Width
     height:                     application.mainWindow_Heigh
     title:                      application.mainWindow_Title
+
+    maximumHeight:              application.mainWindow_Heigh
+    maximumWidth:               application.mainWindow_Width
+    minimumHeight:              application.mainWindow_Heigh
+    minimumWidth:               application.mainWindow_Width
+
 
     StackLayout {
         id:                     layoutPage

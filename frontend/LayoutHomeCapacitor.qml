@@ -34,7 +34,7 @@ Item {
             anchors.top:                parent.top
             anchors.leftMargin:         application.leftMargin
             anchors.topMargin:          application.elementWindowInputRectangle_Top
-            color:                      application.color_black
+            color:                      application.swapWindow_BackgroundColor
             border.color:               application.elementWindowRectangleBorder_Color
             border.width:               application.resistorWindowInputRectangle_Border // zmiana
             width:                      application.elementWindowInputRectangle1_Width
@@ -128,7 +128,7 @@ Item {
             anchors.top:                    parent.top
             anchors.topMargin:              application.elementWindowInputRectangle_Top
             anchors.leftMargin:             application.elementWindowInputRectangle_Spacing
-            color:                          application.color_black
+            color:                          application.swapWindow_BackgroundColor
             border.color:                   application.elementWindowRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border // zmiana
 
@@ -219,7 +219,7 @@ Item {
             anchors.left:                   parent.left
             anchors.leftMargin:             application.leftMargin
             anchors.topMargin:              application.elementWindowInputRectangle_Spacing
-            color:                          application.color_black
+            color:                          application.swapWindow_BackgroundColor
             border.color:                   application.elementWindowRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
             // zmiana
@@ -289,7 +289,7 @@ Item {
             anchors.top:                    parent.top
             anchors.topMargin:              application.elementWindowInputRectangle_Top
             anchors.leftMargin:             application.elementWindowInputRectangle_Spacing
-            color:                          application.color_black
+            color:                          application.swapWindow_BackgroundColor
             border.color:                   application.windowOutputRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
             // zmiana

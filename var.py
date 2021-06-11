@@ -22,8 +22,22 @@ resistor_k_p = 0.2           # wspolczynnik mocy
 resistor_korekta = 0.8       # wspolczynnik obciazalnosci
 resistor_j = 8               # obciazalnosc
 
-# default input value resistor
+# default output value
+resistor_x = 0               # szerokosc
+resistor_y = 0               # n * x
+
+# default input value capacitor
 capacitor_c = 0               # pojemnosc docelowa
+capacitor_e0 = 0
+capacitor_er = 0
+capacitor_n = 1
+
+# default output value capacitor
+capacitor_x = 0
+capacitor_y = 0
+capacitor_d0 = 0
+capacitor_d = 0
+
 
 
 selected_manufactoring_method = ""
@@ -35,11 +49,6 @@ new_paste_name = ""
 new_paste_r = 0
 new_paste_przenikalnosc = 0
 new_paste_type = ""
-
-
-# default output value
-resistor_x = 0               # szerokosc
-resistor_y = 0               # n * x
 
 db_paste_rezystywne = {
     "": { db_pasty_rezystywne_dataframe[1]: 0 }

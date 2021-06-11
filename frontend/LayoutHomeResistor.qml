@@ -34,7 +34,7 @@ Item {
             anchors.top:                parent.top
             anchors.leftMargin:         application.leftMargin
             anchors.topMargin:          application.elementWindowInputRectangle_Top
-            color:                      application.color_black
+            color:                      application.swapWindow_BackgroundColor
             border.color:               application.elementWindowRectangleBorder_Color
             border.width:               application.resistorWindowInputRectangle_Border
             width:                      application.elementWindowInputRectangle1_Width
@@ -125,7 +125,7 @@ Item {
             anchors.top:                    parent.top
             anchors.topMargin:              application.elementWindowInputRectangle_Top
             anchors.leftMargin:             application.elementWindowInputRectangle_Spacing
-            color:                          application.color_black
+            color:                          application.swapWindow_BackgroundColor
             border.color:                   application.elementWindowRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
 
@@ -214,7 +214,7 @@ Item {
             anchors.left:                   parent.left
             anchors.leftMargin:             application.leftMargin
             anchors.topMargin:              application.elementWindowInputRectangle_Spacing
-            color:                          application.color_black
+            color:                          application.swapWindow_BackgroundColor
             border.color:                   application.elementWindowRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
 
@@ -281,7 +281,7 @@ Item {
             anchors.top:                    parent.top
             anchors.topMargin:              application.elementWindowInputRectangle_Top
             anchors.leftMargin:             application.elementWindowInputRectangle_Spacing
-            color:                          application.color_black
+            color:                          application.swapWindow_BackgroundColor
             border.color:                   application.windowOutputRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
 
@@ -319,7 +319,7 @@ Item {
                 Text {
                     id:                             resistorWindowOutput1
                     text:                           output_resistor_1.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
@@ -333,7 +333,7 @@ Item {
                 Text {
                     id:                             resistorWindowOutput2
                     text:                           output_resistor_2.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
@@ -347,7 +347,7 @@ Item {
                 Text {
                     id:                             resistorWindowOutput3
                     text:                           output_resistor_3.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
@@ -361,7 +361,7 @@ Item {
                 Text {
                     id:                             resistorWindowOutput4
                     text:                           output_resistor_4.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
@@ -375,7 +375,7 @@ Item {
                 Text {
                     id:                             resistorWindowOutput5
                     text:                           output_resistor_5.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
@@ -389,7 +389,7 @@ Item {
                 Text {
                     id:                             resistorWindowOutput6
                     text:                           output_resistor_6.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
@@ -403,7 +403,7 @@ Item {
                 Text {
                     id:                             resistorWindowOutput7
                     text:                           output_resistor_7.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
             }
