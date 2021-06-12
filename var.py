@@ -2,7 +2,7 @@ path_faq = "./frontend/text/faq.txt"
 path_pasty = "./database/pasty.xlsx"
 
 db_pasty_rezystywne_dataframe = ["nazwa", "R"]
-db_pasty_dielektryczne_dataframe = ["nazwa", "przenikalność"]
+db_pasty_dielektryczne_dataframe = ["nazwa", "er"]
 
 db_pasty_rezystywne_sheet = "pasty rezystywne"
 db_pasty_dielektryczne_sheet = "pasty dielektryczne"
@@ -27,22 +27,21 @@ resistor_x = 0               # szerokosc
 resistor_y = 0               # n * x
 
 # default input value capacitor
-capacitor_c = 0               # pojemnosc docelowa
-capacitor_e0 = 0
-capacitor_er = 0
-capacitor_n = 1
+capacitor_c = 0                 # pojemnosc docelowa
+capacitor_e0 = 85/96 * 10**-11  # przenikalnosć elektryczna próżni [F/m]
+capacitor_er = 0                # względna przenikalność elektryczna
+capacitor_n = 1                 # liczba warstw
 
 # default output value capacitor
-capacitor_x = 0
-capacitor_y = 0
-capacitor_d0 = 0
-capacitor_d = 0
+capacitor_x = 0               # długośc boku dielektryka
+capacitor_d0 = 0              # grubość jednej warstwy
+capacitor_d = 0               # grubość całkowita
 
 
 
 selected_manufactoring_method = ""
 selected_paste_rezystywna = ""
-selected_paste_izolacyjna = ""
+selected_paste_dielectric = ""
 
 # adding new paste
 new_paste_name = ""
@@ -51,11 +50,13 @@ new_paste_przenikalnosc = 0
 new_paste_type = ""
 
 db_paste_rezystywne = {
-    "": { db_pasty_rezystywne_dataframe[1]: 0 }
+    "": {
+        db_pasty_rezystywne_dataframe[1]: 0
+    }
 }
 
 db_paste_dielektryczne = {
-    " ": {
+    "": {
         db_pasty_dielektryczne_dataframe[1]: 0
     }
 }

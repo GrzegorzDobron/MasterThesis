@@ -243,7 +243,7 @@ Item {
 
                 Text {
                     id:                     resistorWindowInputGridLabel5
-                    horizontalAlignment:    Text.AlignRight
+                    horizontalAlignment:    Text.AlignLeft
                     color:                  application.elementWindowInputLabel_Color
                     text:                   application.resistorWindowInputLabel5_Text
                     font.pixelSize:         application.elementWindowInputLabel_Size
@@ -258,7 +258,8 @@ Item {
 
                 Text {
                     id:                     resistorWindowInputGridLabel6
-                    horizontalAlignment:    Text.AlignRight
+                    horizontalAlignment:    Text.AlignLeft
+                    wrapMode: Text.NoWrap
                     color:                  application.elementWindowInputLabel_Color
                     text:                   application.resistorWindowInputLabel6_Text
                     font.pixelSize:         application.elementWindowInputLabel_Size
@@ -410,3 +411,9 @@ Item {
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

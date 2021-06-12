@@ -53,13 +53,50 @@ class input_capacitor_data(back.application):
         QObject.__init__(self)
 
     @pyqtSlot("QString")
-    def input_final_resistance(self, text):
+    def input_capacity(self, text):
         value = static.input_to_float(text)
         if type(value) == float:
             self.capacitor_c = value
             print("C=" + str(self.capacitor_c))
         else:
             self.capacitor_c = var.capacitor_c
+
+    @pyqtSlot("QString")
+    def input_number_layer(self, text):
+        value = static.input_to_float(text)
+        if type(value) == float:
+            self.capacitor_n = value
+            print("n=" + str(self.capacitor_n))
+        else:
+            self.capacitor_n = var.capacitor_n
+
+    @pyqtSlot("QString")
+    def input_thickness_layer(self, text):
+        value = static.input_to_float(text)
+        if type(value) == float:
+            self.capacitor_d0 = value
+            print("d0=" + str(self.capacitor_d0))
+        else:
+            self.capacitor_d0 = var.capacitor_d0
+
+    @pyqtSlot("QString")
+    def input_paste(self, text):
+        print(text)
+        if text != "":
+            self.selected_paste_dielectric = text
+            print("pasta=" + str(self.selected_paste_dielectric))
+        else:
+            self.selected_paste_dielectric = var.selected_paste_dielectric
+
+        print(var.db_paste_dielektryczne.get(text).get("er"))
+
+    @pyqtSlot("QString")
+    def input_manufactoring_method(self, text):
+        if text != "":
+            self.selected_manufactoring_method = text
+            print("metoda=" + str(self.selected_manufactoring_method))
+        else:
+            self.selected_manufactoring_method = var.selected_manufactoring_method
 
 
 class input_resistor_data(back.application):

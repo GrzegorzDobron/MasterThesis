@@ -37,8 +37,8 @@ Item {
             color:                      application.swapWindow_BackgroundColor
             border.color:               application.elementWindowRectangleBorder_Color
             border.width:               application.resistorWindowInputRectangle_Border // zmiana
-            width:                      application.elementWindowInputRectangle1_Width
-            height:                     application.elementWindowInputRectangle_Heigh
+            width:                      application.capacitorindowInputRectangle1_Width
+            height:                     application.capacitorindowInputRectangle1_Heigh
 
 
             Text {
@@ -58,7 +58,7 @@ Item {
                 anchors.topMargin:          application.elementWindowInputGrid_TopMargin
                 anchors.left:               parent.left
                 anchors.leftMargin:         application.elementWindowInputGrid_LeftMargin
-                rows:                       6
+                rows:                       3
                 columns:                    2
                 spacing:                    application.elementWindowInputGrid_Spacing
                 verticalItemAlignment:      Grid.AlignVCenter
@@ -78,7 +78,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.capacitorWindowInput1_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.input_final_resistance(capacitorWindowInputGridInput1.text)
+                    onTextChanged:          input_capacitor.input_capacity(capacitorWindowInputGridInput1.text)
                     // zmiana
                 }
 
@@ -96,99 +96,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.capacitorWindowInput2_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.input_current_max(capacitorWindowInputGridInput2.text)
-                    // zmiana
-                }
-
-                Text {
-                    id:                     capacitorWindowInputGridLabel8
-                    horizontalAlignment:    Text.AlignRight
-                    color:                  application.elementWindowInputLabel_Color
-                    text:                   application.capacitorWindowInputLabel8_Text
-                    font.pixelSize:         application.elementWindowInputLabel_Size
-                }
-
-                TextField {
-                    id:                     capacitorWindowInputGridInput8
-                    hoverEnabled:           false
-                    placeholderTextColor:   application.elementWindowInput_placeholderColor
-                    placeholderText:        application.capacitorWindowInput8_placeholderText
-                    width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.input_power_max(capacitorWindowInputGridInput8.text)
-                    // zmiana
-                }
-            }
-        }
-
-        Rectangle {
-            id:                             capacitorWindowRectangleInput2
-            width:                          application.elementWindowInputRectangle2_Width
-            height:                         application.elementWindowInputRectangle_Heigh
-            anchors.left:                   capacitorWindowRectangleInput1.right
-            anchors.top:                    parent.top
-            anchors.topMargin:              application.elementWindowInputRectangle_Top
-            anchors.leftMargin:             application.elementWindowInputRectangle_Spacing
-            color:                          application.swapWindow_BackgroundColor
-            border.color:                   application.elementWindowRectangleBorder_Color
-            border.width:                   application.resistorWindowInputRectangle_Border // zmiana
-
-
-            Text {
-                id:                         capacitorWindowInputMainLabel2
-                horizontalAlignment:        Text.AlignHCenter
-                text:                       application.capacitorWindowInputMainLabel2_Text
-                anchors.top:                parent.top
-                font.pixelSize:             application.elementWindowInputMainLabel_Size
-                anchors.topMargin:          7
-                anchors.horizontalCenter:   parent.horizontalCenter
-                color:                      application.elementWindowInputmainLabel_Color
-            }
-
-            Grid {
-                id:                         capacitorWindowInputGrid2
-                anchors.top:                parent.top
-                anchors.topMargin:          application.elementWindowInputGrid_TopMargin
-                anchors.left:               parent.left
-                anchors.leftMargin:         application.elementWindowInputGrid_LeftMargin
-                rows:                       6
-                columns:                    2
-                spacing:                    application.elementWindowInputGrid_Spacing
-                verticalItemAlignment:      Grid.AlignVCenter
-                horizontalItemAlignment:    Grid.AlignLeft
-
-                Text {
-                    id:                     capacitorWindowInputGridLabel4
-                    horizontalAlignment:    Text.AlignRight
-                    color:                  application.elementWindowInputLabel_Color
-                    text:                   application.capacitorWindowInputLabel4_Text
-                    font.pixelSize:         application.elementWindowInputLabel_Size
-                }
-
-                TextField {
-                    id:                     capacitorWindowInputGridInput4
-                    hoverEnabled:           false
-                    placeholderTextColor:   application.elementWindowInput_placeholderColor
-                    placeholderText:        application.capacitorWindowInput4_placeholderText
-                    width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.current_carrying_capacity(capacitorWindowInputGridInput4.text)
-                    // zmiana
-                }
-
-                Text {
-                    id:                     capacitorWindowInputGridLabel7
-                    horizontalAlignment:    Text.AlignRight
-                    color:                  application.elementWindowInputLabel_Color
-                    text:                   application.capacitorWindowInputLabel7_Text
-                    font.pixelSize:         application.elementWindowInputLabel_Size
-                }
-
-                TextField {
-                    id:                     capacitorWindowInputGridInput7
-                    hoverEnabled:           false
-                    placeholderTextColor:   application.elementWindowInput_placeholderColor
-                    placeholderText:        application.capacitorWindowInput7_placeholderText
-                    width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.safety_factor_power(capacitorWindowInputGridInput7.text)
+                    onTextChanged:          input_capacitor.input_number_layer(capacitorWindowInputGridInput2.text)
                     // zmiana
                 }
 
@@ -206,15 +114,105 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.capacitorWindowInput3_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input.safety_factor_power(capacitorWindowInputGridInput3.text)
+                    onTextChanged:          input_capacitor.input_thickness_layer(capacitorWindowInputGridInput3.text)
+                    // zmiana
                 }
             }
         }
 
+        // Rectangle {
+        //     id:                             capacitorWindowRectangleInput2
+        //     width:                          application.elementWindowInputRectangle2_Width
+        //     height:                         application.elementWindowInputRectangle_Heigh
+        //     anchors.left:                   capacitorWindowRectangleInput1.right
+        //     anchors.top:                    parent.top
+        //     anchors.topMargin:              application.elementWindowInputRectangle_Top
+        //     anchors.leftMargin:             application.elementWindowInputRectangle_Spacing
+        //     color:                          application.swapWindow_BackgroundColor
+        //     border.color:                   application.elementWindowRectangleBorder_Color
+        //     border.width:                   application.resistorWindowInputRectangle_Border // zmiana
+//
+//
+        //     Text {
+        //         id:                         capacitorWindowInputMainLabel2
+        //         horizontalAlignment:        Text.AlignHCenter
+        //         text:                       application.capacitorWindowInputMainLabel2_Text
+        //         anchors.top:                parent.top
+        //         font.pixelSize:             application.elementWindowInputMainLabel_Size
+        //         anchors.topMargin:          7
+        //         anchors.horizontalCenter:   parent.horizontalCenter
+        //         color:                      application.elementWindowInputmainLabel_Color
+        //     }
+//
+        //     Grid {
+        //         id:                         capacitorWindowInputGrid2
+        //         anchors.top:                parent.top
+        //         anchors.topMargin:          application.elementWindowInputGrid_TopMargin
+        //         anchors.left:               parent.left
+        //         anchors.leftMargin:         application.elementWindowInputGrid_LeftMargin
+        //         rows:                       6
+        //         columns:                    2
+        //         spacing:                    application.elementWindowInputGrid_Spacing
+        //         verticalItemAlignment:      Grid.AlignVCenter
+        //         horizontalItemAlignment:    Grid.AlignLeft
+//
+        //         Text {
+        //             id:                     capacitorWindowInputGridLabel4
+        //             horizontalAlignment:    Text.AlignRight
+        //             color:                  application.elementWindowInputLabel_Color
+        //             text:                   application.capacitorWindowInputLabel4_Text
+        //             font.pixelSize:         application.elementWindowInputLabel_Size
+        //         }
+//
+        //         TextField {
+        //             id:                     capacitorWindowInputGridInput4
+        //             hoverEnabled:           false
+        //             placeholderTextColor:   application.elementWindowInput_placeholderColor
+        //             placeholderText:        application.capacitorWindowInput4_placeholderText
+        //             width:                  application.elementWindowInput_Width
+        //             // onTextChanged:          input.current_carrying_capacity(capacitorWindowInputGridInput4.text)
+        //         }
+//
+        //         Text {
+        //             id:                     capacitorWindowInputGridLabel7
+        //             horizontalAlignment:    Text.AlignRight
+        //             color:                  application.elementWindowInputLabel_Color
+        //             text:                   application.capacitorWindowInputLabel7_Text
+        //             font.pixelSize:         application.elementWindowInputLabel_Size
+        //         }
+//
+        //         TextField {
+        //             id:                     capacitorWindowInputGridInput7
+        //             hoverEnabled:           false
+        //             placeholderTextColor:   application.elementWindowInput_placeholderColor
+        //             placeholderText:        application.capacitorWindowInput7_placeholderText
+        //             width:                  application.elementWindowInput_Width
+        //             // onTextChanged:          input.safety_factor_power(capacitorWindowInputGridInput7.text)
+        //           }
+//
+        //         Text {
+        //             id:                     capacitorWindowInputGridLabel3
+        //             horizontalAlignment:    Text.AlignRight
+        //             color:                  application.elementWindowInputLabel_Color
+        //             text:                   application.capacitorWindowInputLabel3_Text
+        //             font.pixelSize:         application.elementWindowInputLabel_Size
+        //         }
+//
+        //         TextField {
+        //             id:                     capacitorWindowInputGridInput3
+        //             hoverEnabled:           false
+        //             placeholderTextColor:   application.elementWindowInput_placeholderColor
+        //             placeholderText:        application.capacitorWindowInput3_placeholderText
+        //             width:                  application.elementWindowInput_Width
+        //             // onTextChanged:          input.safety_factor_power(capacitorWindowInputGridInput3.text)
+        //         }
+        //     }
+        // }
+
         Rectangle {
             id:                             capacitorWindowRectangleInput3
-            width:                          application.elementWindowInputRectangleList_Width
-            height:                         application.elementWindowInputRectangleList_Heigh
+            width:                          application.capacitorindowInputRectangleList_Width
+            height:                         application.capacitorindowInputRectangleList_Heigh
             anchors.top:                    capacitorWindowRectangleInput1.bottom
             anchors.left:                   parent.left
             anchors.leftMargin:             application.leftMargin
@@ -222,7 +220,6 @@ Item {
             color:                          application.swapWindow_BackgroundColor
             border.color:                   application.elementWindowRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
-            // zmiana
 
             Text {
                 id:                         capacitorWindowInputMainLabel3
@@ -257,15 +254,15 @@ Item {
 
                 ComboBox {
                     id:                     capacitorWindowInputPaste
-                    model:                  output_past_list.list
+                    model:                  output_past_list_dielectric.list
                     width:                  application.elementWindowInputList_Width
-                    onCurrentTextChanged:   input.input_paste(resistorWindowInputPaste.currentText)
-                    // zmiana
+                    onCurrentTextChanged:   input_capacitor.input_paste(capacitorWindowInputPaste.currentText)
                 }
 
                 Text {
                     id:                     capacitorWindowInputGridLabel6
-                    horizontalAlignment:    Text.AlignRight
+                    horizontalAlignment:    Text.AlignLeft
+                    verticalAlignment: Text.AlignVCenter
                     color:                  application.elementWindowInputLabel_Color
                     text:                   application.capacitorWindowInputLabel6_Text
                     font.pixelSize:         application.elementWindowInputLabel_Size
@@ -273,9 +270,9 @@ Item {
 
                 ComboBox {
                     id:                     capacitorWindowInputCorectionMethod
-                    model:                  output_corection_method_list.list
+                    model:                  output_manufactoring_method_list.list
                     width:                  application.elementWindowInputList_Width
-                    onCurrentTextChanged:   input.input_resistance_correction_methods(resistorWindowInputCorectionMethod.currentText)
+                    onCurrentTextChanged:   input_capacitor.input_manufactoring_method(capacitorWindowInputCorectionMethod.currentText)
                     // zmiana
                 }
             }
@@ -283,12 +280,12 @@ Item {
 
         Rectangle {
             id:                             capacitorWindowRectangleOutput1
-            width:                          application.elementWindowOutputRectangle_Width
-            height:                         application.elementWindowOutputRectangle_Heigh
-            anchors.left:                   capacitorWindowRectangleInput2.right
+            width:                          application.capacitorindowOutputRectangle_Width
+            height:                         application.capacitorindowOutputRectangle_Heigh
+            anchors.left:                   capacitorWindowRectangleInput3.right
             anchors.top:                    parent.top
+            anchors.leftMargin:             application.capacitorindowOutputRectangle_LeftMargin
             anchors.topMargin:              application.elementWindowInputRectangle_Top
-            anchors.leftMargin:             application.elementWindowInputRectangle_Spacing
             color:                          application.swapWindow_BackgroundColor
             border.color:                   application.windowOutputRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
@@ -328,7 +325,7 @@ Item {
                 Text {
                     id:                             capacitorWindowOutput1
                     text:                           output_capacitor_1.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
@@ -342,7 +339,7 @@ Item {
                 Text {
                     id:                             capacitorWindowOutput2
                     text:                           output_capacitor_2.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
@@ -356,7 +353,7 @@ Item {
                 Text {
                     id:                             capacitorWindowOutput3
                     text:                           output_capacitor_3.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
@@ -370,22 +367,9 @@ Item {
                 Text {
                     id:                             capacitorWindowOutput4
                     text:                           output_capacitor_4.text
-                    color:                          "green"
+                    color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
-            }
-
-            Button {
-                id:                         capacitorWindowButtonGraph
-                highlighted:                true
-                width:                      application.elementWindowButton_Width
-                height:                     application.elementWindowButton_Heigh
-                text:                       application.elementWindowButtonGraph_Tittle
-                anchors.bottom:             parent.bottom
-                anchors.bottomMargin:       5
-                anchors.horizontalCenter:   parent.horizontalCenter
-                font.pointSize:             application.elementWindowButtonGraph_Font
-                onClicked:                  static.capacitor_wykres()
             }
         }
     }

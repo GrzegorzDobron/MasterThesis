@@ -41,9 +41,9 @@ ApplicationWindow {
     property var faqWindowText_color:                       application.color_black
 
     // pasek bar
-    property var barButton1_Tittle:                         "Home"
+    property var barButton1_Tittle:                         "Strona główna"
     property var barButton2_Tittle:                         "FAQ"
-    property var barButton3_Tittle:                         "Options"
+    property var barButton3_Tittle:                         "Opcje"
     property var barButton4_Tittle:                         "Pasty"
     property var barButton1_Color:                          bar.currentIndex == 0 ? application.color_thema_text : application.color_white
     property var barButton2_Color:                          bar.currentIndex == 1 ? application.color_thema_text : application.color_white
@@ -63,11 +63,11 @@ ApplicationWindow {
     property var swapWindow_BackgroundColor:                application.color_thema
     property var pageIndicator_Width:                       70
     property var pageIndicator_Heigh:                       20
-    property var pageIndicator_Margin:                      15
+    property var pageIndicator_Margin:                      12
     property var itemMargin:                                -15             // rozszerzenie tła SwipeView
 
     // previewButton
-    property var buttonPreview_Tittle:                      "<-"
+    property var buttonPreview_Tittle:                      "⯇"
     property var buttonPreview_Width:                       40
     property var buttonPreview_Heigh:                       240
     property var buttonPreview_Font:                        24
@@ -76,7 +76,7 @@ ApplicationWindow {
 
     // okno powitalne
     property var mainWindowButtonProject_Tittle:            "Projektowanie"
-    property var mainWindowButtonExit_Tittle:               "Exit"
+    property var mainWindowButtonExit_Tittle:               "Wyjście"
     property var mainWindowButton_LeftMargin:               80
     property var mainWindowButton_Spacing:                  10
     property var mainWindowButton_Width:                    200
@@ -131,12 +131,21 @@ ApplicationWindow {
     property var elementWindowRectangleBorder_Color:        application.color_grey
     property var windowOutputRectangleBorder_Color:         application.color_blue
 
+    property var capacitorindowInputRectangle1_Width:       310
+    property var capacitorindowInputRectangle1_Heigh:       200
+
+    property var capacitorindowInputRectangleList_Width:    460
+    property var capacitorindowInputRectangleList_Heigh:    150
+
+    property var capacitorindowOutputRectangle_Width:       360
+    property var capacitorindowOutputRectangle_Heigh:       150
+    property var capacitorindowOutputRectangle_LeftMargin:  10
+
     // okna elementów
     property var elementWindowButton_Width:                100
     property var elementWindowButton_Heigh:                30
     property var elementWindowButtonGraph_Tittle:          "wykresy"
     property var elementWindowButtonGraph_Font:            application.smallTextSize
-
 
     // okno rezystora
     property var resistorWindowInputMainLabel1_Text:        "DANE WEJŚCIOWE:"
@@ -147,9 +156,9 @@ ApplicationWindow {
     property var resistorWindowInputLabel1_Text:            "rezystancja [R]:"
     property var resistorWindowInputLabel2_Text:            "prąd pracy max [mA]:"
     property var resistorWindowInputLabel3_Text:            "korekcja:"
-    property var resistorWindowInputLabel4_Text:            "obciążalność [W/cm2]:"
-    property var resistorWindowInputLabel5_Text:            "pasta:"
-    property var resistorWindowInputLabel6_Text:            "metoda wytworzenia \n(minimalna szerokość):"
+    property var resistorWindowInputLabel4_Text:            "obciążalność [W/cm²]:"
+    property var resistorWindowInputLabel5_Text:            "pasta rezystywna:"
+    property var resistorWindowInputLabel6_Text:            "metoda wykonania \n(minimalna szerokość):"
     property var resistorWindowInputLabel7_Text:            "współ. bezp. obciazalnosci:"
     property var resistorWindowInputLabel8_Text:            "moc max [mW]:"
 
@@ -169,31 +178,32 @@ ApplicationWindow {
     property var resistorWindowInput8_placeholderText:      output_resistor_default_p.text
 
     // kondensator
-    property var capacitorWindowInputMainLabel1_Text:       "DANE WYJŚCIOWE:"
-    property var capacitorWindowInputMainLabel2_Text:       "input label 8"
-    property var capacitorWindowInputMainLabel3_Text:       "input label 8"
-    property var capacitorWindowOutputMainLabel1_Text:      "input label 8"
+    property var capacitorWindowInputMainLabel1_Text:       "DANE WEJŚCIOWE:"
+    property var capacitorWindowInputMainLabel2_Text:       "del"
+    property var capacitorWindowInputMainLabel3_Text:       "DANE USTANDARYZOWANE:"
+    property var capacitorWindowOutputMainLabel1_Text:      "DANE WYJŚCIOWE:"
 
-    property var capacitorWindowInputLabel1_Text:           "input label 1"
-    property var capacitorWindowInputLabel2_Text:           "input label 2"
-    property var capacitorWindowInputLabel3_Text:           "input label 8"
-    property var capacitorWindowInputLabel4_Text:           "input label 8"
-    property var capacitorWindowInputLabel5_Text:           "input label 8"
-    property var capacitorWindowInputLabel6_Text:           "input label 8"
-    property var capacitorWindowInputLabel7_Text:           "input label 8"
-    property var capacitorWindowInputLabel8_Text:           "input label 8"
+    property var capacitorWindowInputLabel1_Text:           "pojemność [nF]:"
+    property var capacitorWindowInputLabel2_Text:           "liczba warstw dielektryka:"
+    property var capacitorWindowInputLabel3_Text:           "grubość pojedynczej warstwy [um]:"
+    // property var capacitorWindowInputLabel4_Text:           "4"
+    property var capacitorWindowInputLabel5_Text:           "pasta dielektryczna:"
+    property var capacitorWindowInputLabel6_Text:           "metoda wykonania \n(minimalna szerokość):"
+    // property var capacitorWindowInputLabel7_Text:           "7"
+    // property var capacitorWindowInputLabel8_Text:           "8"
 
     property var capacitorWindowInput1_placeholderText:     output_capacitor_default_c.text
-    property var capacitorWindowInput2_placeholderText:     "input label 2"
-    property var capacitorWindowInput3_placeholderText:     "input label 8"
-    property var capacitorWindowInput4_placeholderText:     "input label 8"
-    property var capacitorWindowInput7_placeholderText:     "input label 8"
-    property var capacitorWindowInput8_placeholderText:     "input label 8"
+    property var capacitorWindowInput2_placeholderText:     output_capacitor_default_n.text
+    property var capacitorWindowInput3_placeholderText:     output_capacitor_default_d0.text
+    // property var capacitorWindowInput4_placeholderText:     "4"
+    // property var capacitorWindowInput7_placeholderText:     "7"
+    // property var capacitorWindowInput8_placeholderText:     "8"
 
-    property var capacitorWindowOutputLabel1_Text:          "input label 8"
-    property var capacitorWindowOutputLabel2_Text:          "input label 8"
-    property var capacitorWindowOutputLabel3_Text:          "input label 8"
-    property var capacitorWindowOutputLabel4_Text:          "input label 8"
+    property var capacitorWindowOutputLabel1_Text:          "krawędż kwadratu pasty dielektrycznej [mm]:"
+    property var capacitorWindowOutputLabel2_Text:          "grubość warstwy dielektrycznej [um]:"
+    property var capacitorWindowOutputLabel3_Text:          "względna przenikalność elektryczna pasty [F/m]:"
+    property var capacitorWindowOutputLabel4_Text:          "minimalna powierzchnia warstwy dielektrycznej [mm²]:"
+    // property var capacitorWindowOutputLabel5_Text:          "minimalny powierzchnia warstwy dielektrycznej [mm²]:"
 
 
     // pasta
@@ -210,7 +220,7 @@ ApplicationWindow {
     property var pasteWindowInputLabel1_Text:               "nazwa:"
     property var pasteWindowInputLabel2_Text:               "przenikalność \nelektryczna:"
     property var pasteWindowInputLabel3_Text:               "rezystancja na \nkwadrat:"
-    property var pasteWindowInputLabel4_Text:               "type:"
+    property var pasteWindowInputLabel4_Text:               "typ pasty:"
 
     // obrazy
     property var mainWindowImageLogo_Path:                  "files/welcome-logo.png"
@@ -219,8 +229,8 @@ ApplicationWindow {
 
     id:                         application
     visible:                    true
-    //flags:                      Qt.Window
-    //flags: Qt.FramelessWindowHint
+    //flags:                    Qt.Window
+    //flags:                    Qt.FramelessWindowHint
     color:                      application.mainWindow_BackgroundColor
     width:                      application.mainWindow_Width
     height:                     application.mainWindow_Heigh

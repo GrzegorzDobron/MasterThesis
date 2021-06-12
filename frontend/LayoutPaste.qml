@@ -27,14 +27,14 @@ Item {
             border.width:               application.resistorWindowInputRectangle_Border
 
             Text {
-                id:                     pasteWindowInputGridMainLabel1
-                horizontalAlignment:    Text.AlignHCenter
-                anchors.topMargin: 14
-                anchors.horizontalCenter: parent.horizontalCenter
-                color:                  application.pasteWindowInputLabel_Color
-                text:                   application.pasteWindowInputMainLabel1_Text
-                anchors.top: parent.top
-                font.pixelSize:         0
+                id:                         pasteWindowInputGridMainLabel1
+                horizontalAlignment:        Text.AlignHCenter
+                anchors.topMargin:          14
+                anchors.horizontalCenter:   parent.horizontalCenter
+                color:                      application.pasteWindowInputLabel_Color
+                text:                       application.pasteWindowInputMainLabel1_Text
+                anchors.top:                parent.top
+                font.pixelSize:             application.bigTextSize
             }
 
             Grid {
