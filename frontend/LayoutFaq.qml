@@ -26,12 +26,12 @@ Item {
             orientation:            Qt.Vertical
             anchors.right:          parent.right
             anchors.bottom:         vslider.top
-            value:                  1.0 - (flickable.contentY / (flickable.contentHeight - flickable.height))
+            value:                  1.0 - (flickable.contentY / (flickable.height - flickable.contentHeight))
 
             Binding {
                 target:             flickable
                 property:           "contentY"
-                value:              (1.0 - vslider.position) * (flickable.contentHeight - flickable.height)
+                value:              (1.0 - vslider.position) * (flickable.height - flickable.contentHeight)
                 when:               vslider.pressed
                 }
             }
@@ -45,7 +45,6 @@ Item {
             width:                  application.faqWindowFlickable_Width
             height:                 application.faqWindowFlickable_Height
             anchors.leftMargin:     application.faqWindowLeftMargin
-
 
             Text {
                 id:                 dummyContent

@@ -1,26 +1,28 @@
+REZYSTOR
+	aplikacja umożliwia zaprojektowanie rezystora typu planarnego
+	
+KONDENSATOR
+	aplikacja umożliwia zaprojektowanie kondensatora typu kanapkowego,
+	przy założeniu, że kształt dielektryka będzie kwadratowy
+	
+MODYFIKACJA BAZY PAST
+	dodanie nowych past możliwe jest za pomocą karty 'Pasty',
+	w przypadku usuwania oraz modyfikacji należy otworzyć plik
+	Excela, który umieszczony jest w lokalizacji programu (database>pasty.xlsx)
+	
+	jeśli nie wiesz jakie pasty możesz wykorzystać zapoznaj się
+	z ofertą firm specjalizujących się w technologii past (np. DuPont)
+		
+	
+PODPOWIEDZI:
+	podając wartości zmiennoprzecinkowe możliwe jest stosowanie
+	zarówno kropki jak i przecinka
 
 
-OPIS KROKÓW
-.
-.
-.
-.
-JAK KORZYSTAĆ
-.
-.
-.
-.
-OPIS
-.
-.
-.
-.
-BLA BLA BLA
-.
-.
-.
-.
-.
-.
-.
-==
+
+w celu modyfikacji i rozwoju aplikacji możliwe jest pobranie kodu źródłowego aplikacji:
+https://github.com/GrzegorzDobron/MasterThesis
+
+
+Aplikacja została napisana w ramach realizacji Pracy Magisterskiej
+Grzegorz Dobroń 2021 r.

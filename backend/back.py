@@ -16,7 +16,7 @@ def main_logic(main_logic_input):
 
     # default value capacitor
     main_logic_input.get("capacitor_default_value").get("c").text = var.capacitor_c
-    main_logic_input.get("capacitor_default_value").get("n").text = var.capacitor_n
+    main_logic_input.get("capacitor_default_value").get("v").text = var.capacitor_v
     main_logic_input.get("capacitor_default_value").get("d0").text = var.capacitor_d0
 
     # inputs
@@ -47,9 +47,14 @@ def main_logic(main_logic_input):
     output_capacitor_2 = main_logic_input.get("output_capacitor").get("2")
     output_capacitor_3 = main_logic_input.get("output_capacitor").get("3")
     output_capacitor_4 = main_logic_input.get("output_capacitor").get("4")
+    output_capacitor_5 = main_logic_input.get("output_capacitor").get("5")
+    output_capacitor_6 = main_logic_input.get("output_capacitor").get("6")
+    output_capacitor_7 = main_logic_input.get("output_capacitor").get("7")
+    output_capacitor_8 = main_logic_input.get("output_capacitor").get("8")
 
     output_capacitor = [output_capacitor_1, output_capacitor_2, output_capacitor_3,
-                        output_capacitor_4]
+                        output_capacitor_4, output_capacitor_5, output_capacitor_6,
+                        output_capacitor_7, output_capacitor_8]
 
     pastes_list = []
     pastes_list_dielectric = []
@@ -78,14 +83,20 @@ def main_logic(main_logic_input):
     resistor_k_p = input_resistor.resistor_k_p
     resistor_korekta = input_resistor.resistor_korekta
     resistor_j = input_resistor.resistor_j
-    resistor_r_kw = var.db_paste_rezystywne.get(input_resistor.selected_paste_rezystywna).get("R")
+    resistor_r_kw = var.db_paste_rezystywne.get(input_resistor.selected_paste_rezystywna).get(
+        var.db_pasty_rezystywne_dataframe[1])
     metoda = var.manufacturing_methods.get(input_resistor.selected_manufactoring_method)
 
     # input capacitor
     capacitor_c = input_capacitor.capacitor_c
-    capacitor_n = input_capacitor.capacitor_n
+    capacitor_n = input_capacitor.capacitor_v
     capacitor_d0 = input_capacitor.capacitor_d0
-    capacitor_er = var.db_paste_dielektryczne.get(input_capacitor.selected_paste_dielectric).get("er")
+    capacitor_er_min = var.db_paste_dielektryczne.get(input_capacitor.selected_paste_dielectric).get(
+        var.db_pasty_dielektryczne_dataframe[1])
+    capacitor_er_max = var.db_paste_dielektryczne.get(input_capacitor.selected_paste_dielectric).get(
+        var.db_pasty_dielektryczne_dataframe[2])
+    capacitor_wytrzymalosc = var.db_paste_dielektryczne.get(input_capacitor.selected_paste_dielectric).get(
+        var.db_pasty_dielektryczne_dataframe[3])
     capacitor_metoda = var.manufacturing_methods.get(input_capacitor.selected_manufactoring_method)
 
     '''
@@ -106,19 +117,22 @@ def main_logic(main_logic_input):
                         output=output_resistor)
 
     main_logic_capacitor(c=capacitor_c,
-                         n=capacitor_n,
+                         u_max=capacitor_n,
                          d0=capacitor_d0,
-                         er=capacitor_er,
+                         er_min=capacitor_er_min,
+                         er_max=capacitor_er_max,
+                         e_p=capacitor_wytrzymalosc,
                          metoda=capacitor_metoda,
                          output=output_capacitor)
 
 
 class application(QObject):
     # new paste
-    new_paste_name = var.new_paste_name
+    new_paste_resistor_name = var.new_paste_resistor_name
+    new_paste_capacitor_name = var.new_paste_capacitor_name
     new_paste_przenikalnosc = var.new_paste_przenikalnosc
+    new_paste_voltage = var.new_paste_voltage
     new_paste_r = var.new_paste_r
-    new_paste_type = var.new_paste_type
 
     # default input value resistor
     resistor_r = var.resistor_r
@@ -134,13 +148,16 @@ class application(QObject):
 
     # default input value capacitor
     capacitor_c = var.capacitor_c
-    capacitor_n = var.capacitor_n
+    capacitor_v = var.capacitor_v
     capacitor_d0 = var.capacitor_d0
 
     # default output value capacitor
     capacitor_x = var.capacitor_x
     capacitor_d = var.capacitor_d
-    capacitor_er = var.capacitor_er
+    capacitor_er_min = var.capacitor_er
+    capacitor_er_max = var.capacitor_er
+    capacitor_n = var.capacitor_n
+    capacitor_v_out = var.capacitor_v_out
 
     selected_manufactoring_method = var.selected_manufactoring_method
     selected_paste_rezystywna = var.selected_paste_rezystywna
@@ -196,33 +213,87 @@ def main_logic_resistor(r, i, p, k_p, j, r_kw, metoda, korekcja, output):
     output[6].text = round(r_kw, 2)
 
 
-def main_logic_capacitor(c, n, d0, er, metoda, output):
+def main_logic_capacitor(c, u_max, d0, er_min, er_max, e_p, metoda, output):
 
-    c = c * 10 ** -9  # nF -> F
+    c = c * 10 ** -12  # nF -> F
     metoda = metoda * 10 ** -6  # um -> m
     d0 = d0 * 10 ** -6  # um -> m
-
-    d = n * d0
+    e_p = e_p * 10 ** 6 # V/um -> V/m
 
     try:
-        s = (c * d) / (er * var.capacitor_e0)  # m^2
-        x = math.sqrt(s)  # m
-
+        d_min = u_max / e_p  #minimalna grubość
     except ZeroDivisionError:
-        s = 0
-        x = var.capacitor_x
+        d_min = 0
+    except TypeError:
+        d_min = 0
 
-    if x < metoda:
-        x = metoda
+    try:
+        m = math.ceil(d_min/d0)
+    except ZeroDivisionError:
+        m = 0
+    except TypeError:
+        m = 0
 
-    if c == var.capacitor_c and d0 == var.capacitor_d0:
-        x = 0
+    d = m * d0      #grubość całkowita
 
-    x = x * 10 ** 3
-    d = d * 10 ** 6
-    s = s * 10 ** 6
+    try:
+        u_p = e_p * d
+    except TypeError:
+        u_p = 0
 
-    output[0].text = round(x, 2)
+    try:
+        s_min = (c * d) / (er_min * var.capacitor_e0)  # m^2
+        x_min = math.sqrt(s_min)  # m
+
+        s_max = (c * d) / (er_max * var.capacitor_e0)  # m^2
+        x_max = math.sqrt(s_max)  # m
+
+    except ZeroDivisionError or TypeError:
+        s_min = 0
+        s_max = 0
+        x_min = var.capacitor_x
+        x_max = var.capacitor_x
+
+    if x_min < metoda and c != var.capacitor_c and u_max != 0:
+        x_min = metoda
+
+    if x_max < metoda and c != var.capacitor_c and u_max != 0:
+        x_max = metoda
+
+    if c == var.capacitor_c or d0 == var.capacitor_d0:
+        x_min = 0
+        x_max = 0
+
+    d = d * 10 ** 3 # m -> um
+
+    x_min = x_min * 10 ** 3
+    x_max = x_max * 10 ** 3
+
+    s_min = s_min * 10 ** 6 # m2 -> mm2
+    s_max = s_max * 10 ** 6 # m2 -> mm2
+
+    e_p = e_p * 10 ** -6  # V/m -> V/um
+
+    if er_max == 0 or er_min == 0:
+        er = str(0)
+    else:
+        er = str(round(er_min, 2)) + " - " + str(round(er_max, 2))
+
+    if s_max == 0 or s_min == 0:
+        s = str(0)
+    else:
+        s = str(round(s_min, 2)) + " - " + str(round(s_max, 2))
+
+    if x_max == 0 or x_min == 0:
+        x = str(0)
+    else:
+        x = str(round(x_min, 2)) + " - " + str(round(x_max, 2))
+
+    output[0].text = str(x)
     output[1].text = round(d, 2)
-    output[2].text = round(er, 2)
-    output[3].text = round(s, 2)
+    output[2].text = str(er)
+    # output[3].text = round(s_min, 2)
+    output[4].text = str(s)
+    output[5].text = round(m, 2)
+    output[6].text = round(e_p, 2)
+    output[7].text = round(u_p, 2)

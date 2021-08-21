@@ -96,8 +96,7 @@ Item {
                     placeholderTextColor:   application.elementWindowInput_placeholderColor
                     placeholderText:        application.capacitorWindowInput2_placeholderText
                     width:                  application.elementWindowInput_Width
-                    onTextChanged:          input_capacitor.input_number_layer(capacitorWindowInputGridInput2.text)
-                    // zmiana
+                    onTextChanged:          input_capacitor.input_voltage(capacitorWindowInputGridInput2.text)
                 }
 
                 Text {
@@ -115,99 +114,9 @@ Item {
                     placeholderText:        application.capacitorWindowInput3_placeholderText
                     width:                  application.elementWindowInput_Width
                     onTextChanged:          input_capacitor.input_thickness_layer(capacitorWindowInputGridInput3.text)
-                    // zmiana
                 }
             }
         }
-
-        // Rectangle {
-        //     id:                             capacitorWindowRectangleInput2
-        //     width:                          application.elementWindowInputRectangle2_Width
-        //     height:                         application.elementWindowInputRectangle_Heigh
-        //     anchors.left:                   capacitorWindowRectangleInput1.right
-        //     anchors.top:                    parent.top
-        //     anchors.topMargin:              application.elementWindowInputRectangle_Top
-        //     anchors.leftMargin:             application.elementWindowInputRectangle_Spacing
-        //     color:                          application.swapWindow_BackgroundColor
-        //     border.color:                   application.elementWindowRectangleBorder_Color
-        //     border.width:                   application.resistorWindowInputRectangle_Border // zmiana
-//
-//
-        //     Text {
-        //         id:                         capacitorWindowInputMainLabel2
-        //         horizontalAlignment:        Text.AlignHCenter
-        //         text:                       application.capacitorWindowInputMainLabel2_Text
-        //         anchors.top:                parent.top
-        //         font.pixelSize:             application.elementWindowInputMainLabel_Size
-        //         anchors.topMargin:          7
-        //         anchors.horizontalCenter:   parent.horizontalCenter
-        //         color:                      application.elementWindowInputmainLabel_Color
-        //     }
-//
-        //     Grid {
-        //         id:                         capacitorWindowInputGrid2
-        //         anchors.top:                parent.top
-        //         anchors.topMargin:          application.elementWindowInputGrid_TopMargin
-        //         anchors.left:               parent.left
-        //         anchors.leftMargin:         application.elementWindowInputGrid_LeftMargin
-        //         rows:                       6
-        //         columns:                    2
-        //         spacing:                    application.elementWindowInputGrid_Spacing
-        //         verticalItemAlignment:      Grid.AlignVCenter
-        //         horizontalItemAlignment:    Grid.AlignLeft
-//
-        //         Text {
-        //             id:                     capacitorWindowInputGridLabel4
-        //             horizontalAlignment:    Text.AlignRight
-        //             color:                  application.elementWindowInputLabel_Color
-        //             text:                   application.capacitorWindowInputLabel4_Text
-        //             font.pixelSize:         application.elementWindowInputLabel_Size
-        //         }
-//
-        //         TextField {
-        //             id:                     capacitorWindowInputGridInput4
-        //             hoverEnabled:           false
-        //             placeholderTextColor:   application.elementWindowInput_placeholderColor
-        //             placeholderText:        application.capacitorWindowInput4_placeholderText
-        //             width:                  application.elementWindowInput_Width
-        //             // onTextChanged:          input.current_carrying_capacity(capacitorWindowInputGridInput4.text)
-        //         }
-//
-        //         Text {
-        //             id:                     capacitorWindowInputGridLabel7
-        //             horizontalAlignment:    Text.AlignRight
-        //             color:                  application.elementWindowInputLabel_Color
-        //             text:                   application.capacitorWindowInputLabel7_Text
-        //             font.pixelSize:         application.elementWindowInputLabel_Size
-        //         }
-//
-        //         TextField {
-        //             id:                     capacitorWindowInputGridInput7
-        //             hoverEnabled:           false
-        //             placeholderTextColor:   application.elementWindowInput_placeholderColor
-        //             placeholderText:        application.capacitorWindowInput7_placeholderText
-        //             width:                  application.elementWindowInput_Width
-        //             // onTextChanged:          input.safety_factor_power(capacitorWindowInputGridInput7.text)
-        //           }
-//
-        //         Text {
-        //             id:                     capacitorWindowInputGridLabel3
-        //             horizontalAlignment:    Text.AlignRight
-        //             color:                  application.elementWindowInputLabel_Color
-        //             text:                   application.capacitorWindowInputLabel3_Text
-        //             font.pixelSize:         application.elementWindowInputLabel_Size
-        //         }
-//
-        //         TextField {
-        //             id:                     capacitorWindowInputGridInput3
-        //             hoverEnabled:           false
-        //             placeholderTextColor:   application.elementWindowInput_placeholderColor
-        //             placeholderText:        application.capacitorWindowInput3_placeholderText
-        //             width:                  application.elementWindowInput_Width
-        //             // onTextChanged:          input.safety_factor_power(capacitorWindowInputGridInput3.text)
-        //         }
-        //     }
-        // }
 
         Rectangle {
             id:                             capacitorWindowRectangleInput3
@@ -289,8 +198,6 @@ Item {
             color:                          application.swapWindow_BackgroundColor
             border.color:                   application.windowOutputRectangleBorder_Color
             border.width:                   application.resistorWindowInputRectangle_Border
-            // zmiana
-
 
             Text {
                 id:                         capacitorWindowOutputMainLabel1
@@ -309,7 +216,7 @@ Item {
                 anchors.topMargin:          application.elementWindowInputGrid_TopMargin
                 anchors.left:               parent.left
                 anchors.leftMargin:         application.elementWindowInputGrid_LeftMargin
-                rows:                       6
+                rows:                       8
                 columns:                    2
                 spacing:                    application.elementWindowInputGrid_Spacing
                 verticalItemAlignment:      Grid.AlignVCenter
@@ -357,16 +264,72 @@ Item {
                     font.pixelSize:                 application.bigTextSize
                 }
 
+                // Text {
+                //     id:                             capacitorWindowOutputLabel4
+                //     text:                           application.capacitorWindowOutputLabel4_Text
+                //     color:                          application.elementWindowInputLabel_Color
+                //     font.pixelSize:                 application.bigTextSize
+                // }
+                //
+                // Text {
+                //     id:                             capacitorWindowOutput4
+                //     text:                           output_capacitor_4.text
+                //     color:                          application.elementWindowOutputLabel_Color
+                //     font.pixelSize:                 application.bigTextSize
+                // }
+
                 Text {
-                    id:                             capacitorWindowOutputLabel4
-                    text:                           application.capacitorWindowOutputLabel4_Text
+                    id:                             capacitorWindowOutputLabel5
+                    text:                           application.capacitorWindowOutputLabel5_Text
                     color:                          application.elementWindowInputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }
 
                 Text {
-                    id:                             capacitorWindowOutput4
-                    text:                           output_capacitor_4.text
+                    id:                             capacitorWindowOutput5
+                    text:                           output_capacitor_5.text
+                    color:                          application.elementWindowOutputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             capacitorWindowOutputLabel6
+                    text:                           application.capacitorWindowOutputLabel6_Text
+                    color:                          application.elementWindowInputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             capacitorWindowOutput6
+                    text:                           output_capacitor_6.text
+                    color:                          application.elementWindowOutputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             capacitorWindowOutputLabel7
+                    text:                           application.capacitorWindowOutputLabel7_Text
+                    color:                          application.elementWindowInputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             capacitorWindowOutput7
+                    text:                           output_capacitor_7.text
+                    color:                          application.elementWindowOutputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             capacitorWindowOutputLabel8
+                    text:                           application.capacitorWindowOutputLabel8_Text
+                    color:                          application.elementWindowInputLabel_Color
+                    font.pixelSize:                 application.bigTextSize
+                }
+
+                Text {
+                    id:                             capacitorWindowOutput8
+                    text:                           output_capacitor_8.text
                     color:                          application.elementWindowOutputLabel_Color
                     font.pixelSize:                 application.bigTextSize
                 }

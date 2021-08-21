@@ -137,8 +137,8 @@ ApplicationWindow {
     property var capacitorindowInputRectangleList_Width:    460
     property var capacitorindowInputRectangleList_Heigh:    150
 
-    property var capacitorindowOutputRectangle_Width:       360
-    property var capacitorindowOutputRectangle_Heigh:       150
+    property var capacitorindowOutputRectangle_Width:       400
+    property var capacitorindowOutputRectangle_Heigh:       250
     property var capacitorindowOutputRectangle_LeftMargin:  10
 
     // okna elementów
@@ -153,7 +153,7 @@ ApplicationWindow {
     property var resistorWindowInputMainLabel3_Text:        "DANE USTANDARYZOWANE:"
     property var resistorWindowOutputMainLabel1_Text:       "DANE WYJŚCIOWE:"
 
-    property var resistorWindowInputLabel1_Text:            "rezystancja [R]:"
+    property var resistorWindowInputLabel1_Text:            "rezystancja [Ω]:"
     property var resistorWindowInputLabel2_Text:            "prąd pracy max [mA]:"
     property var resistorWindowInputLabel3_Text:            "korekcja:"
     property var resistorWindowInputLabel4_Text:            "obciążalność [W/cm²]:"
@@ -165,7 +165,7 @@ ApplicationWindow {
     property var resistorWindowOutputLabel1_Text:            "rezystancja z korekcją [Ω]:"
     property var resistorWindowOutputLabel2_Text:            "liczba kwadratów:"
     property var resistorWindowOutputLabel3_Text:            "moc projektowa [mW]:"
-    property var resistorWindowOutputLabel4_Text:            "powierzchnia minimalna [mm2]:"
+    property var resistorWindowOutputLabel4_Text:            "powierzchnia minimalna [mm²]:"
     property var resistorWindowOutputLabel5_Text:            "szerokość [mm]:"
     property var resistorWindowOutputLabel6_Text:            "dlugość [mm]:"
     property var resistorWindowOutputLabel7_Text:            "rezystancja na kwadrat [Ω]:"
@@ -179,31 +179,28 @@ ApplicationWindow {
 
     // kondensator
     property var capacitorWindowInputMainLabel1_Text:       "DANE WEJŚCIOWE:"
-    property var capacitorWindowInputMainLabel2_Text:       "del"
+    // property var capacitorWindowInputMainLabel2_Text:       "del"
     property var capacitorWindowInputMainLabel3_Text:       "DANE USTANDARYZOWANE:"
     property var capacitorWindowOutputMainLabel1_Text:      "DANE WYJŚCIOWE:"
 
-    property var capacitorWindowInputLabel1_Text:           "pojemność [nF]:"
-    property var capacitorWindowInputLabel2_Text:           "liczba warstw dielektryka:"
-    property var capacitorWindowInputLabel3_Text:           "grubość pojedynczej warstwy [um]:"
-    // property var capacitorWindowInputLabel4_Text:           "4"
+    property var capacitorWindowInputLabel1_Text:           "pojemność [pF]:"
+    property var capacitorWindowInputLabel2_Text:           "maksymalne napięcie pracy [V]:"
+    property var capacitorWindowInputLabel3_Text:           "grubość pojedynczej warstwy [µm]:"
     property var capacitorWindowInputLabel5_Text:           "pasta dielektryczna:"
     property var capacitorWindowInputLabel6_Text:           "metoda wykonania \n(minimalna szerokość):"
-    // property var capacitorWindowInputLabel7_Text:           "7"
-    // property var capacitorWindowInputLabel8_Text:           "8"
 
     property var capacitorWindowInput1_placeholderText:     output_capacitor_default_c.text
-    property var capacitorWindowInput2_placeholderText:     output_capacitor_default_n.text
+    property var capacitorWindowInput2_placeholderText:     output_capacitor_default_v.text
     property var capacitorWindowInput3_placeholderText:     output_capacitor_default_d0.text
-    // property var capacitorWindowInput4_placeholderText:     "4"
-    // property var capacitorWindowInput7_placeholderText:     "7"
-    // property var capacitorWindowInput8_placeholderText:     "8"
 
     property var capacitorWindowOutputLabel1_Text:          "krawędż kwadratu pasty dielektrycznej [mm]:"
-    property var capacitorWindowOutputLabel2_Text:          "grubość warstwy dielektrycznej [um]:"
+    property var capacitorWindowOutputLabel2_Text:          "grubość warstwy dielektrycznej [µm]:"
     property var capacitorWindowOutputLabel3_Text:          "względna przenikalność elektryczna pasty [F/m]:"
     property var capacitorWindowOutputLabel4_Text:          "minimalna powierzchnia warstwy dielektrycznej [mm²]:"
-    // property var capacitorWindowOutputLabel5_Text:          "minimalny powierzchnia warstwy dielektrycznej [mm²]:"
+    property var capacitorWindowOutputLabel5_Text:          "powierzchnia warstwy dielektrycznej [mm²]:"
+    property var capacitorWindowOutputLabel6_Text:          "liczba warstw dielektryka:"
+    property var capacitorWindowOutputLabel7_Text:          "wytrzymałość elektryczna na przebicie [V/µm]:"
+    property var capacitorWindowOutputLabel8_Text:          "napięcie przebicia [V]:"
 
 
     // pasta
@@ -216,11 +213,17 @@ ApplicationWindow {
     property var pasteWindowButton_Font:                    application.smallTextSize
     property var pasteWindowInputList_Width
 
-    property var pasteWindowInputMainLabel1_Text:           "NOWA PASTA:"
-    property var pasteWindowInputLabel1_Text:               "nazwa:"
-    property var pasteWindowInputLabel2_Text:               "przenikalność \nelektryczna:"
-    property var pasteWindowInputLabel3_Text:               "rezystancja na \nkwadrat:"
-    property var pasteWindowInputLabel4_Text:               "typ pasty:"
+    property var pasteWindowInputMainLabel1_Text:           "NOWA PASTA REZYSTYWNA:"
+    property var pasteWindowInput1Label1_Text:              "nazwa:"
+    property var pasteWindowInput1Label2_Text:              "rezystancja na \nkwadrat [Ω]:"
+    property var pasteWindowInput1Label3_Text:              "rezystancja na \nkwadrat:"
+    property var pasteWindowInput1Label4_Text:              "typ pasty:"
+
+    property var pasteWindowInputMainLabel2_Text:           "NOWA PASTA DIELEKTRYCZNA:"
+    property var pasteWindowInput2Label1_Text:              "nazwa:"
+    property var pasteWindowInput2Label2_Text:              "przenikalność \nelektryczna:"
+    property var pasteWindowInput2Label3_Text:              "wytrzymałość na \nprzebicie [V/µm]:"
+    property var pasteWindowInput2Label4_Text:              "typ pasty:"
 
     // obrazy
     property var mainWindowImageLogo_Path:                  "files/welcome-logo.png"
