@@ -9,13 +9,22 @@ class input_new_paste(back.application):
         QObject.__init__(self)
 
     @pyqtSlot("QString")
-    def input_new_paste_name(self, text):
+    def input_new_paste_resistor_name(self, text):
         if text != "":
-            self.new_paste_name = text
-            var.new_paste_name = text
-            print("new_paste_name=" + str(self.new_paste_name))
+            self.new_paste_resistor_name = text
+            var.new_paste_resistor_name = text
+            print("new_paste_resistor_name=" + str(self.new_paste_resistor_name))
         else:
-            self.new_paste_name = var.new_paste_name
+            self.new_paste_resistor_name = var.new_paste_resistor_name
+
+    @pyqtSlot("QString")
+    def input_new_paste_capacitor_name(self, text):
+        if text != "":
+            self.new_paste_capacitor_name = text
+            var.new_paste_capacitor_name = text
+            print("new_paste_capacitor_name=" + str(self.new_paste_capacitor_name))
+        else:
+            self.new_paste_capacitor_name = var.new_paste_capacitor_name
 
     @pyqtSlot("QString")
     def input_new_paste_przenikalnosc(self, text):
@@ -28,6 +37,16 @@ class input_new_paste(back.application):
             self.new_paste_przenikalnosc = var.new_paste_przenikalnosc
 
     @pyqtSlot("QString")
+    def input_new_paste_voltage(self, text):
+        value = static.input_to_float(text)
+        if type(value) == float:
+            self.new_paste_voltage = value
+            var.new_paste_voltage = value
+            print("new_paste_voltage=" + str(self.new_paste_voltage))
+        else:
+            self.new_paste_voltage = var.new_paste_voltage
+
+    @pyqtSlot("QString")
     def input_new_paste_r(self, text):
         value = static.input_to_float(text)
         if type(value) == float:
@@ -36,16 +55,6 @@ class input_new_paste(back.application):
             print("new_paste_r=" + str(self.new_paste_r))
         else:
             self.new_paste_r = var.new_paste_r
-
-    @pyqtSlot("QString")
-    def input_new_paste_type(self, text):
-        if text != "":
-            self.new_paste_type = text
-            var.new_paste_type = text
-            print("new_paste_type=" + str(self.new_paste_type))
-        else:
-            self.new_paste_type = var.new_paste_type
-
 
 class input_capacitor_data(back.application):
 
@@ -62,13 +71,13 @@ class input_capacitor_data(back.application):
             self.capacitor_c = var.capacitor_c
 
     @pyqtSlot("QString")
-    def input_number_layer(self, text):
+    def input_voltage(self, text):
         value = static.input_to_float(text)
         if type(value) == float:
-            self.capacitor_n = value
-            print("n=" + str(self.capacitor_n))
+            self.capacitor_v = value
+            print("v=" + str(self.capacitor_v))
         else:
-            self.capacitor_n = var.capacitor_n
+            self.capacitor_v = var.capacitor_v
 
     @pyqtSlot("QString")
     def input_thickness_layer(self, text):

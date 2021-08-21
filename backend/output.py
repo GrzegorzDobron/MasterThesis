@@ -33,6 +33,25 @@ class output_numeric(back.application):
             self.signal_float.emit(h)
 
 
+
+class output_string(back.application):
+    signal_string = pyqtSignal(str)
+
+    def __init__(self):
+        super(output_string, self).__init__()
+        self._text = ""
+
+    @pyqtProperty(str, notify=signal_string)
+    def text(self):
+        return self._text
+
+    @text.setter
+    def text(self, h):
+        if self._text != h:
+            self._text = h
+            self.signal_string.emit(h)
+
+
 class output_list(back.application):
     signal_list = pyqtSignal(list)
 

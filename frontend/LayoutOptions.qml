@@ -22,7 +22,7 @@ Item {
             x:                          54
             y:                          117
             width:                      127
-            height:                     195
+            height:                     180
             color:                      application.color_thema
             border.color:               application.elementWindowRectangleBorder_Color
             border.width:               application.resistorWindowInputRectangle_Border
@@ -36,7 +36,7 @@ Item {
 
                 Text {
                     id:                     text1212
-                    text:                   qsTr("motyw:")
+                    text:                   qsTr("MOTYW:")
                     font.pixelSize:         12
                     horizontalAlignment:    Text.AlignHCenter
                     Layout.alignment:       Qt.AlignHCenter | Qt.AlignVCenter
@@ -50,6 +50,8 @@ Item {
                     onClicked: {
                         application.color_thema                             = application.color_dark
                         application.color_thema_text                        = application.color_white
+                        application.chooseWindowImageResistor_Path          = "files/resistor.png"
+                        application.chooseWindowImageCapacitor_Path         = "files/capacitor.png"
                     }
                 }
                 RadioButton {
@@ -57,6 +59,8 @@ Item {
                     onClicked: {
                         application.color_thema                             = application.color_light
                         application.color_thema_text                        = application.color_black
+                        application.chooseWindowImageResistor_Path          = "files/resistor_light.png"
+                        application.chooseWindowImageCapacitor_Path         = "files/capacitor_light.png"
                     }
                 }
             }
