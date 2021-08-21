@@ -45,8 +45,8 @@ Item {
 
                 RadioButton {
                     checked:                true
-                    text:                   qsTr("ciemny")
-                    // color:                  application.color_thema_text
+                    text:                   "ciemny"
+
                     onClicked: {
                         application.color_thema                             = application.color_dark
                         application.color_thema_text                        = application.color_white
@@ -56,6 +56,7 @@ Item {
                 }
                 RadioButton {
                     text:                   qsTr("jasny")
+
                     onClicked: {
                         application.color_thema                             = application.color_light
                         application.color_thema_text                        = application.color_black
